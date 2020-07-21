@@ -1,0 +1,17 @@
+<a class="dt-side-nav__link dt-side-nav__arrow" (click)="toggleOpen($event)">
+  <ng-container *ngTemplateOutlet="itemContent"></ng-container>
+</a>
+
+<ng-template #itemContent>
+  <gx-icon class="nav-link-icon" *ngIf="item.icon" name="{{item.icon}}" size="lg" [fw]="true"></gx-icon>
+  <span *ngIf="item.translate" class="dt-side-nav__text" [translate]="item.translate"></span>
+  <span *ngIf="!item.translate" class="dt-side-nav__text">{{item.title}}</span>
+</ng-template>
+
+<div class="dt-side-nav__sub-menu" [@collapseInOut]="isOpen">
+  <ng-container *ngFor="let item of item.children">
+    <app-nav-vertical-group *ngIf="item.type=='group'" [item]="item"></app-nav-vertical-group>
+    <app-nav-vertical-collapse *ngIf="item.type=='collapse'" [item]="item"></app-nav-vertical-collapse>
+    <app-nav-vertical-item *ngIf="item.type=='item'" [item]="item"></app-nav-vertical-item>
+  </ng-container>
+</div>

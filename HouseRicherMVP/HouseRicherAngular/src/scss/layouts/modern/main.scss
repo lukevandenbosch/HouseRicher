@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+// Configuration
+@import 'themes/default/variables';
+@import '../../core/abstracts/import-abstracts';
+// Vendors
+@import '../../core/vendor/import-vendor';
+// Base stuff
+@import '../../core/base/import-base';
+// Globals stuff
+@import '../../core/globals/import-globals';
+// Layout-related sections
+@import 'layout/import-layout';
+// Modules
+@import "../../core/apps/import-apps";
+// Components
+@import '../../core/components/import-components';
+// Page-specific styles
+@import '../../core/pages/import-pages';

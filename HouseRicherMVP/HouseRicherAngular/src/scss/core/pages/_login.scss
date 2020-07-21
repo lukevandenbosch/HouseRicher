@@ -1,0 +1,176 @@
+// -----------------------------------------------------------------------------
+// This file contains styles that are specific to the Maps.
+// -----------------------------------------------------------------------------
+
+//Login Style
+.#{$class-prefix}-login {
+  &--container {
+    height: 100%;
+    flex: 1;
+    -ms-flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__content-wrapper {
+    position: relative;
+    @include border-radius($border-radius);
+    @include box-shadow($box-shadow);
+    background-color: $dt-card-bg;
+    max-width: 680px;
+    width: 94%;
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+
+    @include media-breakpoint-down(xs) {
+      flex-flow: column nowrap;
+    }
+  }
+
+  &__bg-section {
+    position: relative;
+    padding: $dt-card-padding-y $dt-card-padding-x;
+    @include background-img('#{$image_path}/640x962', center bottom);
+    color: $white;
+    display: flex;
+    flex-direction: column;
+
+    @include media-breakpoint-up(sm) {
+      width: 40%;
+    }
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      background-color: rgba($primary, 0.8);
+    }
+
+    & > * {
+      position: relative;
+      z-index: 2;
+    }
+
+    & .#{$class-prefix}-login__logo {
+      @include media-breakpoint-down(xs) {
+        margin-bottom: 4rem;
+        order: 1;
+      }
+
+      @include media-breakpoint-up(sm) {
+        margin-top: auto;
+      }
+    }
+
+    & .#{$class-prefix}-login__bg-content {
+      @include media-breakpoint-down(xs) {
+        order: 2;
+      }
+    }
+  }
+
+  &__content {
+    @include media-breakpoint-up(sm) {
+      width: 60%;
+    }
+
+    &-inner {
+      padding: 4rem $dt-card-padding-x 2.2rem;
+    }
+
+    &-footer {
+      padding: ($dt-card-padding-y / 4) $dt-card-padding-x;
+      background-color: $gray-100;
+    }
+  }
+}
+
+.#{$class-prefix}-login {
+  &__title {
+    position: relative;
+    font-size: 3rem;
+    color: $white;
+    display: inline-block;
+    padding-bottom: 8px;
+    margin-bottom: 2rem;
+
+    &:after {
+      content: '';
+      display: block;
+      height: 3px;
+      width: 28px;
+      background-color: $white;
+      @include border-radius(10px);
+      position: absolute;
+      bottom: 0;
+      @include transition(all 0.5s ease);
+    }
+  }
+
+  &__content-wrapper {
+    @include hover {
+      & .#{$class-prefix}-login__title:after {
+        width: 100%;
+      }
+    }
+
+    .#{$class-prefix}-forgot-password & {
+      max-width: 420px;
+
+      & .#{$class-prefix}-login__content {
+        width: 100%;
+      }
+
+      & .#{$class-prefix}-login__logo {
+        display: block;
+        margin-left: 0;
+        margin-bottom: 3rem;
+      }
+    }
+  }
+}
+
+//Lock Screen
+.#{$class-prefix}-lock-screen {
+  @include background-img('#{$image_path}/640x420', center center);
+  text-align: center;
+
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($black, 0.2);
+  }
+
+  & input[type='password'] {
+    width: 320px;
+
+    @include media-breakpoint-down(xs) {
+      width: 250px;
+    }
+  }
+
+  & .#{$class-prefix}-login__content-wrapper {
+    flex-direction: column;
+    align-items: center;
+    width: auto;
+    background-color: transparent;
+    @include box-shadow(none);
+  }
+
+  & .#{$class-prefix}-avatar {
+    margin-bottom: 2.5rem;
+  }
+}

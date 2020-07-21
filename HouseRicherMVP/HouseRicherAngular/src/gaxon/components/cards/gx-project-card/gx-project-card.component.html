@@ -1,0 +1,59 @@
+<!-- Card Header -->
+<card-header [card-title]="cardTitle">
+  <!-- Card Tools -->
+  <card-tool>
+    <ng-content></ng-content>
+  </card-tool>
+  <!-- /card tools -->
+</card-header>
+<!-- /card header -->
+
+<card-body [ngClass]="bodyClasses">
+  <div class="text-center">
+    <!-- Avatar -->
+    <img *ngIf="project.logo" class="img-fluid mb-4" [src]="project.logo" alt="{{project.title}}">
+    <!-- /avatar -->
+
+    <!-- Project Title -->
+    <h2 *ngIf="project.title" [innerHTML]="project.title"></h2>
+    <!-- /project title -->
+
+    <!-- Indicator -->
+    <gx-status-bar class="flex-column mb-5"
+                   hideCounter
+                   fullWidth
+                   barClassNames="mb-2"
+                   [fillVal]="85"
+                   [maxVal]="100"
+                   barColor="bg-secondary">
+      <div class="d-flex justify-content-between">
+        <p class="dt-indicator-title text-muted f-12">Development</p>
+        <span class="dt-indicator-item__count ml-3">85% </span>
+      </div>
+    </gx-status-bar>
+    <!-- /indicator -->
+
+    <div class="d-flex align-items-center">
+      <!-- Project Team -->
+      <ul class="dt-list dt-list-stack">
+        <li *ngFor="let member of project.teams;let i=index" class="dt-list__item" [ngClass]="{'ml-n3': i!==0}">
+          <ng-template #tooltipContent>
+              <span class="user-bg-card__info">
+                  <span class="dt-avatar-name text-center">{{member.name}}</span>
+              </span>
+          </ng-template>
+          <a class="d-inline-flex" href="javascript:void(0)" [ngbPopover]="tooltipContent" triggers="mouseenter:mouseleave" container="body">
+            <gx-avatar [user]="member" [charLength]="2" class="dt-avatar size-30"></gx-avatar>
+          </a>
+          <!-- /avatar -->
+        </li>
+      </ul>
+
+      <a href="javascript:void(0)" class="d-inline-block text-muted ml-4">5 More</a>
+    </div>
+  </div>
+</card-body>
+
+<a *ngIf="project.route" href="javascript:void(0)"
+   class="btn btn-primary btn-sm btn-block rounded-0"
+   [routerLink]="project.route">Go to Project</a>

@@ -1,0 +1,13 @@
+<form [formGroup]="checkboxGroupForm">
+  <div class="btn-group btn-group-toggle">
+    <label class="btn-primary" ngbButtonLabel>
+      <input type="checkbox" formControlName="left" ngbButton> {{(checkboxGroupForm.value.left) ? 'Checked' : 'Left'}}
+    </label>
+    <label class="btn-primary" ngbButtonLabel>
+      <input type="checkbox" formControlName="middle" ngbButton> {{(checkboxGroupForm.value.middle) ? 'Checked' : 'Middle'}}
+    </label>
+    <label class="btn-primary" ngbButtonLabel>
+      <input type="checkbox" formControlName="right" ngbButton> {{(checkboxGroupForm.value.right) ? 'Checked' : 'Right'}}
+    </label>
+  </div>
+</form>

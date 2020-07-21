@@ -1,0 +1,83 @@
+// -----------------------------------------------------------------------------
+// This file contains styles that are specific to the Custom Indicator.
+// -----------------------------------------------------------------------------
+
+// Indicator Style
+.#{$class-prefix}-indicator {
+  @extend %list-style-none;
+
+  &-item {
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+
+    &__bar {
+      height: 4px;
+      @include border-radius($border-radius-sm);
+      width: 100%;
+      background-color: $gray-200;
+    }
+
+    &__fill {
+      min-height: 4px;
+      height: 100%;
+      @include border-radius($border-radius-sm);
+      width: 0;
+
+      &.fill-pointer {
+        position: relative;
+
+        &:after {
+          content: '';
+          position: absolute;
+          right: 0;
+          left: auto;
+          top: 50%;
+          @include translateY(-50%);
+          width: 8px;
+          height: 8px;
+          @include border-radius($border-radius-circle);
+          background-color: inherit;
+        }
+      }
+    }
+
+    &__info {
+      display: flex;
+
+      &:not(.flex-column) {
+        align-items: center;
+      }
+    }
+
+    &__count {
+      font: {
+        size: $font-size-sm;
+      }
+    }
+  }
+
+  &-half {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -12px;
+
+    &-item {
+      width: 50%;
+      padding: 0 12px;
+    }
+  }
+
+  &-title {
+    margin-bottom: 2px;
+    color: $headings-color;
+
+    &:not([class*="f-"]) {
+      font-size: $h5-font-size;
+
+      @include media-breakpoint-down(xs) {
+        font-size: ($h5-font-size + 0.2rem);
+      }
+    }
+  }
+}

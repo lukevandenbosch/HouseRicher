@@ -1,0 +1,295 @@
+<!-- Page Header -->
+<div class="dt-page__header">
+  <h1 class="dt-page__title">Button Groups</h1>
+</div>
+<!-- /page header -->
+
+<!-- Grid -->
+<div class="row">
+  <div class="col-xl-6">
+    <!-- Card -->
+    <gx-card card-title="Basic Button Group">
+      <div class="btn-group mr-2 mb-2" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-primary">Left</button>
+        <button type="button" class="btn btn-primary">Middle</button>
+        <button type="button" class="btn btn-primary">Right</button>
+      </div>
+
+      <div class="btn-group mb-2" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-outline-primary">Left</button>
+        <button type="button" class="btn btn-outline-primary">Middle</button>
+        <button type="button" class="btn btn-outline-primary">Right</button>
+      </div>
+    </gx-card>
+    <!-- /card -->
+
+    <!-- Card -->
+    <gx-card card-title="Toolbar Button Group">
+      <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+        <div class="btn-group mr-2 mb-2" role="group" aria-label="First group">
+          <button type="button" class="btn btn-primary">1</button>
+          <button type="button" class="btn btn-primary">2</button>
+          <button type="button" class="btn btn-primary">3</button>
+          <button type="button" class="btn btn-primary">4</button>
+        </div>
+        <div class="btn-group mr-2 mb-2" role="group" aria-label="Second group">
+          <button type="button" class="btn btn-primary">5</button>
+          <button type="button" class="btn btn-primary">6</button>
+          <button type="button" class="btn btn-primary">7</button>
+        </div>
+        <div class="btn-group mb-2" role="group" aria-label="Third group">
+          <button type="button" class="btn btn-primary">8</button>
+        </div>
+      </div>
+
+      <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
+        <div class="btn-group mr-2" role="group" aria-label="First group">
+          <button type="button" class="btn btn-outline-primary">1</button>
+          <button type="button" class="btn btn-outline-primary">2</button>
+          <button type="button" class="btn btn-outline-primary">3</button>
+          <button type="button" class="btn btn-outline-primary">4</button>
+        </div>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text" id="btnGroupAddon">@</div>
+          </div>
+          <input type="text" class="form-control" placeholder="Input group example"
+                 aria-label="Input group example" aria-describedby="btnGroupAddon">
+        </div>
+      </div>
+
+      <div class="btn-toolbar justify-content-between" role="toolbar" aria-label="Toolbar with button groups">
+        <div class="btn-group" role="group" aria-label="First group">
+          <button type="button" class="btn btn-outline-secondary">1</button>
+          <button type="button" class="btn btn-outline-secondary">2</button>
+          <button type="button" class="btn btn-outline-secondary">3</button>
+          <button type="button" class="btn btn-outline-secondary">4</button>
+        </div>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text" id="btnGroupAddon2">@</div>
+          </div>
+          <input type="text" class="form-control" placeholder="Input group example"
+                 aria-label="Input group example"
+                 aria-describedby="btnGroupAddon2">
+        </div>
+      </div>
+      <!-- /card body -->
+
+    </gx-card>
+    <!-- /card -->
+
+    <!-- Card -->
+    <gx-card card-title="Button Group sizing">
+      <div>
+        <div class="btn-group btn-group-lg mr-2 mb-2" role="group" aria-label="Basic example">
+          <button type="button" class="btn btn-primary">Left</button>
+          <button type="button" class="btn btn-primary">Middle</button>
+          <button type="button" class="btn btn-primary">Right</button>
+        </div>
+
+        <div class="btn-group btn-group-lg mb-2" role="group" aria-label="Basic example">
+          <button type="button" class="btn btn-outline-primary">Left</button>
+          <button type="button" class="btn btn-outline-primary">Middle</button>
+          <button type="button" class="btn btn-outline-primary">Right</button>
+        </div>
+      </div>
+
+      <div>
+        <div class="btn-group mr-2 mb-2" role="group" aria-label="Basic example">
+          <button type="button" class="btn btn-primary">Left</button>
+          <button type="button" class="btn btn-primary">Middle</button>
+          <button type="button" class="btn btn-primary">Right</button>
+        </div>
+
+        <div class="btn-group mb-2" role="group" aria-label="Basic example">
+          <button type="button" class="btn btn-outline-primary">Left</button>
+          <button type="button" class="btn btn-outline-primary">Middle</button>
+          <button type="button" class="btn btn-outline-primary">Right</button>
+        </div>
+      </div>
+
+      <div>
+        <div class="btn-group btn-group-sm mr-2 mb-2" role="group" aria-label="Basic example">
+          <button type="button" class="btn btn-primary">Left</button>
+          <button type="button" class="btn btn-primary">Middle</button>
+          <button type="button" class="btn btn-primary">Right</button>
+        </div>
+
+        <div class="btn-group btn-group-sm mb-2" role="group" aria-label="Basic example">
+          <button type="button" class="btn btn-outline-primary">Left</button>
+          <button type="button" class="btn btn-outline-primary">Middle</button>
+          <button type="button" class="btn btn-outline-primary">Right</button>
+        </div>
+      </div>
+
+    </gx-card>
+    <!-- /card -->
+
+    <!-- Card -->
+    <gx-card card-title="Nesting Button Group">
+      <div class="btn-group mr-2 mb-2" role="group" aria-label="Button group with nested dropdown">
+        <button type="button" class="btn btn-primary">1</button>
+        <button type="button" class="btn btn-primary">2</button>
+
+        <div class="btn-group" role="group" ngbDropdown>
+          <button id="btnGroupDrop1" type="button" class="btn btn-primary" ngbDropdownToggle>
+            Dropdown
+          </button>
+          <div ngbDropdownMenu aria-labelledby="btnGroupDrop1">
+            <a class="dropdown-item" href="javascript:void(0)">Dropdown link</a>
+            <a class="dropdown-item" href="javascript:void(0)">Dropdown link</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="btn-group mb-2" role="group" aria-label="Button group with nested dropdown">
+        <button type="button" class="btn btn-outline-secondary">1</button>
+        <button type="button" class="btn btn-outline-secondary">2</button>
+
+        <div class="btn-group" role="group" ngbDropdown>
+          <button id="btnGroupDrop2" type="button" class="btn btn-outline-secondary" ngbDropdownToggle>
+            Dropdown
+          </button>
+          <div ngbDropdownMenu aria-labelledby="btnGroupDrop2">
+            <a class="dropdown-item" href="javascript:void(0)">Dropdown link</a>
+            <a class="dropdown-item" href="javascript:void(0)">Dropdown link</a>
+          </div>
+        </div>
+      </div>
+    </gx-card>
+    <!-- /card -->
+  </div>
+
+  <div class="col-xl-6">
+    <!-- Card -->
+    <gx-card card-title="Vertical Basic Button Group">
+      <div class="btn-group-vertical mr-2 mb-2" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-primary">Top</button>
+        <button type="button" class="btn btn-primary">Middle</button>
+        <button type="button" class="btn btn-primary">Bottom</button>
+      </div>
+
+      <div class="btn-group-vertical mb-2" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-outline-primary">Top</button>
+        <button type="button" class="btn btn-outline-primary">Middle</button>
+        <button type="button" class="btn btn-outline-primary">Bottom</button>
+      </div>
+    </gx-card>
+    <!-- /card -->
+
+    <!-- Card -->
+    <gx-card card-title="Vertical Nesting Button Group">
+      <div class="btn-group-vertical mr-2 mb-2" role="group" aria-label="Button group with nested dropdown">
+        <button type="button" class="btn btn-primary">Button</button>
+        <button type="button" class="btn btn-primary">Button</button>
+
+        <div class="btn-group" role="group" ngbDropdown>
+          <button id="btnGroupDrop3" type="button" class="btn btn-primary" ngbDropdownToggle>
+            Dropdown
+          </button>
+          <div ngbDropdownMenu aria-labelledby="btnGroupDrop3">
+            <a class="dropdown-item" href="javascript:void(0)">Dropdown link</a>
+            <a class="dropdown-item" href="javascript:void(0)">Dropdown link</a>
+          </div>
+        </div>
+        <button type="button" class="btn btn-primary">Button</button>
+        <button type="button" class="btn btn-primary">Button</button>
+        <div class="btn-group" role="group" ngbDropdown>
+          <button id="btnGroupDrop4" type="button" class="btn btn-primary" ngbDropdownToggle>
+            Dropdown
+          </button>
+          <div ngbDropdownMenu aria-labelledby="btnGroupDrop4">
+            <a class="dropdown-item" href="javascript:void(0)">Dropdown link</a>
+            <a class="dropdown-item" href="javascript:void(0)">Dropdown link</a>
+          </div>
+        </div>
+        <div class="btn-group" role="group" ngbDropdown>
+          <button id="btnGroupDrop5" type="button" class="btn btn-primary" ngbDropdownToggle>
+            Dropdown
+          </button>
+          <div ngbDropdownMenu aria-labelledby="btnGroupDrop5">
+            <a class="dropdown-item" href="javascript:void(0)">Dropdown link</a>
+            <a class="dropdown-item" href="javascript:void(0)">Dropdown link</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="btn-group-vertical mb-2" role="group" aria-label="Button group with nested dropdown">
+        <button type="button" class="btn btn-outline-secondary">Button</button>
+        <button type="button" class="btn btn-outline-secondary">Button</button>
+
+        <div class="btn-group" role="group" ngbDropdown>
+          <button id="btnGroupDrop6" type="button" class="btn btn-outline-secondary" ngbDropdownToggle>
+            Dropdown
+          </button>
+          <div ngbDropdownMenu aria-labelledby="btnGroupDrop6">
+            <a class="dropdown-item" href="javascript:void(0)">Dropdown link</a>
+            <a class="dropdown-item" href="javascript:void(0)">Dropdown link</a>
+          </div>
+        </div>
+        <button type="button" class="btn btn-outline-secondary">Button</button>
+        <button type="button" class="btn btn-outline-secondary">Button</button>
+        <div class="btn-group" role="group" ngbDropdown>
+          <button id="btnGroupDrop7" type="button" class="btn btn-outline-secondary" ngbDropdownToggle>
+            Dropdown
+          </button>
+          <div ngbDropdownMenu aria-labelledby="btnGroupDrop7">
+            <a class="dropdown-item" href="javascript:void(0)">Dropdown link</a>
+            <a class="dropdown-item" href="javascript:void(0)">Dropdown link</a>
+          </div>
+        </div>
+        <div class="btn-group" role="group" ngbDropdown>
+          <button id="btnGroupDrop8" type="button" class="btn btn-outline-secondary" ngbDropdownToggle>
+            Dropdown
+          </button>
+          <div ngbDropdownMenu aria-labelledby="btnGroupDrop8">
+            <a class="dropdown-item" href="javascript:void(0)">Dropdown link</a>
+            <a class="dropdown-item" href="javascript:void(0)">Dropdown link</a>
+          </div>
+        </div>
+      </div>
+    </gx-card>
+    <!-- /card -->
+
+    <!-- Card -->
+    <gx-card card-title="Vertical Button Group sizing">
+      <div class="btn-group-vertical btn-group-lg mr-2 mb-2" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-primary">Top</button>
+        <button type="button" class="btn btn-primary">Middle</button>
+        <button type="button" class="btn btn-primary">Bottom</button>
+      </div>
+
+      <div class="btn-group-vertical btn-group-lg mr-2 mb-2" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-outline-primary">Top</button>
+        <button type="button" class="btn btn-outline-primary">Middle</button>
+        <button type="button" class="btn btn-outline-primary">Bottom</button>
+      </div>
+
+      <div class="btn-group-vertical mr-2 mb-2" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-primary">Top</button>
+        <button type="button" class="btn btn-primary">Middle</button>
+        <button type="button" class="btn btn-primary">Bottom</button>
+      </div>
+
+      <div class="btn-group-vertical mr-2 mb-2" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-outline-primary">Top</button>
+        <button type="button" class="btn btn-outline-primary">Middle</button>
+        <button type="button" class="btn btn-outline-primary">Bottom</button>
+      </div>
+
+      <div class="btn-group-vertical btn-group-sm mr-2 mb-2" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-primary">Top</button>
+        <button type="button" class="btn btn-primary">Middle</button>
+        <button type="button" class="btn btn-primary">Bottom</button>
+      </div>
+
+      <div class="btn-group-vertical btn-group-sm mb-2" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-outline-primary">Top</button>
+        <button type="button" class="btn btn-outline-primary">Middle</button>
+        <button type="button" class="btn btn-outline-primary">Bottom</button>
+      </div>
+    </gx-card>
+    <!-- /card -->
+  </div>
+</div>

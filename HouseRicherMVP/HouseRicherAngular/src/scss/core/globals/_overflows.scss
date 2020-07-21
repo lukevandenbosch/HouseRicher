@@ -1,0 +1,44 @@
+// -----------------------------------------------------------------------------
+// This file contains CSS Overflows.
+// -----------------------------------------------------------------------------
+.overflow {
+  &-hidden {
+    overflow: hidden;
+  }
+
+  &-x-hidden {
+    overflow-x: hidden;
+  }
+
+  &-y-hidden {
+    overflow-y: hidden;
+  }
+
+  &-auto {
+    overflow: auto;
+  }
+
+  &-x-auto {
+    overflow-x: auto;
+  }
+
+  &-y-auto {
+    overflow-y: auto;
+  }
+
+  &-visible {
+    overflow: visible;
+  }
+
+  &-scroll {
+    overflow: scroll;
+  }
+
+  &-x-scroll {
+    overflow-x: scroll;
+  }
+
+  &-y-scroll {
+    overflow-y: scroll;
+  }
+}

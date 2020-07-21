@@ -1,0 +1,247 @@
+// -----------------------------------------------------------------------------
+// This file contains styles that are specific to the Custom Widget.
+// -----------------------------------------------------------------------------
+
+//Custom Widget
+.#{$class-prefix}-widget {
+  &-sm &__item {
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+
+  &-xl &__item {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  & + .#{$class-prefix}-widget {
+    margin-top: 18px;
+  }
+
+  & + &-link,
+  &__item + &-link {
+    margin-top: 10px;
+    font-size: 12px;
+    padding-left: $dt-card-padding-x;
+    padding-right: $dt-card-padding-x;
+  }
+
+  & &__heading {
+    display: block;
+    padding-left: $dt-card-padding-x;
+    padding-right: $dt-card-padding-x;
+    margin-bottom: 4px;
+    color: lighten($text-color, 14%);
+  }
+
+  &__item {
+    display: flex;
+    flex: 1;
+    -ms-flex: 1;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 1.4rem $dt-card-padding-x 1.5rem;
+  }
+
+  &__item &__info {
+    flex: 1;
+    -ms-flex: 1;
+    align-self: center;
+
+    &:not(:last-child) {
+      padding-right: 1.6rem;
+    }
+  }
+
+  &__item &__img + &__info {
+    padding-left: 1.6rem;
+
+    @include media-breakpoint-down(xs) {
+      padding-left: 1.4rem;
+    }
+  }
+
+  &__title {
+    display: block;
+    color: $headings-color;
+    margin-bottom: 4px;
+
+    & > a {
+      color: inherit;
+    }
+
+    &:not([class*="f-"]) {
+      font-size: $font-size-base;
+
+      @include media-breakpoint-down(xs) {
+        font-size: ($font-size-base + 0.3rem);
+      }
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__subtitle {
+    font-size: 1.3rem;
+    margin-bottom: 0;
+
+    @include media-breakpoint-down(xs) {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+.#{$class-prefix}-widget {
+  &-hl-item &__item {
+    position: relative;
+
+    &:before {
+      content: '';
+      width: 0.7rem;
+      height: 100%;
+      background-color: transparent;
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: 1;
+      @include border-radius($border-radius-lg)
+    }
+
+    &.border-primary:before {
+      background-color: $primary;
+    }
+
+    &.border-secondary:before {
+      background-color: $secondary;
+    }
+
+    &.border-danger:before {
+      background-color: $danger;
+    }
+
+    &.border-success:before {
+      background-color: $success;
+    }
+
+    &.border-info:before {
+      background-color: $info;
+    }
+
+    &.border-warning:before {
+      background-color: $warning;
+    }
+
+    &.border-dark:before {
+      background-color: $dark;
+    }
+
+    &.border-light:before {
+      background-color: $light;
+    }
+  }
+
+  &-hl-item-space &__item {
+    padding-left: ($dt-card-padding-x * 1.75);
+
+    &:before {
+      left: $dt-card-padding-x;
+    }
+  }
+
+  &-mb-item &__item {
+    &:not(:last-child) {
+      margin-bottom: 2rem;
+    }
+  }
+}
+
+.#{$class-prefix}-task {
+  overflow: hidden;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  & &__number {
+    display: none;
+  }
+
+  @include media-breakpoint-up(sm) {
+    min-width: 135px;
+
+    & &__number {
+      display: block;
+      font-size: $font-size-sm;
+      @include transition(all 0.4s ease);
+      margin-right: -1.4rem;
+    }
+  }
+
+  @include media-breakpoint-up(sm) {
+    & &__redirect {
+      @include transition(all 0.4s ease);
+      @include translateX(100%);
+    }
+  }
+}
+
+.#{$class-prefix}-widget-hover {
+  & .#{$class-prefix}-widget__item {
+    @extend %widget-hover;
+
+    @include media-breakpoint-up(sm) {
+      @include hover {
+        & .#{$class-prefix}-task {
+          & .#{$class-prefix}-task__number {
+            color: $primary;
+            margin-right: 6rem;
+ `        }
+
+          & .#{$class-prefix}-task__redirect {
+            @include translateX(-50%);
+          }
+        }
+      }
+    }
+  }
+
+  &-bg {
+    & .#{$class-prefix}-widget__item {
+      @extend %widget-hover;
+
+      @include hover {
+        background-color: rgba($primary, 0.06);
+      }
+
+      @include media-breakpoint-up(sm) {
+        @include hover {
+          & .#{$class-prefix}-task {
+            & .#{$class-prefix}-task__number {
+              color: $primary;
+              margin-right: 6rem;
+`           }
+
+            & .#{$class-prefix}-task__redirect {
+              @include translateX(0);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.theme-dark .#{$class-prefix}-widget-hover {
+  &-bg .#{$class-prefix}-widget__item {
+    @include hover {
+      background-color: rgba($primary, 0.2);
+    }
+  }
+}
+
+.#{$class-prefix}-widget-separator {
+  & .#{$class-prefix}-widget__item:not(:last-child) {
+    border-bottom: $dt-border;
+  }
+}

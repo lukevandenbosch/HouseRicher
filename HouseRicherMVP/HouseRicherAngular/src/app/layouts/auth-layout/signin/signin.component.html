@@ -1,0 +1,111 @@
+<!-- Login Content -->
+<div class="dt-login__content-wrapper">
+
+  <!-- Header -->
+  <auth-header title="Login" desc="Sign in and explore in-built apps of Drift."></auth-header>
+  <!-- /header -->
+
+  <!-- Login Content Section -->
+  <div class="dt-login__content">
+    <!-- Login Content Inner -->
+
+    <div class="dt-login__content-inner">
+
+      <!-- Form -->
+      <form (ngSubmit)="onSubmitSignIn()" #signinForm="ngForm">
+
+        <!-- Form Group -->
+        <div class="form-group">
+          <label class="sr-only" for="email-1">Email address</label>
+          <input type="email"
+                 class="form-control"
+                 id="email-1"
+                 aria-describedby="emailHelp"
+                 placeholder="Enter email"
+                 [formControl]="email" required>
+        </div>
+        <!-- /form group -->
+
+        <!-- Form Group -->
+        <div class="form-group">
+          <label class="sr-only" for="password-1">Password</label>
+          <input type="password"
+                 class="form-control"
+                 id="password-1"
+                 placeholder="Password"
+                 [formControl]="password" required>
+        </div>
+        <!-- /form group -->
+
+        <!-- Form Group -->
+        <div class="dt-checkbox d-block mb-6">
+          <input type="checkbox" id="keepMeLoggedIn" [formControl]="keepMeLoggedIn">
+          <label class="dt-checkbox-content" for="keepMeLoggedIn">
+            by signing up, I accept <a href="javascript:void(0)">Term &amp; Condition</a>
+          </label>
+        </div>
+        <!-- /form group -->
+
+        <!-- Form Group -->
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary text-uppercase">Login</button>
+          <span class="d-inline-block ml-5">Or
+              <a class="d-inline-block font-weight-500 ml-3" routerLink="/signup">Create New Account</a>
+            </span>
+        </div>
+        <!-- /form group -->
+
+        <!-- Form Group -->
+        <div class="d-flex flex-wrap align-items-center">
+          <span class="d-inline-block mr-2">Or connect with</span>
+
+          <!-- List -->
+          <ul class="dt-list dt-list-sm dt-list-cm-0 ml-auto">
+            <li class="dt-list__item">
+              <!-- Fab Button -->
+              <a href="javascript:void(0)" class="btn btn-outline-primary dt-fab-btn size-30">
+                <gx-icon name="facebook" size="xl"></gx-icon>
+              </a>
+              <!-- /fab button -->
+            </li>
+
+            <li class="dt-list__item">
+              <!-- Fab Button -->
+              <a href="javascript:void(0)" class="btn btn-outline-primary dt-fab-btn size-30">
+                <gx-icon name="google-plus" size="xl"></gx-icon>
+              </a>
+              <!-- /fab button -->
+            </li>
+
+            <li class="dt-list__item">
+              <!-- Fab Button -->
+              <a href="javascript:void(0)" class="btn btn-outline-primary dt-fab-btn size-30">
+                <gx-icon name="github" size="xl"></gx-icon>
+              </a>
+              <!-- /fab button -->
+            </li>
+
+            <li class="dt-list__item">
+              <!-- Fab Button -->
+              <a href="javascript:void(0)" class="btn btn-outline-primary dt-fab-btn size-30">
+                <gx-icon name="twitter" size="xl"></gx-icon>
+              </a>
+              <!-- /fab button -->
+            </li>
+          </ul>
+          <!-- /list -->
+        </div>
+        <!-- /form group -->
+
+
+      </form>
+      <!-- /form -->
+
+    </div>
+    <!-- /login content inner -->
+
+  </div>
+  <!-- /login content section -->
+
+</div>
+<!-- /login content -->

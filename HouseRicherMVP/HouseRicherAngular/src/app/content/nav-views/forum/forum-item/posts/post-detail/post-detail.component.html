@@ -1,0 +1,125 @@
+<!-- Card Body -->
+<card-body>
+    <!-- Avatar Wrapper -->
+    <div class="dt-avatar-wrapper mb-3">
+        <!-- Avatar -->
+        <img class="dt-avatar dt-avatar__shadow size-50"
+             [src]="post.user_image"
+             alt="{{post.user_name}}">
+        <!-- /avatar -->
+
+        <!-- Info -->
+        <div class="dt-avatar-info">
+            <span class="h5 dt-avatar-name mb-1">{{post.user_name}}</span>
+            <span class="meta-date">{{post.created_at | dateAgo}}</span>
+        </div>
+        <!-- /info -->
+    </div>
+    <!-- /avatar wrapper -->
+
+    <!-- Wall Post Content -->
+    <div class="wall-post">
+        <p class="text-dark" *ngIf="post.message">{{post.message}}</p>
+
+        <ul class="dt-list dt-list-col-6 mb-4"
+            *ngIf="post.hasOwnProperty('attachments') && post.attachments.length > 0">
+            <!-- List Item -->
+            <li class="dt-list__item text-center" *ngFor="let attachment of post.attachments; let last=last">
+                <a href="javascript:void(0)" class="d-block" [ngClass]="{'more-thumb rounded':last}">
+                    <img src="{{attachment.image}}" alt="{{attachment.name}}" class="img-fluid rounded">
+                    <span class="count-number display-4" *ngIf="last">+4</span>
+                </a>
+            </li>
+            <!-- /list item -->
+        </ul>
+    </div>
+    <!-- /wall post content -->
+
+    <!-- Wall Action Area -->
+    <div class="d-flex flex-wrap mb-6">
+        <a *ngIf="post.feeds.hasOwnProperty('views')" href="javascript:void(0)"
+           class="f-12 d-inline-block text-light-gray mr-3">
+            <gx-icon name="eye" class="mr-1" size="lg"></gx-icon>
+            <span class="d-inline-block">{{post.feeds.views | thousandSuff}} Views</span>
+        </a>
+        <a *ngIf="post.feeds.hasOwnProperty('likes')" href="javascript:void(0)"
+           class="f-12 d-inline-block text-light-gray mr-3" (click)="toggleLike()">
+            <gx-icon name="heart-o" size="sm" [fw]="true" [ngClass]="{'text-danger':likePost}"></gx-icon>
+            <span class="d-inline-block">{{post.feeds.likes | thousandSuff}} Likes</span>
+        </a>
+        <a *ngIf="post.hasOwnProperty('comments')" href="javascript:void(0)"
+           class="f-12 d-inline-block text-light-gray">
+            <gx-icon name="message" size="sm" [fw]="true"></gx-icon>
+            <span class="d-inline-block">{{post.comments.length | thousandSuff}} Comments</span>
+        </a>
+    </div>
+    <!-- /wall action area -->
+
+    <!-- Media -->
+    <div class="media px-5 mb-3" *ngFor="let comment of post.comments ;let commentIndexNumber=index">
+        <!-- Avatar -->
+        <img class="dt-avatar dt-avatar__shadow size-35 mr-2"
+             src="{{comment.image}}"
+             alt="{{comment.name}}">
+        <!-- /avatar -->
+
+        <!-- Media Body -->
+        <div class="media-body">
+            <span class="h5 dt-avatar-name mb-1">{{comment.name}}</span>
+            <span class="meta-date mb-2">{{comment.created_at | dateAgo}}</span>
+            <p>
+                {{comment.text}}
+            </p>
+
+            <p>
+                <!-- Toggle Button -->
+                <a href="javascript:void(0)"
+                   class="btn btn-primary btn-xs mr-2 toggle-button">
+                    <span class="show" #likeLabel
+                          (click)="toggleShowHideClass(likeLabel);toggleShowHideClass(unlikeLabel)">Like</span>
+                    <span class="hide" #unlikeLabel
+                          (click)="toggleShowHideClass(likeLabel);toggleShowHideClass(unlikeLabel)">Unlike</span>
+                </a>
+                <!-- /toggle button -->
+                <a class="btn btn-light btn-xs" href="javascript:void(0);" role="button"
+                   (click)="toggleShowHideClass(commentReplyBox)">Comment</a>
+            </p>
+
+            <div class="media px-5 mb-3" *ngFor="let reply of comment.replies;">
+                <!-- Avatar -->
+                <img class="dt-avatar dt-avatar__shadow size-25 mr-2"
+                     src="{{reply.image}}"
+                     alt="{{reply.name}}">
+                <!-- /avatar -->
+
+                <!-- Media Body -->
+                <div class="media-body">
+                    <span class="h5 dt-avatar-name mb-1">{{reply.name}}</span>
+                    <span class="meta-date mb-2">{{reply.created_at | dateAgo}}</span>
+                    <p>
+                        {{reply.text}}
+                    </p>
+                </div>
+                <!-- /media body -->
+            </div>
+
+            <!-- Media -->
+            <div class="collapse" #commentReplyBox>
+                <!-- Media -->
+                <comment-box imageSize="25" formSize="small" [postId]="post.id" [isReply]="true"
+                             [commentId]="comment.id"></comment-box>
+                <!-- /media -->
+            </div>
+            <!-- /media -->
+
+        </div>
+        <!-- /media body -->
+    </div>
+    <!-- /media -->
+
+    <!-- Media -->
+    <comment-box class="px-5 {{post.id}}" [postId]="post.id"></comment-box>
+    <!-- /media -->
+</card-body>
+<!-- /card body -->
+

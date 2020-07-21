@@ -1,0 +1,9 @@
+<img *ngIf="mediaImage.url && mediaImage.order === 'top'" [ngClass]="mediaImage.classlist" [src]="mediaImage.url"
+     alt="{{mediaImage.alt || 'Media Image'}}">
+<div class="media-body" [ngClass]="bodyClass">
+  <h5 *ngIf="heading" [ngClass]="headingClass" [innerHTML]="heading"></h5>
+  <ng-content></ng-content>
+</div>
+<img *ngIf="mediaImage.url && mediaImage.order !== 'top'" [ngClass]="mediaImage.classlist" [src]="mediaImage.url"
+     alt="{{mediaImage.alt || 'Media Image'}}">
+<ng-content select=".media-actions"></ng-content>

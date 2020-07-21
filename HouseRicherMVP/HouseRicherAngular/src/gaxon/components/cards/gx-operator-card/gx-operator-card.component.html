@@ -1,0 +1,67 @@
+<!-- Card Header -->
+<div class="dt-card__header">
+
+  <!-- Card Heading -->
+  <card-heading>
+    <h3 class="dt-card__title">{{cardTitle}}</h3>
+  </card-heading>
+  <!-- /card heading -->
+
+  <!-- Card Tools -->
+  <card-tool>
+    <a href="javascript:void(0)"
+       class="btn btn-primary dt-fab-btn shadow-lg mt-n2 toggle-button"
+       [ngClass]="{'active': isLiked}"
+       (click)="isLiked =! isLiked">
+      <span class="show"><gx-icon name="thumbs-up"></gx-icon></span>
+      <span class="hide"><gx-icon name="thumbs-down"></gx-icon></span>
+    </a>
+  </card-tool>
+  <!-- /card tools -->
+
+</div>
+<!-- /card header -->
+
+<card-body>
+
+  <!-- Media -->
+  <div class="media flex-column flex-sm-row mb-6">
+    <!-- Avatar -->
+    <gx-avatar [user]="operator" class="size-110 mb-6 mb-sm-0 mr-sm-10"></gx-avatar>
+    <!-- /avatar -->
+
+    <!-- Media Body -->
+    <div class="media-body align-self-sm-center">
+      <div class="h3 font-weight-600 mb-3">
+        <a href="javascript:void(0)">{{operator.name}}</a>
+      </div>
+
+      <div class="rating-container justify-content-start mb-2">
+        <div class="ratings">
+          <span class="rated" style="width:90%"></span>
+        </div>
+
+        <div class="ratings-review">
+          <span class="count-number">{{operator.rating}}</span>
+        </div>
+      </div>
+
+      <gx-status-bar [style.width.px]="200"
+                     barPosition="start"
+                     barColor="bg-success"
+                     textColor="text-gray"
+                     [fullWidth]="true"
+                     [suffix]="'&nbsp;/ ' + operator.ticketsHandled"
+                     [fillVal]="operator.ticketsClosed"
+                     [maxVal]="operator.ticketsHandled">
+      </gx-status-bar>
+    </div>
+    <!-- /media body -->
+  </div>
+  <!-- /media -->
+
+  <p>{{operator.description}}</p>
+
+  <a href="javascript:void(0)" class="card-link text-uppercase f-12 font-weight-500">View Profile</a>
+
+</card-body>

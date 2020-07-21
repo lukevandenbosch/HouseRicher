@@ -1,0 +1,31 @@
+<h5 class="text-muted">Checkbox Buttons Example</h5>
+
+<div class="example-row mb-2">
+  <span class="btn-group-toggle mr-2">
+    <label class="btn btn-secondary active" ngbButtonLabel>
+      <input type="checkbox" ngbButton [(ngModel)]="model.button1"> {{(model.button1)? 'Checked' : 'Unchecked'}}
+    </label>
+  </span>
+
+  <span class="btn-group-toggle">
+    <label class="btn btn-outline-primary" ngbButtonLabel>
+      <input type="checkbox" ngbButton [(ngModel)]="model.button2"> {{(model.button2)? 'Checked' : 'Unchecked'}}
+    </label>
+  </span>
+</div>
+
+<h5 class="text-muted">Checkbox Button Group Example</h5>
+
+<div class="example-row mb-2">
+  <div class="btn-group btn-group-toggle">
+    <label class="btn-primary" ngbButtonLabel>
+      <input type="checkbox" ngbButton [(ngModel)]="model.left"> {{(model.left) ? 'Checked' : 'Left'}}
+    </label>
+    <label class="btn-primary" ngbButtonLabel>
+      <input type="checkbox" ngbButton [(ngModel)]="model.middle"> {{(model.middle) ? 'Checked' : 'Middle'}}
+    </label>
+    <label class="btn-primary" ngbButtonLabel>
+      <input type="checkbox" ngbButton [(ngModel)]="model.right"> {{(model.right) ? 'Checked' : 'Right'}}
+    </label>
+  </div>
+</div>

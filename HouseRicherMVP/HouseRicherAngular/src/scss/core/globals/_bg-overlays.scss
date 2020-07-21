@@ -1,0 +1,41 @@
+/*------------------------------------
+  Covers
+------------------------------------*/
+.bg-overlay {
+  position: relative;
+
+  // Overlay Default
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+  // Uses for inner content
+  &__inner {
+    z-index: 3;
+    position: relative;
+  }
+}
+
+.card,
+.#{$class-prefix}-card {
+  &.bg-overlay:before,
+  &.bg-overlay:after {
+    @include border-radius($card-border-radius);
+  }
+}
+
+// Overlay background color
+.bg-overlay {
+  &-white:after {
+    background-color: $white;
+  }
+  &-black:after {
+    background-color: $black;
+  }
+}

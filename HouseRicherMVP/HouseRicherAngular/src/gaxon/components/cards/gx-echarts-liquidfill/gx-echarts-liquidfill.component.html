@@ -1,0 +1,29 @@
+<card-header class="text-center">
+  <card-heading>
+    <!-- Card Heading -->
+    <div class="dt-card__heading">
+      <h3 class="dt-card__title text-white">{{title}}</h3>
+    </div>
+    <!-- /card heading -->
+  </card-heading>
+</card-header>
+
+<card-body class="dt-chart__body">
+  <div class="d-flex flex-column align-items-center mb-5">
+    <div #realTimeUsers style="width:95px;height:95px;"></div>
+  </div>
+
+  <div class="chart-fluid">
+
+    <gx-chart chartType="bar"
+              [labels]="data.labels"
+              [datasets]="data.datasets"
+              [colors]="data.colors"
+              [options]="data.options"></gx-chart>
+
+    <div class="d-flex justify-content-between align-items-center text-white p-1">
+      <span class="d-inline-block mr-1">12:00AM</span>
+      <span class="d-inline-block">1:00PM</span>
+    </div>
+  </div>
+</card-body>

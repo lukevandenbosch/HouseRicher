@@ -1,0 +1,93 @@
+<!-- Profile Content -->
+<div class="profile-content">
+
+    <!-- Grid -->
+    <div class="row">
+
+        <!-- Grid Item -->
+        <div class="col-xl-4 order-xl-2">
+
+            <!-- Grid -->
+            <div class="row">
+
+                <!-- Grid Item -->
+                <div class="col-xl-12 col-md-6 col-12 order-xl-2">
+                    <!-- Card -->
+                    <gx-card [card-title]="friendsCardTitle" [fullHeight]="true">
+                        <gx-online-user-list-card [userList]="data.friends"></gx-online-user-list-card>
+                    </gx-card>
+                    <!-- /card -->
+                </div>
+                <!-- /grid item -->
+
+                <!-- Grid Item -->
+                <div class="col-xl-12 col-md-6 col-12 order-xl-1">
+                    <!-- Card -->
+                    <gx-card [fullHeight]="true" card-title="Contact" header-class="pt-6">
+                        <profile-contact [contactDetail]="data.contact_detail"></profile-contact>
+                    </gx-card>
+                    <!-- /card -->
+                </div>
+                <!-- /grid item -->
+
+            </div>
+            <!-- /grid -->
+
+        </div>
+        <!-- /grid item -->
+
+        <!-- Grid Item -->
+        <div class="col-xl-8 order-xl-1">
+            <!-- Card -->
+            <profile-about [aboutProfile]="data.about_user"></profile-about>
+            <!-- /card -->
+
+            <!-- Card -->
+            <gx-card>
+                <h3 class="card-title">Biography</h3>
+                <!-- Card Text -->
+                <h6 class="card-subtitle">A little flash back of Kiley Brown</h6>
+                <!-- /card text -->
+
+                <!-- Card Text -->
+                <p class="card-text lead">
+                    Donec dignissim gravida sem, ut cursus dolor hendrerit et. Morbi
+                    volutpat.
+                </p>
+                <!-- /card text -->
+
+                <!-- Card Text -->
+                <p class="card-text">
+                    Augue mauris dignissim arcu, ut venenatis metus ante eu orci. Donec non
+                    maximus neque, ut finibus ex. Quisque semper ornare magna, sed
+                    ullamcorper risus luctus quis. Etiam tristique dui vitae diam rutrum
+                    sodales. Mauris feugiat lectus felis, nec ullamcorper risus elementum
+                    at. Aliquam erat volutpat. Nullam et est eget metus gravida tincidunt.
+                    Phasellus sed odio eu lacus venenatis.
+                </p>
+                <!-- /card text -->
+
+                <!-- Card Text -->
+                <p class="card-text">
+                    Suspendisse vel bibendum ex. Interdum et malesuada fames ac ante ipsum
+                    primis in faucibus. Sed a felis nisi. Lorem ipsum dolor sit amet,
+                    consectetur adipiscing elit. In molestie ultricies urna non volutpat.
+                    Nam fermentum cursus elit, et tempus metus scelerisque imperdiet. Sed
+                    tincidunt molestie justo, a vulputate velit sagittis at. Pellentesque
+                    consequat leo tortor.
+                </p>
+                <!-- /card text -->
+            </gx-card>
+            <!-- /card -->
+
+            <gx-card card-title="Events">
+                <profile-events class="card shadow-none horizontal rounded-0" *ngFor="let event of data.events; let last = last" [event]="event" [ngClass]="last ? 'mb-0' :'pb-8 border-bottom'"  ></profile-events>
+            </gx-card>
+        </div>
+        <!-- /grid item -->
+
+    </div>
+    <!-- /grid -->
+
+</div>
+<!-- /profile content -->

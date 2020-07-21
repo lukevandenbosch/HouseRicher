@@ -1,0 +1,46 @@
+<!-- Card Header -->
+<card-header class="mb-6" [card-title]="cardTitle"></card-header>
+<!-- /card header -->
+
+<card-body>
+
+  <!-- Form -->
+  <form>
+    <div class="form-row mb-7">
+      <div class="col-sm-4 col-6">
+        <label for="currency-type-1">From</label>
+        <select class="custom-select custom-select-sm" id="currency-type-1">
+          <option selected>BTC</option>
+          <option value="1">RPL</option>
+          <option value="2">LTE</option>
+        </select>
+      </div>
+      <div class="col-sm-4 col-6">
+        <label for="currency-type">From</label>
+        <select class="custom-select custom-select-sm" id="currency-type">
+          <option selected>USD</option>
+          <option value="1">Yen</option>
+          <option value="2">Dinar</option>
+        </select>
+      </div>
+      <div class="col-sm-4 col-12 mt-5 mt-sm-0">
+        <label for="amount">Amount(BTC)</label>
+        <input type="text" class="form-control form-control-sm" id="amount"
+               placeholder="Amount">
+      </div>
+    </div>
+
+    <div class="mb-6">
+      <span class="d-block f-12 mb-1">1 Euro = 1.23 USD</span>
+      <h2 class="mb-1 display-4 font-weight-500 text-primary">11466.78 USD</h2>
+      <span class="d-block">@ 1 BTC = 6718.72 USD</span>
+    </div>
+
+    <div>
+      <button class="btn btn-primary btn-sm f-14 mr-2" type="submit">Buy Now</button>
+      <button class="btn btn-light btn-sm f-14" type="reset">Reset</button>
+    </div>
+  </form>
+  <!-- /form -->
+
+</card-body>

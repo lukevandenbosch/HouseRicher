@@ -1,0 +1,77 @@
+<!-- Card Header -->
+<bs-card-header class="card-nav border-bottom-0">
+  <div class="d-flex align-items-center justify-content-between mb-4">
+    <h3 class="dt-card__title">{{title}}</h3>
+
+    <a href="javascript:void(0)" class="d-inline-block">
+      <gx-icon name="circle-add-o" class="mr-2"></gx-icon>Add New
+    </a>
+  </div>
+
+  <!-- Menu -->
+  <ul class="card-header-tabs nav nav-tabs nav-tabs-sm nav-scroll mx-0">
+    <li class="nav-item">
+      <a href="javascript:void(0)"
+         class="nav-link"
+         [ngClass]="{'active':!activeCategory}"
+         (click)="onChangeCategory()">All</a>
+    </li>
+    <li class="nav-item" *ngFor="let category of categories">
+      <a href="javascript:void(0)"
+         class="nav-link"
+         [ngClass]="{'active':category.id === activeCategory}"
+         (click)="onChangeCategory(category.id)">{{category.name}}</a>
+    </li>
+  </ul>
+  <!-- /menu -->
+
+</bs-card-header>
+<!-- /card header -->
+
+<!-- Tab Content-->
+<div class="tab-content">
+
+  <!-- Tab panel -->
+  <div class="tab-pane active">
+
+    <!-- Card Body -->
+    <bs-card-body>
+      <!-- Media List -->
+      <div class="media-list media-separator">
+
+        <!-- Media -->
+        <div class="media media-news" *ngFor="let item of visibleItems.slice(0, maxVisibleItems)">
+
+          <!-- Image -->
+          <img class="img-fluid rounded-xl order-sm-2 ml-sm-10" [src]="item.media" alt="{{item.title}}">
+          <!-- /image -->
+
+          <!-- Media Body -->
+          <div class="media-body order-sm-1">
+            <h4 class="mb-2">{{item.title}}</h4>
+            <p class="mb-5" [innerHTML]="item.content"></p>
+
+            <p class="text-light-gray mb-2">
+              <gx-icon name="tag" size="lg" class="mr-2 align-top"></gx-icon>
+              {{item.tags}}
+            </p>
+            <a class="d-inline-block font-weight-500 align-middle" href="javascript:void(0)">
+              <span>Ready Full Story</span>
+              <gx-icon name="arrow-long-right" size="lg" class="ml-1"></gx-icon>
+            </a>
+          </div>
+          <!-- /media body -->
+
+        </div>
+        <!-- /media -->
+
+      </div>
+      <!-- /media list -->
+    </bs-card-body>
+    <!-- /card body -->
+
+  </div>
+  <!-- /tab panel -->
+
+</div>
+<!-- /tab content-->

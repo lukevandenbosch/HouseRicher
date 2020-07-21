@@ -1,0 +1,58 @@
+  <!-- Overlay Content -->
+  <div class="bg-overlay__inner">
+    <!-- Card Body -->
+    <bs-card-body>
+      <!-- Grid -->
+      <div class="row">
+        <!-- Grid Item -->
+        <div class="col-xl-6 offset-sm-6">
+          <span class="d-block mb-2" *ngIf="data.category">{{data.category}}</span>
+          <p class="card-text display-4 font-weight-600">
+            {{data.title}}
+          </p>
+          <p class="card-text" [ngClass]="textStyle" [innerHTML]="data.content"></p>
+          <button class="btn btn-default btn-sm text-dark">Read More</button>
+        </div>
+        <!-- /grid item -->
+      </div>
+      <!-- /grid -->
+    </bs-card-body>
+    <!-- /card body -->
+  </div>
+  <!-- /overlay content -->
+
+
+<!--&lt;!&ndash; Card Image &ndash;&gt;-->
+<!--<div class="card-image" *ngIf="data.media">-->
+<!--  <img class="img-fluid rounded-xl" [src]="data.media" alt="{{data.title || 'Media Image'}}">-->
+<!--</div>-->
+<!--&lt;!&ndash; /card image &ndash;&gt;-->
+
+<!--<ng-content></ng-content>-->
+
+<!--&lt;!&ndash; Card Stacked &ndash;&gt;-->
+<!--<div class="card-stacked">-->
+
+<!--  &lt;!&ndash; Card Body &ndash;&gt;-->
+<!--  <bs-card-body [ngClass]="bodyClasses">-->
+
+<!--    <span *ngIf="data.category" class="d-inline-block mb-2">{{data.category}}</span>-->
+
+<!--    <h2 *ngIf="data.title" class="font-weight-600 display-4 text-uppercase">{{data.title}}</h2>-->
+
+<!--    &lt;!&ndash; Card Text&ndash;&gt;-->
+<!--    <p class="card-text" [ngClass]="textStyle" [innerHTML]="data.content"></p>-->
+<!--    &lt;!&ndash; /card text&ndash;&gt;-->
+
+<!--    <ul *ngIf="data.thumbnails.length > 0" class="dt-list dt-list__inline">-->
+<!--      <li class="dt-list__item" *ngFor="let thumb of data.thumbnails">-->
+<!--        &lt;!&ndash; Image &ndash;&gt;-->
+<!--        <img [src]="thumb" alt="{{thumb}}" class="size-65 rounded-xl">-->
+<!--        &lt;!&ndash; /image &ndash;&gt;-->
+<!--      </li>-->
+<!--    </ul>-->
+
+<!--  </bs-card-body>-->
+
+<!--</div>-->
+<!--&lt;!&ndash; /card stacked &ndash;&gt;-->

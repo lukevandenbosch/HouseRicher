@@ -1,0 +1,105 @@
+<!-- Profile Banner -->
+<div class="profile__banner">
+
+    <!-- Profile Banner Top -->
+    <div class="profile__banner-detail">
+        <!-- Avatar Wrapper -->
+        <div class="dt-avatar-wrapper">
+            <!-- Avatar -->
+            <img class="dt-avatar dt-avatar__shadow size-90 mr-sm-4"
+                 src="{{bannerData.user.image}}" alt="Reece Jacklin">
+            <!-- /avatar -->
+
+            <!-- Info -->
+            <div class="dt-avatar-info">
+                <span class="dt-avatar-name display-4 mb-2 font-weight-light">{{bannerData.user.name}}</span>
+                <span class="f-16">{{bannerData.user.address}}</span>
+            </div>
+            <!-- /info -->
+        </div>
+        <!-- /avatar wrapper -->
+
+        <div class="ml-sm-auto">
+            <!-- List -->
+            <ul class="dt-list dt-list-bordered dt-list-col-4">
+                <!-- List Item -->
+                <li class="dt-list__item text-center" *ngFor="let feed of bannerData.feeds">
+                    <span class="h4 font-weight-500 mb-0 text-white">{{feed.value | thousandSuff}}</span>
+                    <span class="d-block f-12">{{feed.label}}</span>
+                </li>
+                <!-- /list item -->
+            </ul>
+            <!-- /list -->
+        </div>
+    </div>
+    <!-- /profile banner top -->
+
+    <!-- Profile Banner Bottom -->
+    <div class="profile__banner-navigation">
+
+        <!-- Navbar -->
+        <ul class="navbar-nav">
+
+            <!-- Nav Item -->
+            <li class="nav-item active">
+                <a class="nav-link " href="javascript:void(0)">Timeline</a>
+            </li>
+            <!-- /nav item -->
+
+            <!-- Nav Item -->
+            <li class="nav-item">
+                <a class="nav-link" href="javascript:void(0)">About</a>
+            </li>
+            <!-- /nav item -->
+
+            <!-- Nav Item -->
+            <li class="nav-item">
+                <a class="nav-link" href="javascript:void(0)">Photos</a>
+            </li>
+            <!-- /nav item -->
+
+            <!-- Nav Item -->
+            <li class="nav-item">
+                <a class="nav-link" href="javascript:void(0)">Friends
+                    <small class="text-light-gray">287</small>
+                </a>
+            </li>
+            <!-- /nav item -->
+
+            <!-- Nav Item -->
+            <li class="nav-item">
+                <a class="nav-link" href="javascript:void(0)">More</a>
+            </li>
+            <!-- /nav item -->
+
+        </ul>
+        <!-- /navbar -->
+
+        <!-- Dropdown -->
+        <div class="pl-3 mt-2 ml-auto" ngbDropdown placement="bottom-right">
+
+            <!-- Dropdown Button -->
+            <a href="javascript:void(0)" class="no-arrow text-white" ngbDropdownToggle>
+                <gx-icon name="settings" size="xl" class="mr-2"></gx-icon><span
+                    class="d-none d-sm-inline-block">Settings</span>
+            </a>
+            <!-- /dropdown button -->
+
+            <!-- Dropdown Menu -->
+            <div ngbDropdownMenu>
+                <a class="dropdown-item" href="javascript:void(0)">Action</a>
+                <a class="dropdown-item" href="javascript:void(0)">Another action</a>
+                <a class="dropdown-item" href="javascript:void(0)">Something else here</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="javascript:void(0)">Separated link</a>
+            </div>
+            <!-- /dropdown menu -->
+
+        </div>
+        <!-- /dropdown -->
+
+    </div>
+    <!-- /profile banner bottom -->
+
+</div>
+<!-- /profile banner -->

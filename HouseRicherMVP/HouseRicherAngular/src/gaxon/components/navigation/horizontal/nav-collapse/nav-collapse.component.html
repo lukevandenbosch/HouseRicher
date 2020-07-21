@@ -1,0 +1,17 @@
+<a class="nav-link dt-side-nav__arrow" (click)="toggleOpen($event)" [ngClass]="{active:isOpen}">
+  <ng-container *ngTemplateOutlet="itemContent"></ng-container>
+</a>
+
+<ng-template #itemContent>
+  <gx-icon class="nav-link-icon" *ngIf="item.icon" name="{{item.icon}}" size="xl" [fw]="true"></gx-icon>
+  <span *ngIf="item.translate" class="nav-text" [translate]="item.translate"></span>
+  <span *ngIf="!item.translate" class="nav-text">{{item.title}}</span>
+</ng-template>
+
+<div class="sub-menu">
+  <ng-container *ngFor="let item of item.children">
+    <app-nav-horizontal-collapse *ngIf="item.type=='group'" [item]="item"></app-nav-horizontal-collapse>
+    <app-nav-horizontal-collapse *ngIf="item.type=='collapse'" [item]="item"></app-nav-horizontal-collapse>
+    <app-nav-horizontal-item *ngIf="item.type=='item'" [item]="item"></app-nav-horizontal-item>
+  </ng-container>
+</div>

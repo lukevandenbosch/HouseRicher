@@ -1,0 +1,25 @@
+<card-body *ngIf="newsletter" [ngClass]="bodyClasses">
+  <form #subscriptionForm="ngForm" (ngSubmit)="subscriptionForm.valid && onSubmit(subscriptionForm)">
+    <h4 *ngIf="newsletter.title" class="text-primary mb-7">
+      <span class="align-middle">{{newsletter.title}}</span>
+    </h4>
+
+    <p class="mb-2">
+      <gx-icon [name]="newsletter.titleIcon" [fw]="true" size="5x"></gx-icon>
+    </p>
+
+    <p class="lead text-dark mb-5">{{newsletter.description}}</p>
+
+    <!-- Form Group -->
+    <div class="form-group mb-6">
+      <label class="sr-only" for="user-email">Email Address</label>
+      <input type="email" class="form-control" id="user-email" name="inputEmail" placeholder="Enter your email..."
+             [(ngModel)]="inputEmail" required>
+    </div>
+    <!-- /form group -->
+
+    <!-- Button -->
+    <a href="javascript:void(0);" class="btn btn-primary">{{newsletter.btnText}}</a>
+    <!-- /button -->
+  </form>
+</card-body>

@@ -1,0 +1,4 @@
+<ng-container *ngFor="let alert of alerts">
+  <ngb-alert [type]="alert.type" [dismissible]="false">A simple {{ alert.type }} alert with <a href="javascript:void(0)" class="alert-link">an example link</a>. Give it
+    a click if you like.</ngb-alert>
+</ng-container>

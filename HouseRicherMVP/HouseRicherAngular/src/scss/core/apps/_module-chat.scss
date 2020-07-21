@@ -1,0 +1,110 @@
+// -----------------------------------------------------------------------------
+// This file contains styles that are specific to the Chat Module.
+// -----------------------------------------------------------------------------
+.#{$class-prefix}-module--chat {
+  & .#{$class-prefix}-module__sidebar-content {
+
+    @include media-breakpoint-up(md) {
+      height: calc(100% - 12.6rem);
+    }
+
+    @include media-breakpoint-down(sm) {
+      height: calc(100% - 6.8rem);
+    }
+
+    & .tab-content {
+      height: calc(100% - 5.4rem);
+    }
+
+    & .tab-content .tab-pane,
+    &-inner {
+      height: 100%;
+    }
+  }
+
+  & .#{$class-prefix}-module__container {
+    margin-top: 0;
+
+    @include media-breakpoint-down(sm) {
+      height: calc(100% - 6.8rem);
+    }
+  }
+}
+
+//Chat Section
+.#{$class-prefix}-chat__item {
+  display: flex;
+  margin-bottom: 15px;
+
+  & .#{$class-prefix}-avatar {
+    margin-right: 12px;
+    align-self: flex-end;
+  }
+
+  & .#{$class-prefix}-chat__message {
+    position: relative;
+    padding: 1.8rem 2.6rem;
+    margin-bottom: 6px;
+    background-color: darken($primary, 12%);
+    border: 1px solid transparent;
+    @include border-radius(12px);
+    max-width: 320px;
+    color: $white;
+
+    &:last-child {
+      @include border-radius(12px 12px 12px 0);
+      margin-bottom: 0;
+
+      &:after {
+        content: '';
+        position: absolute;
+        bottom: -1px;
+        left: -9px;
+        z-index: 1;
+        background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" style="enable-background:new 0 0 14.9 17.3;"><path fill="#{unicode-color(darken($primary, 12%))}" d="M9.2,0c0,6.2-3.6,11.7-8.4,15c-0.4,0.3-0.2,0.9,0.3,0.9h8.1"></path><path fill="#{unicode-color(darken($primary, 10%))}" d="M9.2,16.4H1.1c-0.4,0-0.8-0.3-1-0.7c-0.1-0.4,0-0.9,0.4-1.1C5.3,11.3,8.2,5.8,8.2,0h1c0,6.2-3,11.9-8.1,15.4   l8.1,0V16.4z"></path></svg>') no-repeat;
+        width: 9px;
+        height: 16px;
+      }
+    }
+  }
+
+  &.reply {
+    flex-direction: row-reverse;
+
+    & .#{$class-prefix}-avatar {
+      margin-right: 0;
+      margin-left: 12px;
+    }
+
+    & .#{$class-prefix}-chat__message {
+      background-color: $white;
+      border-color: $border-color;
+      color: $text-color;
+
+      &:last-child {
+        @include border-radius(12px 12px 0 12px);
+
+        &:after {
+          left: auto;
+          right: -9px;
+          @include scale(-1, 1);
+          background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" style="enable-background:new 0 0 14.9 17.3;"><path fill="#{unicode-color($white)}" d="M9.2,0c0,6.2-3.6,11.7-8.4,15c-0.4,0.3-0.2,0.9,0.3,0.9h8.1"></path><path fill="#{unicode-color($border-color)}" d="M9.2,16.4H1.1c-0.4,0-0.8-0.3-1-0.7c-0.1-0.4,0-0.9,0.4-1.1C5.3,11.3,8.2,5.8,8.2,0h1c0,6.2-3,11.9-8.1,15.4   l8.1,0V16.4z"></path></svg>') no-repeat;
+        }
+      }
+    }
+  }
+}
+
+//RTL Direction
+[direction="rtl"] .#{$class-prefix}-chat__item {
+  & .#{$class-prefix}-chat__message {
+    &:last-child:after {
+      @include scale(-1, 1);
+    }
+  }
+  &.reply .#{$class-prefix}-chat__message {
+    &:last-child:after {
+      @include scale(1, 1);
+    }
+  }
+}

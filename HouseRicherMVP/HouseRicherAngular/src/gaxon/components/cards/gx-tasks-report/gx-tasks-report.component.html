@@ -1,0 +1,26 @@
+<card-body>
+
+  <div class="d-flex flex-column flex-sm-row">
+
+    <!-- Chart Solid Gauge -->
+    <amCharts id="gaugeChart"
+              class="mb-5 mb-sm-0 mr-sm-4 mx-auto"
+              [options]="tasks.chart"
+              [style.width.px]="120"
+              [style.height.px]="120"></amCharts>
+    <!-- /chart Solid Gauge -->
+
+    <div class="flex-1 align-self-sm-center">
+      <div class="row">
+        <div class="col-4 text-center" *ngFor="let row of tasks.data; last as isLast"
+             [ngClass]="{'border-right':!isLast}">
+          <div class="text-dark display-4 mb-2">{{row.value}}</div>
+          <span class="d-block mb-2">{{row.label}}</span>
+          <span class="dot-shape dot-shape-lg" [ngClass]="row.dotColor"></span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</card-body>

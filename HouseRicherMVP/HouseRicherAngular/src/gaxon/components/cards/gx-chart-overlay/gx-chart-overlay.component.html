@@ -1,0 +1,38 @@
+<!-- Chart Body -->
+<gx-chart *ngIf="chart"
+          class="dt-chart__body"
+          chartClasses="rounded-bottom"
+          [chartType]="chart.chartType"
+          [datasets]="chart.datasets"
+          [labels]="chart.labels"
+          [colors]="chart.colors"
+          [options]="chart.options"></gx-chart>
+<!-- /chart body -->
+
+<!-- Chart Overlay -->
+<div class="dt-chart__overlay" [ngClass]="bodyClasses">
+  <h6 *ngIf="data.title" class="title text-white text-uppercase">{{data.title}}</h6>
+
+  <div class="content-area">
+    <span *ngIf="data.heading" class="d-inline-block mb-1 display-3 font-weight-500">{{data.heading}}</span>
+    <div class="d-flex align-items-center">
+      <span *ngIf="data.sub_heading" class="d-inline-block mr-1">{{data.sub_heading}}</span>
+      <gx-icon *ngIf="data.icon" [name]="data.icon" class="f-10 mr-2"></gx-icon>
+      <span *ngIf="data.tagline" class="d-inline-block f-12">{{data.tagline}}</span>
+    </div>
+  </div>
+
+  <!-- Button -->
+  <a href="javascript:void(0)" class="btn btn-outline-light dt-fab-btn size-25 action-btn" (click)="toggleOverlay()">
+    <gx-icon name="stats2" size="xl"></gx-icon>
+  </a>
+  <!-- /button -->
+
+  <!-- Button -->
+  <a href="javascript:void(0)" class="btn btn-outline-light dt-fab-btn size-25 close-btn" (click)="toggleOverlay()">
+    <gx-icon name="remove" size="lg"></gx-icon>
+  </a>
+  <!-- /button -->
+
+</div>
+<!-- /chart overlay -->

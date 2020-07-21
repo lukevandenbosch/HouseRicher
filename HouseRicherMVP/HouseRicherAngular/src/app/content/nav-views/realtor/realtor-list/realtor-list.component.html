@@ -1,0 +1,45 @@
+<!-- Page Header -->
+<div class="dt-page__header">
+  <h1 class="dt-page__title">Our Realtors</h1>
+</div>
+<!-- /page header -->
+
+<!-- Grid -->
+<div class="row">
+
+  <!-- Grid Item -->
+  <div *ngFor="let user of usersList; index as i; first as isFirst" class="col-xl-3 col-md-4 col-sm-6 col-12">
+
+    <!-- Card -->
+    <gx-grid>
+      <!-- User Avatar-->
+      <img class="dt-avatar size-60" [src]="user.picture" alt="{{user.name}}">
+      <!-- /user avatar-->
+
+      <div class="mt-7">
+        <h4 class="mb-1 mb-sm-0">{{user.name}}</h4>
+        <div style="padding:10px;"></div>
+        <a href="javascript:void(0)" class="btn btn-primary btn-sm">See Profile Page</a>
+      </div>
+
+      <div class="action-tools">
+        <!-- Dropdown -->
+        <div placement="bottom-right">
+        <button type="button" class="btn btn-outline-secondary mb-2" [ngClass]="user.followed ? 'toggled_btn_follow' : ''"
+                (click)="user.followed = !user.followed" aria-pressed="false"
+                autocomplete="off">
+                <div *ngIf="user.followed">Following</div>
+                <div *ngIf="!user.followed">Follow</div>
+        </button>
+        </div>
+        <!-- /dropdown -->
+      </div>
+
+    </gx-grid>
+    <!-- /Card -->
+
+  </div>
+  <!-- /grid item -->
+
+</div>
+<!-- /Grid -->

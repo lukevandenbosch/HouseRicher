@@ -1,0 +1,249 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the Customizer of the site/application.
+// -----------------------------------------------------------------------------
+.#{$class-prefix}-customizer {
+  position: relative;
+  z-index: 1501;
+  width: $sidebar-width;
+  background-color: $white;
+
+  &-toggle {
+    position: fixed;
+    top: 130px;
+    right: 0;
+    z-index: 100;
+
+    @include media-breakpoint-down(xs) {
+      top: 165px;
+    }
+
+    & a {
+      @include transition(all 0.5s ease);
+      @include border-left-radius(50px);
+      @include box-shadow($box-shadow);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 4rem;
+      width: 6rem;
+      font-size: 2.5rem;
+      @include gradient-directional($primary, $secondary, 135deg);
+      color: $white;
+
+      @include hover-focus {
+        @include gradient-directional($primary, $secondary, 90deg);
+      }
+    }
+  }
+
+  &__inner {
+    height: 100%;
+  }
+}
+
+.#{$class-prefix}-customizer {
+  &__header {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 2rem;
+    min-height: $header-height;
+    @include box-shadow(0 2px 2px 0 rgba($text-color, 0.1));
+
+    & .close {
+      margin-left: auto;
+      font-size: 3.5rem;
+      font-weight: normal;
+      line-height: 0.8;
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  &__body {
+    height: calc(100% - #{$header-height});
+    overflow-y: auto;
+    position: relative;
+
+    &-inner {
+      padding: 3rem 2rem;
+    }
+
+    & section {
+      margin-bottom: 3rem;
+    }
+
+    & .#{$class-prefix}-list-sm {
+      margin-left: -5px;
+      margin-right: -5px;
+
+      & > .#{$class-prefix}-list__item {
+        padding-left: 5px;
+        padding-right: 5px;
+      }
+    }
+  }
+}
+
+.#{$class-prefix}-customizer {
+  & .choose-option {
+    position: relative;
+
+    &__icon {
+      display: block;
+      cursor: pointer;
+      position: relative;
+      z-index: 1;
+
+      &:not(:last-child) {
+        margin-bottom: 6px;
+      }
+    }
+
+    &.active .choose-option__icon {
+      @include box-shadow(0 5px 10px 0 rgba(lighten($text-color, 20%), 0.28));
+      @include transition($transition-base);
+
+      &:after {
+        content: '';
+        position: absolute;
+        right: -3px;
+        top: -3px;
+        z-index: 2;
+        height: 14px;
+        width: 14px;
+        display: inline-block;
+        @include background-img('../../images/customizer-icons/check.png', center center);
+      }
+    }
+
+    &__name {
+      font-size: 12px;
+      color: $text-color;
+      text-transform: capitalize;
+    }
+  }
+
+  & .#{$class-prefix}-color-option {
+    position: relative;
+    display: block;
+    cursor: pointer;
+    width: 38px;
+    height: 38px;
+    @include border-radius($border-radius-circle);
+    border: 3px solid $white;
+    background-color: $gray-100;
+
+    &:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 17px;
+      height: 100%;
+      @include border-left-radius(17px);
+    }
+
+    &.active {
+      border-color: lighten($text-color, 40%);
+
+      &:after {
+        content: '';
+        position: absolute;
+        right: -3px;
+        top: -3px;
+        z-index: 2;
+        height: 14px;
+        width: 14px;
+        display: inline-block;
+        @include background-img('../../images/customizer-icons/check.png', center center);
+      }
+    }
+  }
+
+  & .#{$class-prefix}-color-options  {
+    & > li:nth-child(1) .#{$class-prefix}-color-option {
+      background-color: #FF4081;
+
+      &:before {
+        background-color: #512DA8;
+      }
+    }
+
+    & > li:nth-child(2) .#{$class-prefix}-color-option {
+      background-color: #189fde;
+
+      &:before {
+        background-color: #2ac174;
+      }
+    }
+
+    & > li:nth-child(3) .#{$class-prefix}-color-option {
+      background-color: #0683e5;
+
+      &:before {
+        background-color: #f06f11;
+      }
+    }
+
+    & > li:nth-child(4) .#{$class-prefix}-color-option {
+      background-color: #f7b528;
+
+      &:before {
+        background-color: #d61f1f;
+      }
+    }
+
+    & > li:nth-child(5) .#{$class-prefix}-color-option {
+      background-color: #56b5d8;
+
+      &:before {
+        background-color: #7b18f6;
+      }
+    }
+
+    & > li:nth-child(6) .#{$class-prefix}-color-option {
+      background-color: #cbb444;
+
+      &:before {
+        background-color: #2f46bc;
+      }
+    }
+
+    & > li:nth-child(7) .#{$class-prefix}-color-option {
+      background-color: #36272d;
+
+      &:before {
+        background-color: #e5281a;
+      }
+    }
+
+    & > li:nth-child(8) .#{$class-prefix}-color-option {
+      background-color: #eda722;
+
+      &:before {
+        background-color: #40528c;
+      }
+    }
+
+    & > li:nth-child(9) .#{$class-prefix}-color-option {
+      background-color: #f95738;
+
+      &:before {
+        background-color: #0857ad;
+      }
+    }
+
+    & > li:nth-child(10) .#{$class-prefix}-color-option {
+      background-color: #72bef0;
+
+      &:before {
+        background-color: #0085c1;
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+<div class="dt-side-nav__item dt-side-nav__header">
+  <span *ngIf="item.translate" class="dt-side-nav__text" [translate]="item.translate"></span>
+  <span *ngIf="!item.translate" class="dt-side-nav__text">{{item.title}}</span>
+</div>
+
+<ng-container *ngFor="let item of item.children">
+  <app-nav-vertical-group *ngIf="item.type=='group'" [item]="item"></app-nav-vertical-group>
+  <app-nav-vertical-collapse *ngIf="item.type=='collapse'" [item]="item"></app-nav-vertical-collapse>
+  <app-nav-vertical-item *ngIf="item.type=='item'" [item]="item"></app-nav-vertical-item>
+</ng-container>

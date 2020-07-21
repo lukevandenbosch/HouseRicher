@@ -1,0 +1,38 @@
+<!-- Card Header -->
+<ng-content *ngIf="cardHeader" select="bs-card-header"></ng-content>
+<!-- /Card Header -->
+
+<!-- Card Image Top -->
+<img *ngIf="cardImgTop" class="card-img-top" ngClass="{{cardImageTop.classlist}}" [src]="cardImageTop.url" alt="{{cardImageTop.caption || 'Card image cap'}}">
+<!-- Card Image Top -->
+
+<!-- Card Img Overlay -->
+<img *ngIf="cardImg && cardImgOverlay" class="card-img" ngClass="{{cardImage.classlist}}" [src]="cardImage.url" alt="{{cardImage.caption || 'Card image'}}">
+<ng-content select="bs-card-img-overlay" [ngClass]="body_classlist"></ng-content>
+<!-- /Card Img Overlay -->
+
+<!-- Card Body -->
+<bs-card-body *ngIf="!cardImgOverlay && hasBody"
+           [ngClass]="body_classlist"
+           [card-title]="cardTitle"
+           [card-subtitle]="cardSubTitle"
+           [card-text]="cardText">
+  <ng-content></ng-content>
+</bs-card-body>
+
+<!-- Card Image Center -->
+<img *ngIf="cardImg && !cardImgOverlay" class="card-img-center" ngClass="{{cardImage.classlist}}" [src]="cardImage.url" alt="{{cardImage.caption || 'Card image'}}">
+<!-- /Card Image Center -->
+
+<ng-content *ngIf="cardOuterBody" select="bs-card-outer-body"></ng-content>
+
+<ng-content *ngIf="!cardImgOverlay && cardBody" select="bs-card-body"></ng-content>
+<!-- /Card Body -->
+
+<!-- Card Image Bootom -->
+<img *ngIf="cardImgBottom" class="card-img-bottom" ngClass="{{cardImageBottom.classlist}}" [src]="cardImageBottom.url" alt="{{cardImageBottom.caption || 'Card image cap'}}">
+<!-- /Card Image Bootom -->
+
+<!-- Card Footer -->
+<ng-content *ngIf="cardFooter" select="bs-card-footer"></ng-content>
+<!-- /Card Footer -->

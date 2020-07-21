@@ -1,0 +1,13 @@
+<form [formGroup]="radioGroupForm">
+  <div class="btn-group btn-group-toggle" ngbRadioGroup name="radioBasic" formControlName="model">
+    <label ngbButtonLabel class="btn-primary">
+      <input ngbButton type="radio" [value]="1"> Left {{(radioGroupForm.value['model'] == 1) ? '(checked)' : ''}}
+    </label>
+    <label ngbButtonLabel class="btn-primary">
+      <input ngbButton type="radio" value="middle"> Middle {{(radioGroupForm.value['model'] == 'middle') ? '(checked)' : ''}}
+    </label>
+    <label ngbButtonLabel class="btn-primary">
+      <input ngbButton type="radio" [value]="false"> Right {{(!radioGroupForm.value['model']) ? '(checked)' : ''}}
+    </label>
+  </div>
+</form>

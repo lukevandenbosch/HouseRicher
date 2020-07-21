@@ -1,0 +1,8 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass functions.
+// -----------------------------------------------------------------------------
+
+//Convert Unicode Color Code
+@function unicode-color($color) {
+  @return '%23' + str-slice('#{$color}', 2, -1)
+}

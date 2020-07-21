@@ -1,0 +1,60 @@
+<!-- Dropdown Menu Header -->
+<div class="dropdown-menu-header">
+  <h4 class="title">Messages ({{messages.length}})</h4>
+
+  <div class="ml-auto action-area">
+    <a href="javascript:void(0)">Mark All Read</a>
+    <a class="ml-2" href="javascript:void(0)">
+      <gx-icon name="settings" size="lg" class="text-light-gray"></gx-icon>
+    </a>
+  </div>
+</div>
+<!-- /dropdown menu header -->
+
+<!-- Dropdown Menu Body -->
+<div perfectScrollbar [disabled]="!settings.customScrollbars" class="dropdown-menu-body position-relative">
+
+  <div class="h-auto">
+    <!-- Media -->
+    <a href="javascript:void(0)" class="media" *ngFor="let message of messages; index as i">
+
+      <!-- Avatar -->
+      <gx-avatar [user]="message" [charLength]="0" class="mr-3"></gx-avatar>
+      <!-- avatar -->
+
+      <!-- Media Body -->
+      <span class="media-body text-truncate">
+        <span class="user-name mb-1">{{message.name}}</span>
+        <span class="message text-light-gray text-truncate" [innerHTML]="message.message"></span>
+      </span>
+      <!-- /media body -->
+
+      <span class="action-area h-100 min-w-80 text-right">
+        <span class="meta-date mb-1">{{message.time}}</span>
+
+        <ng-template #tipContent>{{message.read ? 'Mark as read' : 'Mark as unread'}}</ng-template>
+
+        <!-- Toggle Button -->
+        <span class="toggle-button"
+              data-placement="left"
+              [ngClass]="{'active':message.read}"
+              [ngbTooltip]="tipContent"
+              (click)="message.read = !message.read; $event.stopPropagation()">
+          <span class="show"><gx-icon name="dot-o" [fw]="true" class="f-10 text-light-gray"></gx-icon></span>
+          <span class="hide"><gx-icon name="dot" [fw]="true"  class="f-10 text-light-gray"></gx-icon></span>
+        </span>
+        <!-- /toggle button -->
+      </span>
+
+    </a>
+    <!-- /media -->
+  </div>
+</div>
+
+<!-- Dropdown Menu Footer -->
+<div class="dropdown-menu-footer">
+  <a href="javascript:void(0)" class="card-link">
+    See All <gx-icon name="arrow-right" [fw]="true"></gx-icon>
+  </a>
+</div>
+<!-- /dropdown menu footer -->

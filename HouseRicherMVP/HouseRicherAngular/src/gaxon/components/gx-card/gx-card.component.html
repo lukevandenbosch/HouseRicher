@@ -1,0 +1,13 @@
+<!-- Card Header -->
+<card-header *ngIf="cardTitle || cardSubTitle || cardHeading || cardTool" [ngClass]="headerClasses" [card-title]="cardTitle" [card-subtitle]="cardSubTitle">
+  <ng-content select="card-heading"></ng-content>
+  <ng-content select="card-tool"></ng-content>
+</card-header>
+<!-- /card header -->
+
+<!-- Card Body -->
+<card-body [ngClass]="bodyClasses">
+  <ng-content></ng-content>
+</card-body>
+
+<ng-content select="card-body"></ng-content>

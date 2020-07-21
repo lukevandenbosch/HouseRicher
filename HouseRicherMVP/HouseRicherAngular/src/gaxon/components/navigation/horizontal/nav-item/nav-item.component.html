@@ -1,0 +1,14 @@
+<a class="nav-link" *ngIf="item.url" [routerLink]="[item.url]" routerLinkActive="active"
+   [routerLinkActiveOptions]="{exact: item.exactMatch || false}" matRipple>
+  <ng-container *ngTemplateOutlet="itemTemplate"></ng-container>
+</a>
+
+<span class="nav-link" *ngIf="item.function" (click)="item.function()">
+  <ng-container *ngTemplateOutlet="itemTemplate"></ng-container>
+</span>
+
+<ng-template #itemTemplate>
+  <gx-icon *ngIf="item.icon" name="{{item.icon}}" size="xl" [fw]="true"></gx-icon>
+  <span *ngIf="item.translate" class="nav-text" [translate]="item.translate"></span>
+  <span *ngIf="!item.translate" class="nav-text">{{item.title}}</span>
+</ng-template>

@@ -1,0 +1,15 @@
+<!-- header -->
+<ng-content select="gx-grid-header"></ng-content>
+<!-- /header -->
+
+<!-- Card Body -->
+<bs-card-body ngClass="{{body_classlist}}">
+  <ng-content></ng-content>
+</bs-card-body>
+<!-- /Card Body -->
+
+<!-- Card Footer -->
+<bs-card-footer *ngIf="gridFooter">
+  <ng-content select="gx-grid-footer"></ng-content>
+</bs-card-footer>
+<!-- /Card Footer -->

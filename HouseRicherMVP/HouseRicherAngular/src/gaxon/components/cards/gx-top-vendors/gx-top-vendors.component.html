@@ -1,0 +1,68 @@
+<!-- Card Header -->
+<card-header card-title="Top Vendors" class="mb-5">
+
+  <!-- Card Tools -->
+  <card-tool>
+    <ul class="nav nav-sm nav-underline nav-underline-none">
+      <li class="nav-item" *ngFor="let category of categories">
+        <a href="javascript:void(0)"
+           class="nav-link"
+           [ngClass]="{'active':category.slug === currentCat}"
+           (click)="onChangeCategory(category.slug)">{{category.name}}</a>
+      </li>
+    </ul>
+  </card-tool>
+  <!-- /card tools -->
+
+</card-header>
+<!-- /card header -->
+
+<card-body class="p-0">
+  <!-- Tab Content-->
+  <div class="tab-content">
+
+    <!-- Tab panel -->
+    <div class="tab-pane active">
+
+      <!-- Widgets -->
+      <div class="dt-widget dt-widget-sm dt-widget-hover">
+        <div class="dt-widget__item" *ngFor="let vendor of visibleItems">
+          <!-- Widget Image -->
+          <div class="dt-widget__img">
+            <img class="img-fluid max-w-90" [src]="vendor.logo"
+                 alt="Logo">
+          </div>
+          <!-- /widget image -->
+
+          <!-- Widget Info -->
+          <div class="dt-widget__info text-truncate">
+            <div class="dt-widget__title text-truncate">
+              <a href="{{vendor.siteUrl}}">{{vendor.company}}</a>
+            </div>
+            <!-- List -->
+            <ul class="dt-list dt-list-bordered dt-widget__subtitle text-light-gray dt-list-cm-0 flex-nowrap">
+              <!-- List Item -->
+              <li class="dt-list__item text-truncate">
+                <span><span class="text-dark">{{vendor.properties}} </span>Properties</span>
+              </li>
+              <!-- /list item -->
+              <!-- List Item -->
+              <li class="dt-list__item text-truncate">
+                <span><span class="text-dark">{{vendor.favorites}} </span>Favorites</span>
+              </li>
+              <!-- /list item -->
+            </ul>
+            <!-- /list -->
+          </div>
+          <!-- /widget info -->
+
+        </div>
+      </div>
+      <!-- /widgets -->
+
+    </div>
+    <!-- /tab panel -->
+
+  </div>
+  <!-- /tab content-->
+</card-body>

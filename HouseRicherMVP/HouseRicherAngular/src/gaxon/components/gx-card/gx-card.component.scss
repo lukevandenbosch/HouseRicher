@@ -1,0 +1,9 @@
+:host {
+  &.dt-card {
+    display: block;
+  }
+
+  &.dt-card__full-height {
+    display: flex;
+  }
+}

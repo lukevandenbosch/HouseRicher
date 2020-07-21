@@ -1,0 +1,71 @@
+<!-- Page Header -->
+<div class="dt-page__header">
+  <h1 class="dt-page__title">Real Estate Questions</h1>
+</div>
+<!-- /page header -->
+
+<!-- Grid -->
+<div class="row">
+    <!-- Grid Item -->
+    <!-- /grid item -->
+  <!-- Grid Item -->
+  <div class="col-xl-12">
+  <comment-box-list></comment-box-list>
+  </div>
+  <div class="col-xl-12" *ngFor="let user of usersList; index as i; first as isFirst">
+    <gx-card>
+      <!-- List -->
+      <div class="d-sm-flex flex-sm-row">
+
+        <!-- User Avatar-->
+        <img class="dt-avatar size-60 mr-6 mb-6 mb-sm-0" [src]="user.profilePicture" alt="{{user.name}}">
+        <!-- /user avatar-->
+
+        <!-- Content -->
+        <div class="flex-1 overflow-hidden mb-6 mb-sm-0 pr-sm-3">
+          <div class="user-detail mb-3">
+            <span class="user-name">{{user.firstName + ' ' + user.lastName}}</span>
+            <span class="dt-separator-v">&nbsp;</span>
+            <span class="designation">{{user.subject}}</span>
+          </div>
+          <p class="text-truncate">{{user.message}}</p>
+          <div class="d-flex flex-sm-row flex-column">
+            <div class="mb-4 mb-sm-0">
+              <div class="d-flex flex-wrap mb-6">
+                  <a *ngIf="user.likes !== 0" href="javascript:void(0)"
+                    class="f-12 d-inline-block text-light-gray mr-3">
+                      <gx-icon name="heart-o" size="sm" [fw]="true" [ngClass]="user.isLiked ? 'text-danger' : ''"></gx-icon>
+                      <span class="d-inline-block">{{user.likes | thousandSuff}} {{user.likes !== 1 ? 'Likes' : 'Like'}}</span>
+                  </a>
+                  <a *ngIf="user.commentCount !== 0" href="javascript:void(0)"
+                    class="f-12 d-inline-block text-light-gray">
+                      <gx-icon name="message" size="sm" [fw]="true"></gx-icon>
+                      <span class="d-inline-block">{{user.commentCount | thousandSuff}} {{user.commentCount !== 1 ? 'Comments' : 'Comment'}}</span>
+                  </a>
+              </div>
+            </div>
+            <gx-status-bar *ngIf="user.job_done"
+                           [style.width.px]="220"
+                           [fullWidth]="true"
+                           [fillVal]="user.job_done"
+                           [maxVal]="100"
+                           showPercent>
+            </gx-status-bar>
+
+          </div>
+        </div>
+        <!-- /content -->
+
+        <div class="min-w-120" style="transform: translateY(30%);">
+          <a href="portal/forum/forum-item/1" class="btn btn-primary text-uppercase btn-block">Load Post</a>
+        </div>
+
+      </div>
+      <!-- /list -->
+
+    </gx-card>
+  </div>
+  <!-- /Grid Item -->
+
+</div>
+<!-- /Grid -->

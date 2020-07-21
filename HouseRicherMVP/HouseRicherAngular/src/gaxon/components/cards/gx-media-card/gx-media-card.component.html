@@ -1,0 +1,20 @@
+<!-- Card Image -->
+<img *ngIf="data.media" class="card-img-top" [src]="data.media" alt="{{data.title || 'Media Image'}}">
+<!-- /card image -->
+
+<ng-content></ng-content>
+
+<!-- Card Body -->
+<bs-card-body [ngClass]="bodyClasses">
+
+  <h4 *ngIf="data.title" class="mb-1">{{data.title}}</h4>
+
+  <!-- Card Text-->
+  <p class="card-text" [ngClass]="textStyle" [innerHTML]="data.content"></p>
+  <!-- /card text-->
+
+  <!-- Card Link -->
+  <a *ngIf="data.actionLabel" [routerLink]="data.actionRoute" class="card-link " [ngClass]="data.actionStyle">{{data.actionLabel}}</a>
+  <!-- /card link -->
+
+</bs-card-body>

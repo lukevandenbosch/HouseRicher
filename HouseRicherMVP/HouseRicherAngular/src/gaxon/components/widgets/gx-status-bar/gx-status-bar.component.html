@@ -1,0 +1,28 @@
+<span *ngIf="barPosition === 'end' && !_hideCounter"
+      class="dt-indicator-item__count text-nowrap mr-3"
+      [ngClass]="textColor">{{prefix + currentNumber + percentText + suffix}}</span>
+
+
+<div class="dt-indicator-item__bar" *ngIf="_fullWidth" [ngClass]="barClassNames">
+  <div class="dt-indicator-item__fill"
+       [ngClass]="[pointClassName, barColor]"
+       (@toggleWidth.start)="animationStarted($event)"
+       (@toggleWidth.done)="animationDone($event)"
+       [@toggleWidth]="{value: state, params: {newWidth: statusBarWidth}}"></div>
+</div>
+
+<div *ngIf="!_fullWidth"
+     class="dt-indicator-item__fill"
+     [ngClass]="[pointClassName, barColor]"
+     (@toggleWidth.start)="animationStarted($event)"
+     (@toggleWidth.done)="animationDone($event)"
+     [@toggleWidth]="{value: state, params: {newWidth: statusBarWidth}}"></div>
+
+<span *ngIf="barPosition === 'start' && !_hideCounter"
+      class="dt-indicator-item__count text-nowrap ml-3"
+      [ngClass]="textColor">{{prefix + currentNumber + percentText}}</span>
+
+<span *ngIf="barPosition === 'start' && suffix" class="d-inline-block"
+      [ngClass]="{textColor:textColor, 'min-w-50':suffix !== '%'}">{{suffix}}</span>
+
+<ng-content></ng-content>

@@ -1,0 +1,41 @@
+<!-- Chart Header -->
+<card-header class="px-5 pt-4 mb-4" [ngClass]="{'vertical-view': isVertical}">
+
+  <!-- Card Heading -->
+  <card-heading>
+    <h3 class="dt-card__title f-12 font-weight-400">
+      <gx-icon [name]="data.crypto.icon" size="2x" class="mr-2" [ngClass]="data.crypto.color"></gx-icon>
+      <span class="align-middle" [ngClass]="data.tagLine.color">{{data.tagLine.text}}</span>
+    </h3>
+  </card-heading>
+  <!-- /card heading -->
+
+</card-header>
+<!-- /chart header -->
+
+<card-body class="px-5 pb-4">
+  <!-- Grid -->
+  <div class="row no-gutters">
+
+    <!-- Grid Item -->
+    <div class="col-6">
+      <div *ngIf="data.trending" class="d-flex align-items-center" [ngClass]="data.trending.color">
+        <span class="f-16 mr-1">{{data.trending.text}}</span>
+        <gx-icon *ngIf="data.trending.icon" [name]="data.trending.icon"></gx-icon>
+      </div>
+      <span class="display-4 font-weight-500" [ngClass]="amountColor">{{data.amount.value}}</span>
+    </div>
+    <!-- /grid item -->
+
+    <!-- Grid Item -->
+    <div class="col-6">
+
+      <ng-content></ng-content>
+
+    </div>
+    <!-- /grid item -->
+
+  </div>
+  <!-- /grid -->
+
+</card-body>

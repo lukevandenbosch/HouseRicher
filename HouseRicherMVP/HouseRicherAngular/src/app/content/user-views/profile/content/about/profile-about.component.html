@@ -1,0 +1,216 @@
+<tabs-about-profile title="About">
+    <tab-about-profile tabTitle="Overview">
+        <!-- List -->
+        <ul class="dt-list dt-list-col-4">
+            <!-- List Item -->
+            <li class="dt-list__item">
+                <!-- Media -->
+                <gx-media-icon-card label="Works at">
+                    <gx-icon name="company" size="4x" class="mr-5 align-self-center text-yellow" icon></gx-icon>
+                    <p class="h5 mb-0" text>{{data.company}}</p>
+                </gx-media-icon-card>
+                <!-- /media -->
+            </li>
+            <!-- /list item -->
+
+            <!-- List Item -->
+            <li class="dt-list__item">
+                <!-- Media -->
+                <gx-media-icon-card label="Birthday">
+                    <gx-icon name="birthday-new" size="4x" class="mr-5 align-self-center text-yellow" icon></gx-icon>
+                    <p class="h5 mb-0" text>{{data.birthday}}</p>
+                </gx-media-icon-card>
+                <!-- /media -->
+            </li>
+            <!-- /list item -->
+
+            <!-- List Item -->
+            <li class="dt-list__item">
+                <!-- Media -->
+                <gx-media-icon-card label="Went to">
+                    <gx-icon name="graduation" size="4x" class="mr-5 align-self-center text-yellow" icon></gx-icon>
+                    <p class="h5 mb-0" text>{{data.university}}</p>
+                </gx-media-icon-card>
+                <!-- /media -->
+            </li>
+            <!-- /list item -->
+
+            <!-- List Item -->
+            <li class="dt-list__item">
+                <!-- Media -->
+                <gx-media-icon-card [label]="'Lives in '+data.current_city">
+                    <gx-icon name="home" size="4x" class="mr-5 align-self-center text-yellow" icon></gx-icon>
+                    <p class="h5 mb-0" text>From {{data.hometown}}</p>
+                </gx-media-icon-card>
+                <!-- /media -->
+            </li>
+            <!-- /list item -->
+
+            <!-- List Item -->
+            <li class="dt-list__item">
+                <!-- Media -->
+                <!-- Media -->
+                <gx-media-icon-card [label]="data.members.length +' Family Members'">
+                    <gx-icon name="family" size="4x" class="mr-5 align-self-center text-yellow" icon></gx-icon>
+                    <!-- Project Team -->
+                    <ul class="dt-list dt-team-list dt-team-list-sm" text>
+                        <li *ngFor="let member of data.members">
+                            <!-- Avatar -->
+                            <a class="dt-avatar size-25"
+                               href="javascript:void(0)">
+                                <img [src]="member.image"
+                                     alt="{{member.name}}"> </a>
+                            <!-- /avatar -->
+                        </li>
+                    </ul>
+                    <!-- /project team -->
+                </gx-media-icon-card>
+            </li>
+            <!-- /list item -->
+        </ul>
+        <!-- /list -->
+    </tab-about-profile>
+    <tab-about-profile tabTitle="Work">
+        <!-- List -->
+        <ul class="dt-list dt-list-col-4">
+            <!-- List Item -->
+            <li class="dt-list__item">
+                <!-- Media -->
+                <gx-media-icon-card label="Works at">
+                    <gx-icon name="company" size="4x" class="mr-5 align-self-center text-yellow" icon></gx-icon>
+                    <p class="h5 mb-0" text>{{data.company}}</p>
+                </gx-media-icon-card>
+                <!-- /media -->
+            </li>
+            <!-- /list item -->
+
+            <!-- List Item -->
+            <li class="dt-list__item">
+                <!-- Media -->
+                <gx-media-icon-card label="Birthday">
+                    <gx-icon name="birthday-new" size="4x" class="mr-5 align-self-center text-yellow" icon></gx-icon>
+                    <p class="h5 mb-0" text>{{data.birthday}}</p>
+                </gx-media-icon-card>
+                <!-- /media -->
+            </li>
+            <!-- /list item -->
+
+            <!-- List Item -->
+            <li class="dt-list__item">
+                <!-- Media -->
+                <gx-media-icon-card label="Went to">
+                    <gx-icon name="graduation" size="4x" class="mr-5 align-self-center text-yellow" icon></gx-icon>
+                    <p class="h5 mb-0" text>{{data.university}}</p>
+                </gx-media-icon-card>
+                <!-- /media -->
+            </li>
+            <!-- /list item -->
+
+            <!-- List Item -->
+            <li class="dt-list__item">
+                <!-- Media -->
+                <gx-media-icon-card [label]="'Lives in '+data.current_city">
+                    <gx-icon name="home" size="4x" class="mr-5 align-self-center text-yellow" icon></gx-icon>
+                    <p class="h5 mb-0" text>From {{data.hometown}}</p>
+                </gx-media-icon-card>
+                <!-- /media -->
+            </li>
+            <!-- /list item -->
+
+            <!-- List Item -->
+            <li class="dt-list__item">
+                <!-- Media -->
+                <!-- Media -->
+                <gx-media-icon-card [label]="data.members.length +' Family Members'">
+                    <gx-icon name="family" size="4x" class="mr-5 align-self-center text-yellow" icon></gx-icon>
+                    <!-- Project Team -->
+                    <ul class="dt-list dt-team-list dt-team-list-sm" text>
+                        <li *ngFor="let member of data.members">
+                            <!-- Avatar -->
+                            <a class="dt-avatar size-25"
+                               href="javascript:void(0)">
+                                <img [src]="member.image"
+                                     alt="{{member.name}}"> </a>
+                            <!-- /avatar -->
+                        </li>
+                    </ul>
+                    <!-- /project team -->
+                </gx-media-icon-card>
+            </li>
+            <!-- /list item -->
+        </ul>
+        <!-- /list -->
+    </tab-about-profile>
+    <tab-about-profile tabTitle="Education">
+        <!-- List -->
+        <ul class="dt-list dt-list-col-4">
+            <!-- List Item -->
+            <li class="dt-list__item">
+                <!-- Media -->
+                <gx-media-icon-card label="Works at">
+                    <gx-icon name="company" size="4x" class="mr-5 align-self-center text-yellow" icon></gx-icon>
+                    <p class="h5 mb-0" text>{{data.company}}</p>
+                </gx-media-icon-card>
+                <!-- /media -->
+            </li>
+            <!-- /list item -->
+
+            <!-- List Item -->
+            <li class="dt-list__item">
+                <!-- Media -->
+                <gx-media-icon-card label="Birthday">
+                    <gx-icon name="birthday-new" size="4x" class="mr-5 align-self-center text-yellow" icon></gx-icon>
+                    <p class="h5 mb-0" text>{{data.birthday}}</p>
+                </gx-media-icon-card>
+                <!-- /media -->
+            </li>
+            <!-- /list item -->
+
+            <!-- List Item -->
+            <li class="dt-list__item">
+                <!-- Media -->
+                <gx-media-icon-card label="Went to">
+                    <gx-icon name="graduation" size="4x" class="mr-5 align-self-center text-yellow" icon></gx-icon>
+                    <p class="h5 mb-0" text>{{data.university}}</p>
+                </gx-media-icon-card>
+                <!-- /media -->
+            </li>
+            <!-- /list item -->
+
+            <!-- List Item -->
+            <li class="dt-list__item">
+                <!-- Media -->
+                <gx-media-icon-card [label]="'Lives in '+data.current_city">
+                    <gx-icon name="home" size="4x" class="mr-5 align-self-center text-yellow" icon></gx-icon>
+                    <p class="h5 mb-0" text>From {{data.hometown}}</p>
+                </gx-media-icon-card>
+                <!-- /media -->
+            </li>
+            <!-- /list item -->
+
+            <!-- List Item -->
+            <li class="dt-list__item">
+                <!-- Media -->
+                <!-- Media -->
+                <gx-media-icon-card [label]="data.members.length +' Family Members'">
+                    <gx-icon name="family" size="4x" class="mr-5 align-self-center text-yellow" icon></gx-icon>
+                    <!-- Project Team -->
+                    <ul class="dt-list dt-team-list dt-team-list-sm" text>
+                        <li *ngFor="let member of data.members">
+                            <!-- Avatar -->
+                            <a class="dt-avatar size-25"
+                               href="javascript:void(0)">
+                                <img [src]="member.image"
+                                     alt="{{member.name}}"> </a>
+                            <!-- /avatar -->
+                        </li>
+                    </ul>
+                    <!-- /project team -->
+                </gx-media-icon-card>
+            </li>
+            <!-- /list item -->
+        </ul>
+        <!-- /list -->
+    </tab-about-profile>
+</tabs-about-profile>
+

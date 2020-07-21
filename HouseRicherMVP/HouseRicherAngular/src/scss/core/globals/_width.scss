@@ -1,0 +1,25 @@
+// -----------------------------------------------------------------------------
+// This file contains CSS Background Gradient Colors.
+// -----------------------------------------------------------------------------
+
+// Minimum Width
+@each $prop, $abbrev in (min-width: min-w) {
+  @each $size, $length in $min-sizes {
+    .#{$abbrev}-#{$size} {
+      #{$prop}: $length
+    }
+  }
+}
+
+//Max Width
+.max-w {
+  &-90 {
+    max-width: 9rem;
+  }
+  &-105 {
+    max-width: 10.5rem;
+  }
+  &-250 {
+    max-width: 25rem !important;
+  }
+}

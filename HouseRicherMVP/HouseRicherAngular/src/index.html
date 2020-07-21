@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>HouseRicher</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <script src="//cdn.ckeditor.com/4.7.1/full/ckeditor.js"></script>
+  <link rel="stylesheet" href="assets/fonts/noir-pro/styles.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <!--<link rel="stylesheet" href="assets/css/default/theme-semidark.min.css">-->
+</head>
+<body>
+<app-root>
+  <style>
+    app-root {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    .loader-container {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .loader {
+      display: block;
+      height: 50px;
+      width: 50px;
+      -webkit-transform: translate(-50%, -50%);
+      -moz-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      -o-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      z-index: 1;
+    }
+
+    .circular {
+      animation: rotate 2s linear infinite;
+      -webkit-animation: rotate 2s linear infinite;
+      height: auto;
+      transform-origin: center center;
+      -webkit-transform-origin: center center;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+    }
+
+    .path {
+      stroke-dasharray: 1, 200;
+      stroke-dashoffset: 0;
+      animation: dash 1.5s ease-in-out infinite, color 6s ease-in-out infinite;
+      -webkit-animation: dash 1.5s ease-in-out infinite, color 6s ease-in-out infinite;
+      stroke-linecap: round;
+    }
+
+    @keyframes rotate {
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes dash {
+      0% {
+        stroke-dasharray: 1, 200;
+        stroke-dashoffset: 0;
+      }
+      50% {
+        stroke-dasharray: 89, 200;
+        stroke-dashoffset: -35px;
+      }
+      100% {
+        stroke-dasharray: 89, 200;
+        stroke-dashoffset: -124px;
+      }
+    }
+
+    @keyframes color {
+      100%,
+      0% {
+        stroke: #d62d20;
+      }
+      40% {
+        stroke: #0057e7;
+      }
+      66% {
+        stroke: #008744;
+      }
+      80%,
+      90% {
+        stroke: #ffa700;
+      }
+    }
+
+    @-webkit-keyframes rotate {
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    @-webkit-keyframes dash {
+      0% {
+        stroke-dasharray: 1, 200;
+        stroke-dashoffset: 0;
+      }
+      50% {
+        stroke-dasharray: 89, 200;
+        stroke-dashoffset: -35px;
+      }
+      100% {
+        stroke-dasharray: 89, 200;
+        stroke-dashoffset: -124px;
+      }
+    }
+
+    @-webkit-keyframes color {
+      100%,
+      0% {
+        stroke: #d62d20;
+      }
+      40% {
+        stroke: #0057e7;
+      }
+      66% {
+        stroke: #008744;
+      }
+      80%,
+      90% {
+        stroke: #ffa700;
+      }
+    }
+  </style>
+
+  <div class="loader-container">
+    <div class="loader">
+      <svg class="circular" viewBox="25 25 50 50">
+        <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"></circle>
+      </svg>
+    </div>
+  </div>
+</app-root>
+</body>
+</html>

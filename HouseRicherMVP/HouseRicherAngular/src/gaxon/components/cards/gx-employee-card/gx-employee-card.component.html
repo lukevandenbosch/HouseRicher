@@ -1,0 +1,64 @@
+<!-- Card Header -->
+<card-header class="bg-primary text-white">
+    <!-- Card Heading -->
+    <card-heading>
+        <!-- Icon -->
+        <a href="javascript:void(0)" class="d-inline-block text-white mr-3">
+            <gx-icon name="charts" fw="true" size="lg"></gx-icon>
+        </a>
+
+        <!-- Icon -->
+        <a href="javascript:void(0)" class="d-inline-block text-white">
+            <gx-icon name="message" fw="true" size="lg"></gx-icon>
+        </a>
+        <!-- /icon -->
+    </card-heading>
+    <!-- /card heading -->
+
+    <!-- Card Tools -->
+    <card-tool>
+        <!-- Dropdown -->
+        <div ngbDropdown placement="bottom-right">
+            <a ngbDropdownToggle class="no-arrow text-white" href="javascript:void(0)">
+                <gx-icon name="settings" [fw]="true" size="lg"></gx-icon>
+            </a>
+
+            <div ngbDropdownMenu>
+                <ng-container *ngTemplateOutlet="actionItems"></ng-container>
+            </div>
+        </div>
+        <!-- /dropdown -->
+    </card-tool>
+    <!-- /card tools -->
+</card-header>
+<!-- /card header -->
+
+
+<card-body [ngClass]="bodyClasses">
+    <!-- Avatar -->
+    <gx-avatar [user]="employee.profile" class="user-avatar size-70"></gx-avatar>
+    <!-- /avatar -->
+    <div class="dt-avatar-info mb-4">
+        <h4 class="h2 dt-avatar-name mb-1">{{employee.profile.name}}</h4>
+        <span class="d-block">{{employee.profile.designation}}</span>
+    </div>
+    <div class="trending-section justify-content-center text-primary">
+        <gx-icon name="pointer-up" class="mr-2"></gx-icon>
+        <span class="value h2">{{employee.progress.value}}</span>
+    </div>
+    <p class="mb-0 f-12">{{employee.progress.text}}</p>
+</card-body>
+
+<!-- Chart Body -->
+<gx-chart class="dt-chart__body"
+          chartClasses="rounded-bottom"
+          [chartType]="employee.chart.chartType"
+          [options]="employee.chart.options"
+          [shadowType]="employee.chart.shadowType"
+          [gradients]="employee.chart.gradients"
+          [datasets]="employee.chart.datasets"
+          [labels]="employee.chart.labels"
+          [colors]="employee.chart.colors"></gx-chart>
+<!-- /chart body -->
+
+

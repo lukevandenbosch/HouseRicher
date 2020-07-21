@@ -1,0 +1,71 @@
+<!-- Card Header -->
+<card-header>
+  <card-heading>
+    <h3 class="dt-card__title mb-1">Referral Traffic</h3>
+    <p class="mb-0 text-light-gray f-12">Updated 30 min ago</p>
+  </card-heading>
+
+  <card-tool>
+    <!-- Dropdown -->
+    <div class="d-inline-block" ngbDropdown placement="bottom-right">
+      <a class="d-inline-block f-12 py-1 px-2 py-1 border rounded" href="javascript:void(0)" ngbDropdownToggle>
+        Unread
+      </a>
+
+      <div ngbDropdownMenu>
+        <a class="dropdown-item" href="javascript:void(0)">Read</a>
+        <a class="dropdown-item" href="javascript:void(0)">Unread</a>
+        <a class="dropdown-item" href="javascript:void(0)">Spam</a>
+      </div>
+    </div>
+    <!-- /dropdown -->
+  </card-tool>
+
+</card-header>
+<!-- /card header -->
+
+<!-- Grid -->
+<div class="row no-gutters">
+  <!-- Grid Item -->
+  <div class="col-sm-6 order-sm-2">
+    <!-- Card Body -->
+    <card-body class="pt-0 d-flex justify-content-center align-items-center">
+      <!-- Chart -->
+      <gx-chart [chartType]="chart.chartType"
+                [options]="chart.options"
+                [labels]="chart.labels"
+                [colors]="chart.colors"
+                [datasets]="chart.datasets"></gx-chart>
+      <!-- /chart -->
+    </card-body>
+    <!-- /card body -->
+  </div>
+  <!-- /grid item -->
+
+  <!-- Grid Item -->
+  <div class="col-sm-6 order-sm-1">
+
+    <!-- Card Body -->
+    <card-body class="pt-0">
+      <ul class="dt-indicator">
+        <li class="dt-indicator-item" *ngFor="let item of progressRecords">
+          <p class="dt-indicator-title">{{item.label}}</p>
+
+          <gx-status-bar showPercent
+                         barPosition="start"
+                         [fullWidth]="true"
+                         [fillVal]="item.value"
+                         [maxVal]="item.maxValue"
+                         [barColor]="item.color"
+                         textColor="">
+          </gx-status-bar>
+        </li>
+      </ul>
+    </card-body>
+    <!-- /card body -->
+
+  </div>
+  <!-- /grid item -->
+
+</div>
+<!-- /grid -->

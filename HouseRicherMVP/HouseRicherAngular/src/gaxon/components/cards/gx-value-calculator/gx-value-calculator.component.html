@@ -1,0 +1,113 @@
+<!-- Card Header -->
+<div class="dt-card__header">
+  <!-- Card Heading -->
+  <card-heading>
+    <div class="d-flex align-items-center">
+      <gx-icon name="calculator" [fw]="true" size="2x" class="text-white mr-2"></gx-icon>
+      <h3 class="dt-card__title text-white">Value Calculator</h3>
+    </div>
+  </card-heading>
+  <!-- /card heading -->
+
+  <!-- Card Tools -->
+  <card-tool class="align-self-start mt-n3 mr-n2">
+    <!-- Dropdown -->
+    <div ngbDropdown placement="bottom-right">
+
+      <!-- Dropdown Button -->
+      <a href="javascript:void(0)" class="no-arrow text-white" ngbDropdownToggle>
+        <gx-icon name="horizontal-more" [fw]="true" size="3x"></gx-icon>
+      </a>
+      <!-- /dropdown button -->
+
+      <!-- Dropdown Menu -->
+      <div ngbDropdownMenu>
+        <a class="dropdown-item" href="javascript:void(0)">Action</a>
+        <a class="dropdown-item" href="javascript:void(0)">Another action</a>
+        <a class="dropdown-item" href="javascript:void(0)">Something else here</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="javascript:void(0)">Separated link</a>
+      </div>
+      <!-- /dropdown menu -->
+
+    </div>
+    <!-- /dropdown -->
+  </card-tool>
+  <!-- /card tools -->
+</div>
+<!-- /card header -->
+
+<!-- Card Body -->
+<card-body class="pb-3">
+
+  <!-- Form -->
+  <form>
+    <!-- Grid -->
+    <div class="row">
+      <!-- Grid Item -->
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label>Select City</label>
+          <select class="custom-select custom-select-sm">
+            <option>Ajmer</option>
+            <option selected>Bikaner</option>
+            <option>Chandigarh</option>
+            <option>Dehradun</option>
+            <option>Jaipur</option>
+          </select>
+        </div>
+      </div>
+      <!-- / grid item -->
+
+      <!-- Grid Item -->
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label>Select Area</label>
+          <select class="custom-select custom-select-sm">
+            <option>Rajori</option>
+            <option selected>Rajori gadh</option>
+            <option>Pugal Road</option>
+            <option>Bopal</option>
+            <option>Bodakdev</option>
+          </select>
+        </div>
+      </div>
+      <!-- / grid item -->
+
+      <!-- Grid Item -->
+      <div class="col-12">
+        <div class="form-group">
+                        <span class="d-flex mb-1">
+                            <label class="mb-0">Price Per Sq. Feet</label>
+                            <a href="javascript:void(0)" class="text-white ml-auto">
+                              <gx-icon name="editors"></gx-icon>
+                            </a>
+                        </span>
+          <input type="text" class="form-control form-control-sm"
+                 placeholder="52,400">
+        </div>
+      </div>
+      <!-- / grid item -->
+
+      <!-- Grid Item -->
+      <div class="col-12">
+        <div class="form-group">
+          <label class="mb-2">Enter area (sq. feet)</label>
+          <input type="text" class="form-control form-control-sm">
+        </div>
+      </div>
+      <!-- / grid item -->
+    </div>
+    <!-- /grid -->
+  </form>
+  <!-- /form -->
+
+</card-body>
+<!-- /card body -->
+
+<!-- Card Footer -->
+<div class="px-7 py-5 border-top border-w-2 border-black-transparent">
+  <span class="d-block display-4 mb-2">$45,00,000</span>
+  <p class="f-16 mb-0">1000 Sq. Feet, Bikaner-RajoriGadh</p>
+</div>
+<!-- /card footer -->

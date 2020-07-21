@@ -1,0 +1,80 @@
+<!-- Card Header -->
+<card-header class="bg-primary pb-7 mb-0 rounded-top">
+  <card-heading>
+    <div class="d-flex align-items-center mb-3">
+      <gx-icon name="invoice-new" [fw]="true" size="2x" class="text-white mr-2"></gx-icon>
+      <h3 class="dt-card__title text-white">Invoices</h3>
+    </div>
+    <p class="f-16 text-white mb-0">25400 Invoice Generated</p>
+  </card-heading>
+
+  <card-tool class="align-self-start mt-n3 mr-n2">
+    <!-- Dropdown -->
+    <div ngbDropdown placement="bottom-right">
+
+      <!-- Dropdown Button -->
+      <a href="javascript:void(0)" class="no-arrow text-white" ngbDropdownToggle>
+        <gx-icon name="horizontal-more" [fw]="true" size="3x"></gx-icon>
+      </a>
+      <!-- /dropdown button -->
+
+      <!-- Dropdown Menu -->
+      <div ngbDropdownMenu>
+        <a class="dropdown-item" href="javascript:void(0)">Action</a>
+        <a class="dropdown-item" href="javascript:void(0)">Another action</a>
+        <a class="dropdown-item" href="javascript:void(0)">Something else
+          here</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="javascript:void(0)">Separated link</a>
+      </div>
+      <!-- /dropdown menu -->
+
+    </div>
+    <!-- /dropdown -->
+  </card-tool>
+</card-header>
+<!-- /card header -->
+
+<!-- Card Body -->
+<card-body class="pb-3">
+
+  <!-- Tables -->
+  <div class="table-responsive">
+    <table class="table mb-0 table-fluid">
+      <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Invoice To</th>
+        <th scope="col" class="text-right">Date</th>
+        <th scope="col" class="text-right">Amount</th>
+        <th scope="col">Action</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let invoice of invoices">
+        <td>{{invoice.invoiceNo}}</td>
+        <td class="text-dark">{{invoice.invoiceTo}}</td>
+        <td class="text-right">{{invoice.invoiceDate}}</td>
+        <td class="text-right">{{invoice.amount | currency}}</td>
+        <td>
+          <ul class="dt-list dt-list-cm-0">
+            <li class="dt-list__item">
+              <a class="text-light-gray" href="javascript:void(0)">
+                <gx-icon name="editors"></gx-icon>
+              </a>
+            </li>
+            <li class="dt-list__item">
+              <a class="text-light-gray" href="javascript:void(0)">
+                <gx-icon name="trash-filled"></gx-icon>
+              </a>
+            </li>
+          </ul>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <!-- /table -->
+
+</card-body>
+<!-- /card body -->

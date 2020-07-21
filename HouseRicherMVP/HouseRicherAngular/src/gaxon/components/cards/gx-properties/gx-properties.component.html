@@ -1,0 +1,57 @@
+<!-- Card Header -->
+<card-header [card-title]="cardTitle" class="mb-5"></card-header>
+<!-- /card header -->
+
+<!-- Card Body -->
+<card-body class="p-0">
+
+  <!-- Widget -->
+  <div class="dt-widget dt-widget-sm dt-widget-hover">
+
+    <!-- Widget Item -->
+    <div *ngFor="let property of properties" class="dt-widget__item">
+
+      <!-- Widget Info -->
+      <div class="dt-widget__info text-truncate">
+        <div class="dt-widget__title text-truncate">
+          <a class="text-truncate" href="javascript:void(0)">{{property.title}}</a>
+        </div>
+
+        <ul class="dt-list dt-widget__subtitle text-light-gray dt-list-cm-0 flex-nowrap">
+          <!-- List Item -->
+          <li class="dt-list__item text-truncate">
+                  <span class="text-truncate">
+                    <gx-icon name="users2" class="mr-1"></gx-icon>
+                    <span class="text-dark">{{property.visitors}}</span> Visitors</span>
+          </li>
+          <!-- /list item -->
+
+          <!-- List Item -->
+          <li class="dt-list__item text-truncate">
+                  <span class="text-truncate">
+                    <gx-icon name="location" class="mr-1"></gx-icon>{{property.location}}</span>
+          </li>
+          <!-- /list item -->
+        </ul>
+
+      </div>
+      <!-- /widget info -->
+
+      <!-- Widget Extra -->
+      <div class="dt-extra animate-slide align-self-center">
+        <div class="slide-content">
+          <a href="javascript:void(0)">
+            <gx-icon name="arrow-right" [fw]="true" size="xl"></gx-icon>
+          </a>
+        </div>
+      </div>
+      <!-- /widget extra -->
+
+    </div>
+    <!-- /widget Item close-->
+
+  </div>
+  <!-- /widget -->
+
+</card-body>
+<!-- /card body -->

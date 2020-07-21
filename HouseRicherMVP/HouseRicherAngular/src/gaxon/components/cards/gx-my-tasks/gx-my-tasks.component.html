@@ -1,0 +1,38 @@
+<!-- Card Header -->
+<card-header card-title="My Task"></card-header>
+<!-- /card header -->
+
+<!-- Card Body -->
+<card-body>
+
+  <!-- Task Section  -->
+  <div class="dt-todo-group">
+
+    <!-- Search box -->
+    <form>
+      <input class="form-control mb-5" placeholder="Search in tasks..." [formControl]="searchQuery" type="search">
+    </form>
+    <!-- /search box -->
+
+    <!-- Tasks -->
+    <ng-container *ngFor="let task of tasks | filter: searchText; index as i">
+
+      <div *ngIf="i < 4" class="dt-checkbox dt-checkbox-todo mb-3">
+        <input type="checkbox" id="checkbox-{{i}}" [(ngModel)]="task.completed">
+        <label class="dt-checkbox-content" for="checkbox-{{i}}"> {{task.title}}</label>
+      </div>
+
+    </ng-container>
+    <!-- /tasks -->
+
+    <div class="mt-5">
+      <a href="javascript:void(0)" class="card-link"> Go to My task
+        <gx-icon name="arrow-long-right" [fw]="true"></gx-icon>
+      </a>
+    </div>
+
+  </div>
+  <!-- /task section  -->
+
+</card-body>
+<!-- /card body -->

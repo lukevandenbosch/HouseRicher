@@ -1,0 +1,21 @@
+<card-header class="px-5 mb-4">
+    <card-heading class="text-center">
+        <div class="dt-separator-h-v1 mb-2"></div>
+        <h3 class="mb-0">{{data.title}}</h3>
+    </card-heading>
+</card-header>
+
+<card-body class="px-5">
+    <!-- Card Text -->
+    <p class="mb-5">{{data.content}}</p>
+    <!-- /card text-->
+
+    <!-- Button -->
+    <a *ngIf="data.actionLabel" [routerLink]="data.actionRoute" class="text-uppercase f-12 font-weight-500">{{data.actionLabel}}</a>
+    <!-- /button -->
+
+</card-body>
+
+<img class="img-fluid mb-n15" *ngIf="data.image" [src]="data.image"
+     alt="{{data.title}}">
+

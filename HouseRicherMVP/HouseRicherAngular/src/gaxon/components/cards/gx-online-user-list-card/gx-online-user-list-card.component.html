@@ -1,0 +1,22 @@
+<!-- List -->
+<ul class="dt-list dt-list-sm dt-friend-list">
+    <!-- List Item -->
+    <li class="dt-list__item" *ngFor="let user of userList; let last = last;">
+        <!-- User Information -->
+        <a href="javascript:void(0)" class="card user-bg-card user-bg-card-sm mb-0"
+           [ngStyle]="{'background-image': 'url(' + user.image + ')'}" [ngClass]="{'more-thumb':last}">
+
+            <span class="count-number display-4" *ngIf="last">+22</span>
+
+            <!-- Dot Shape -->
+            <span class="dot-shape dot-shape-lg dt-status" status [statusCode]="user.status" *ngIf="!last"></span>
+            <!-- /dot Shape -->
+            <span class="user-bg-card__info" *ngIf="!last">
+                <span class="dt-avatar-name f-10 mb-0">{{user.name}}</span>
+            </span>
+        </a>
+        <!-- /user information -->
+    </li>
+    <!-- /list item -->
+</ul>
+<!-- /list -->

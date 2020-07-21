@@ -1,0 +1,89 @@
+<!-- Theme Chooser -->
+<!-- /theme chooser -->
+
+<!-- Customizer Sidebar -->
+<aside class="dt-customizer dt-drawer position-right" [ngClass]="{'open': isOpen}">
+  <div class="dt-customizer__inner">
+
+    <!-- Customizer Header -->
+    <div class="dt-customizer__header">
+      <!-- Customizer Title -->
+      <div class="dt-customizer__title">
+        <h3 class="mb-0">Theme Settings</h3>
+      </div>
+      <!-- /customizer title -->
+      <!-- Close Button -->
+      <button type="button" class="close" (click)="toggleDrawer($event)">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <!-- /close button -->
+    </div>
+    <!-- /customizer header -->
+
+    <!-- Customizer Body -->
+    <div perfectScrollbar
+         [disabled]="!settings.customScrollbars"
+         class="dt-customizer__body">
+
+      <!-- Customizer Body Inner  -->
+      <div class="dt-customizer__body-inner">
+
+        <!-- Section Layout -->
+        <section class="d-none d-lg-block">
+          <h4>Layout</h4>
+
+          <!-- List -->
+          <ul class="dt-list dt-list-sm">
+            <li class="dt-list__item" *ngFor="let mode of layoutModes">
+              <div class="choose-option" [ngClass]="{'active':settings.mode == mode.slug}">
+                <a href="#{{mode.slug}}" (click)="onLayoutModeChange(mode.slug, $event)" class="choose-option__icon">
+                  <img [src]="mode.thumb" alt="{{mode.name}}">
+                </a>
+                <span class="choose-option__name">{{mode.name}}</span>
+              </div>
+            </li>
+          </ul>
+          <!-- /list -->
+
+        </section>
+        <!-- /section -->
+
+        <!-- Section Nav Style -->
+        <section>
+          <h4>Nav Style</h4>
+
+          <!-- List -->
+          <ul class="dt-list">
+            <li class="dt-list__item" *ngFor="let style of navStyles">
+              <div class="choose-option" [ngClass]="{active: style.slug === settings.layout}">
+                <a [href]="getLayoutUrl(style.slug)" class="choose-option__icon">
+                  <img [src]="style.thumb" alt="{{style.name}}">
+                </a>
+                <span class="choose-option__name">{{style.name}}</span>
+              </div>
+            </li>
+          </ul>
+          <!-- /list -->
+
+        </section>
+        <!-- /section -->
+
+      </div>
+      <!-- /customizer body inner -->
+    </div>
+    <!-- /customizer body -->
+
+    <swal #updateSwal
+          title="Success!"
+          html="Settings updated successfully"
+          type="success"
+          position="top"
+          timer="3000"
+          [showConfirmButton]="false"
+          [toast]="true">
+    </swal>
+
+  </div>
+</aside>
+<!-- /customizer sidebar -->
+<div *ngIf="isOpen" class="dt-backdrop" (click)="toggleDrawer($event)"></div>

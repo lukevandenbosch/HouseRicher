@@ -1,0 +1,19 @@
+<card-body class="d-flex flex-sm-column">
+  <!-- Icon -->
+  <div class="mb-sm-7 mr-7 mr-sm-0" *ngIf="icon">
+    <gx-icon [name]="icon.name" class="dt-icon-bg" [ngClass]="icon.colorClasses"></gx-icon>
+  </div>
+  <!-- /icon -->
+
+  <div class="flex-1">
+    <div class="d-flex align-items-center mb-2">
+      <span class="h2 mb-0 font-weight-500 mr-2">{{number}}</span>
+      <span class="d-inline-flex" [ngClass]="{'text-danger':!positiveGrowth,'text-success':positiveGrowth}">
+        <gx-icon [name]="growthIcon" [fw]="true"></gx-icon>{{positiveGrowth? '+' : '-'}}{{percent}}%
+      </span>
+    </div>
+  </div>
+
+  <div class="h5 mb-2">{{title}}</div>
+  <p class="card-text text-light-gray f-12">{{description}}</p>
+</card-body>

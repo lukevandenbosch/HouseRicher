@@ -1,0 +1,107 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the main content of the site/application.
+// -----------------------------------------------------------------------------
+.#{$class-prefix}-root {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  &__intra {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    position: relative;
+    min-height: 100%;
+
+    @include media-breakpoint-up(sm) {
+      &:before {
+        content: '';
+        height: 27rem;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        background-color: $primary;
+      }
+    }
+  }
+}
+
+.#{$class-prefix}-main {
+  display: flex;
+  flex-wrap: wrap;
+  flex: 1;
+  -ms-flex: 1;
+}
+
+.#{$class-prefix}-content-wrapper {
+  flex: 1 1 auto;
+  width: calc(100% - #{$sidebar-width});
+  display: flex;
+  flex-direction: column;
+  @include transition(all 0.2s ease);
+
+  @media screen and (min-width: 1367px) {
+    width: calc(100% - #{$sidebar-width + 50px});
+  }
+}
+
+.#{$class-prefix}-content {
+  padding: 4.4rem 3.2rem;
+}
+
+.#{$class-prefix}-page {
+  &__header {
+    position: relative;
+    margin-bottom: 4.4rem;
+  }
+
+  &__title {
+    font-weight: 400;
+
+    @include media-breakpoint-up(sm) {
+      color: $white;
+    }
+  }
+}
+
+.#{$class-prefix}-entry {
+
+  &__header {
+    position: relative;
+    margin-bottom: 3rem;
+    padding-bottom: 1.6rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: $dt-border;
+
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      height: 3px;
+      width: 45px;
+      background-color: $primary;
+      @include border-radius(10px);
+    }
+  }
+
+  &__title {
+    margin-bottom: 0;
+    font: {
+      size: 16px;
+    }
+    text-transform: capitalize;
+    color: $text-muted;
+  }
+}

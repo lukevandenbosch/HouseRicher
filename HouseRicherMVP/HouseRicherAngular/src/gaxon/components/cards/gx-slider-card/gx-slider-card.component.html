@@ -1,0 +1,54 @@
+<!-- Card Body -->
+<card-body class="p-0">
+    <div class="row no-gutters h-100">
+        <div class="col-sm-5 order-sm-2">
+            <!-- Card Image -->
+            <div class="card-image carousel-thumb object-none bg-primary text-center rounded-right">
+                    <img class="img-fluid"
+                         [src]="activeSlideImage"
+                         alt="Plant">
+            </div>
+            <!-- /card image -->
+        </div>
+
+        <div class="col-sm-7 order-sm-1">
+            <!-- Carousel -->
+            <div class="owl-carousel owl-theme">
+
+                <ngb-carousel *ngIf="data.imageUrls" [showNavigationArrows]="false" [showNavigationIndicators]="true"
+                              (slide)="onSlideChange($event)">
+                    <ng-template *ngFor="let image of data.imageUrls; let i=index" ngbSlide id="ngb-slider-{{i}}">
+                        <!-- Card Body -->
+                        <div class="card-body" attr.data-thumb="/{{image}}">
+
+                            <!-- Card Title-->
+                            <span class="d-block f-16 text-light-gray mb-2">Step-{{i+1}}</span>
+                            <h2 class="card-title font-weight-normal">Create your account “FREE”</h2>
+                            <!-- Card Title-->
+
+                            <!-- Content Area -->
+                            <p class="card-text">
+                                Mother nature want you to become a part of it and feel the love.
+                                There could be more which you can take as an initiative and
+                                collaborate in making this world a better world.
+                            </p>
+                            <!-- /content area -->
+
+                            <div class="mb-3">
+                                <a href="#" class="d-flex align-items-center">
+                                    <gx-icon name="play-circle-o" class="mr-2"></gx-icon>
+                                    <span class="text-dark f-12">How it works</span>
+                                </a>
+                            </div>
+
+                        </div>
+                        <!-- /card body -->
+                    </ng-template>
+                </ngb-carousel>
+            </div>
+            <!-- /carousel -->
+        </div>
+    </div>
+</card-body>
+<!-- /card body -->
+

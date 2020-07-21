@@ -1,0 +1,32 @@
+<a class="nav-link dt-side-nav__arrow" (click)="toggleOpen($event)" [ngClass]="{active:isOpen}">
+  <ng-container *ngTemplateOutlet="itemContent"></ng-container>
+</a>
+
+<ng-template #itemContent>
+  <gx-icon class="nav-link-icon" *ngIf="item.icon" name="{{item.icon}}" size="xl" [fw]="true"></gx-icon>
+  <span *ngIf="item.translate" class="nav-text" [translate]="item.translate"></span>
+  <span *ngIf="!item.translate" class="nav-text">{{item.title}}</span>
+</ng-template>
+
+<div class="sub-menu">
+  <ng-container *ngFor="let item of item.children">
+    <ng-container *ngIf="item.type=='collapse'">
+      <div class="nav-item">
+        <!-- Heading -->
+        <h3 *ngIf="item.translate || item.title" class="menu-heading">
+          <gx-icon class="nav-link-icon" *ngIf="item.icon" name="{{item.icon}}" size="xl" [fw]="true"></gx-icon>
+          <span [translate]="item.translate">{{item.title}}</span>
+        </h3>
+        <!-- /heading -->
+
+        <div class="nav-item__inner">
+          <ng-container *ngFor="let child of item.children">
+            <app-nav-horizontal-item *ngIf="child.type=='item'" [item]="child"></app-nav-horizontal-item>
+          </ng-container>
+        </div>
+      </div>
+    </ng-container>
+
+    <app-nav-horizontal-item *ngIf="item.type=='item'" [item]="item"></app-nav-horizontal-item>
+  </ng-container>
+</div>

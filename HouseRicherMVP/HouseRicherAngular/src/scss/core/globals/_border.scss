@@ -1,0 +1,100 @@
+// -----------------------------------------------------------------------------
+// This file contains CSS Border.
+// -----------------------------------------------------------------------------
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+    .border#{$infix} {
+      border: $border-width solid $border-color !important;
+    }
+    .border#{$infix}-top {
+      border-top: $border-width solid $border-color !important;
+    }
+    .border#{$infix}-right {
+      border-right: $border-width solid $border-color !important;
+    }
+    .border#{$infix}-bottom {
+      border-bottom: $border-width solid $border-color !important;
+    }
+    .border#{$infix}-left {
+      border-left: $border-width solid $border-color !important;
+    }
+
+    .border#{$infix}-0 {
+      border: 0 !important;
+    }
+    .border#{$infix}-top-0 {
+      border-top: 0 !important;
+    }
+    .border#{$infix}-right-0 {
+      border-right: 0 !important;
+    }
+    .border#{$infix}-bottom-0 {
+      border-bottom: 0 !important;
+    }
+    .border#{$infix}-left-0 {
+      border-left: 0 !important;
+    }
+  }
+}
+
+// Border Colors
+@each $color, $value in $theme-colors {
+  .border-#{$color} {
+    border-color: $value !important;
+  }
+}
+
+@each $color, $value in $dt-colors {
+  .border-#{$color} {
+    border-color: $value !important;
+  }
+}
+
+.border-black-transparent {
+  border-color: rgba($black, 0.15) !important;
+}
+
+// Border Style
+.border {
+  &-solid {
+    border-style: solid !important;
+  }
+
+  &-dashed {
+    border-style: dashed !important;
+  }
+
+  &-dotted {
+    border-style: dotted !important;
+  }
+}
+
+// Border Width
+.border-w {
+  &-0 {
+    border-width: 0 !important;
+  }
+
+  &-1 {
+    border-width: 1px !important;
+  }
+
+  &-2 {
+    border-width: 2px !important;
+  }
+
+  &-3 {
+    border-width: 3px !important;
+  }
+
+  &-4 {
+    border-width: 4px !important;
+  }
+
+  &-5 {
+    border-width: 5px !important;
+  }
+}

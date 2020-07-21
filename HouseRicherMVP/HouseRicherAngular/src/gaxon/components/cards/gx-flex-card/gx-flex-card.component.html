@@ -1,0 +1,17 @@
+<!-- Card Stacked -->
+<bs-card-body class="p-3">
+  <span *ngIf="data.badge" class="badge badge-success mb-1 p-1">{{data.badge}}</span>
+  <h4 *ngIf="data.title" class="mb-1 text-truncate">{{data.title}}</h4>
+  <span *ngIf="data.subtitle" class="d-block f-12 text-truncate">{{data.subtitle}}</span>
+</bs-card-body>
+
+<!-- Card Image -->
+<div class="pr-4 d-flex align-items-center">
+  <!-- Card Image -->
+  <img class="img-fluid" [src]="data.media" alt="{{data.title}}">
+  <!-- /card image -->
+  <a [routerLink]="data.route" class="d-inline-block ml-5 text-body">
+    <gx-icon name="chevrolet-right" size="xl"></gx-icon>
+  </a>
+</div>
+<!-- /card image -->

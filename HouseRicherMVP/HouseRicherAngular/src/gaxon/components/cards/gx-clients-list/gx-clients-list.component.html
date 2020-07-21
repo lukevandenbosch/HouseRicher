@@ -1,0 +1,37 @@
+<!-- List -->
+<ul class="dt-list dt-list-xxl dt-list-bordered flex-nowrap">
+
+  <!-- List Item -->
+  <li class="dt-list__item text-center col" *ngFor="let client of clients">
+    <div class="dt-avatar-wrapper flex-column">
+      <!-- Image -->
+      <gx-avatar [user]="client" class="mb-4 size-80" [charLength]="2"></gx-avatar>
+      <!-- /image -->
+      <!-- Content -->
+      <div class="dt-avatar-info">
+        <span class="dt-avatar-name mb-1 text-nowrap">{{client.name}}</span>
+        <!-- List -->
+        <ul class="dt-list dt-list-bordered dt-list-cm-0 f-12 flex-nowrap">
+          <!-- List Item -->
+          <li class="dt-list__item">
+            <div class="d-inline-flex align-items-center">
+              <gx-icon name="star-fill" class="mr-2 text-yellow"></gx-icon>
+              <span>{{client.rating}}</span>
+            </div>
+          </li>
+          <!-- /list item -->
+          <!-- List Item -->
+          <li class="dt-list__item">
+            <span class="d-inline-block text-nowrap">{{client.deals}}</span>
+          </li>
+          <!-- /list item -->
+        </ul>
+        <!-- /list -->
+      </div>
+      <!-- /content -->
+    </div>
+  </li>
+  <!-- /list item -->
+
+</ul>
+<!-- /list -->

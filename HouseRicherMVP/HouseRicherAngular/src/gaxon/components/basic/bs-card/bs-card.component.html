@@ -1,0 +1,1070 @@
+<!-- Page Header -->
+<div class="dt-page__header">
+  <h1 class="dt-page__title">Cards</h1>
+</div>
+<!-- /page header -->
+
+<!-- Grid -->
+<ngx-masonry class="row">
+
+  <!-- Grid Item -->
+  <div ngxMasonryItem class="col-xl-4 col-sm-6">
+
+    <!-- Card -->
+    <bs-card card-title="Card title" card-img-top="https://via.placeholder.com/640X420">
+
+      <!-- Card Text-->
+      <p class="card-text">
+        Some quick example text to build on the
+        card title and make up the bulk of the
+        card's content.
+      </p>
+      <!-- /card text-->
+
+      <!-- Card Button-->
+      <a href="javascript:void(0)" class="btn btn-primary">Go somewhere</a>
+      <!-- /card button-->
+    </bs-card>
+    <!-- /card -->
+
+  </div>
+  <!-- /grid item -->
+
+  <!-- Grid Item -->
+  <div ngxMasonryItem class="col-xl-4 col-sm-6">
+
+    <!-- Card -->
+    <bs-card>
+
+      <!-- Card Text-->
+      <p class="card-text">
+        This is some text within a card body. Use
+        it wisely :)
+      </p>
+      <!-- /card text-->
+
+    </bs-card>
+    <!-- /card -->
+
+  </div>
+  <!-- /grid item -->
+
+  <!-- Grid Item -->
+  <div ngxMasonryItem class="col-xl-4 col-sm-6">
+
+    <!-- Card -->
+    <bs-card card-img-top="https://via.placeholder.com/640X420">
+
+      <!-- Card Text-->
+      <p class="card-text">
+        Image card with an example of a center
+        cropped image.
+      </p>
+      <!-- /card text-->
+
+    </bs-card>
+    <!-- /card -->
+
+  </div>
+  <!-- /grid item -->
+
+  <!-- Grid Item -->
+  <div ngxMasonryItem class="col-xl-4 col-sm-6">
+
+    <!-- Card -->
+    <bs-card card-title="Titles & Links">
+
+      <h4 class="card-subtitle">Subtitle text</h4>
+
+      <!-- Card Text-->
+      <p class="card-text">
+        Some quick example text to build on the
+        card title and make up the bulk of the
+        card's content.
+      </p>
+      <!-- /card text-->
+
+      <!-- Card Link-->
+      <a href="javascript:void(0)" class="card-link">Goto Link</a>
+      <a href="javascript:void(0)" class="card-link">Another Link</a>
+      <!-- /card link-->
+
+    </bs-card>
+    <!-- /card -->
+
+  </div>
+  <!-- /grid item -->
+
+  <!-- Grid Item -->
+  <div ngxMasonryItem class="col-xl-4 col-sm-6">
+
+    <!-- Card -->
+    <bs-card card-title="Kitchen Sink" card-img-top="https://via.placeholder.com/640X420">
+
+      <!-- Card Text-->
+      <p class="card-text lead">
+        Mix and match multiple content types
+        to create the card you need, or throw
+        everything in there.
+      </p>
+
+      <p class="card-text">
+        Some quick example text to build on the
+        card title and make up the bulk of the
+        card's content.
+      </p>
+      <!-- /card text-->
+
+      <bs-card-outer-body>
+        <!-- List Group -->
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Cras justo odio</li>
+          <li class="list-group-item">Dapibus ac facilisis in</li>
+          <li class="list-group-item">Vestibulum at eros</li>
+        </ul>
+        <!-- /list group-->
+      </bs-card-outer-body>
+
+      <bs-card-body>
+        <!-- Card Body -->
+
+        <!-- Card Button-->
+        <a href="javascript:void(0)" class="btn btn-primary">Go somewhere</a>
+        <a href="javascript:void(0)" class="card-link">Card Link</a>
+        <!-- /card button-->
+
+
+        <!-- /card body -->
+      </bs-card-body>
+
+    </bs-card>
+    <!-- /card -->
+
+  </div>
+  <!-- /grid item -->
+
+  <!-- Grid Item -->
+  <div ngxMasonryItem class="col-xl-4 col-sm-6">
+
+    <!-- Card -->
+    <bs-card card-title="Header & Footer">
+
+      <!-- Card Header -->
+      <bs-card-header class="h4">
+        Title for header
+      </bs-card-header>
+      <!-- /card header -->
+
+      <!-- Card Body -->
+      <!-- Card Text-->
+      <p class="card-text">
+        Some quick example text to build on the
+        card title and make up the bulk of the
+        card's content.
+      </p>
+      <!-- /card text-->
+
+      <!-- Card Button-->
+      <a href="javascript:void(0)" class="btn btn-primary">Go somewhere</a>
+      <!-- /card button-->
+      <!-- /card body -->
+
+      <!-- Card Footer -->
+      <bs-card-footer>
+        <div class="text-muted">2 days ago | footer content</div>
+      </bs-card-footer>
+      <!-- /card footer -->
+
+    </bs-card>
+    <!-- /card -->
+
+  </div>
+  <!-- /grid item -->
+
+  <!-- Grid Item -->
+  <div ngxMasonryItem class="col-xl-4 col-sm-6">
+
+    <!-- Card -->
+    <bs-card [hasBody]="false">
+
+      <!-- Card Header -->
+      <bs-card-header class="h4">
+        List Group Example
+      </bs-card-header>
+      <!-- /card header -->
+
+      <bs-card-outer-body>
+        <!-- List Group -->
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Cras justo odio</li>
+          <li class="list-group-item">Dapibus ac facilisis in</li>
+          <li class="list-group-item">Vestibulum at eros</li>
+        </ul>
+        <!-- /list group -->
+      </bs-card-outer-body>
+
+    </bs-card>
+    <!-- /card -->
+
+  </div>
+  <!-- /grid item -->
+
+  <!-- Grid Item -->
+  <div ngxMasonryItem class="col-xl-4 col-sm-6">
+
+    <!-- Card -->
+    <bs-card [hasBody]="false">
+
+      <!-- Card header -->
+      <bs-card-header class="card-nav">
+        <ul class="card-header-tabs nav nav-tabs" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link" [ngClass]="{active:cardTab === 1}" href="#tab-pane1" (click)="onClickTab($event, 1)">Active</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [ngClass]="{active:cardTab === 2}" data-toggle="tab" href="#tab-pane2"
+               (click)="onClickTab($event, 2)">Link</a>
+          </li>
+          <li class="nav-item">
+            <a href="#tab-pane3" [ngClass]="{active:cardTab === 3}" class="nav-link disabled"
+               (click)="$event.preventDefault()">Disabled</a>
+          </li>
+        </ul>
+      </bs-card-header>
+      <!-- /card header -->
+
+      <!-- Tab Content-->
+      <bs-card-outer-body class="tab-content">
+
+        <!-- Tab panel -->
+        <div [ngClass]="{active:cardTab === 1}" class="tab-pane">
+
+          <!-- Card Body -->
+          <bs-card-body card-title="Card With Tabs">
+
+            <!-- Card Text-->
+            <p class="card-text">
+              Some quick example text to build on the
+              card title and make up the bulk of the
+              card's content.
+            </p>
+            <!-- /card text-->
+
+            <!-- Card Link-->
+            <a href="javascript:void(0)" class="card-link">Goto Link</a>
+            <!-- /card link-->
+
+          </bs-card-body>
+          <!-- /card body -->
+
+        </div>
+        <!-- /tab panel -->
+
+        <!-- Tab panel -->
+        <div [ngClass]="{active:cardTab === 2}" class="tab-pane">
+
+          <!-- Card Body -->
+          <bs-card-body card-title="Card With Tabs">
+
+            <!-- Card Text-->
+            <p class="card-text">
+              Mix and match multiple content types to create the card you need, or throw everything in there.
+            </p>
+            <!-- /card text-->
+
+            <!-- Card Link-->
+            <a href="javascript:void(0)" class="card-link">Goto Link</a>
+            <!-- /card link-->
+
+          </bs-card-body>
+          <!-- /card body -->
+
+        </div>
+        <!-- /tab panel -->
+
+        <!-- Tab panel -->
+        <div [ngClass]="{active:cardTab === 3}" class="tab-pane">
+
+          <!-- Card Body -->
+          <bs-card-body card-title="Card With Tabs">
+
+            <!-- Card Text-->
+            <p class="card-text">
+              Some quick example text to build on the
+              card title and make up the bulk of the
+              card's content.
+            </p>
+            <!-- /card text-->
+
+            <!-- Card Link-->
+            <a href="javascript:void(0)" class="card-link">Goto Link</a>
+            <!-- /card link-->
+
+          </bs-card-body>
+          <!-- /card body -->
+
+        </div>
+        <!-- /tab panel -->
+
+      </bs-card-outer-body>
+      <!-- /tab content-->
+
+    </bs-card>
+    <!-- /card -->
+
+  </div>
+  <!-- /grid item -->
+
+  <!-- Grid Item -->
+  <div ngxMasonryItem class="col-xl-4 col-sm-6">
+
+    <!-- Card -->
+    <bs-card [hasBody]="false">
+
+      <!-- Card header -->
+      <bs-card-header>
+        <ul class="card-header-pills nav nav-pills" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link" [ngClass]="{active:cardPillsTab === 1}" href="#tab-pane4"
+               (click)="onClickPillosTab($event, 1)">Active</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [ngClass]="{active:cardPillsTab === 2}" href="#tab-pane5"
+               (click)="onClickPillosTab($event, 2)">Link</a>
+          </li>
+          <li class="nav-item" [ngClass]="{active:cardPillsTab === 3}">
+            <a href="#tab-pane6" (click)="$event.preventDefault()" class="nav-link disabled">Disabled</a>
+          </li>
+        </ul>
+      </bs-card-header>
+      <!-- /card header -->
+
+      <bs-card-outer-body>
+        <!-- Tab Content-->
+        <div class="tab-content">
+
+          <!-- Tab panel -->
+          <div class="tab-pane" [ngClass]="{active:cardPillsTab === 1}">
+
+            <!-- Card Body -->
+            <bs-card-body card-title="Tabs In Button Style">
+
+              <!-- Card Text-->
+              <p class="card-text">
+                Mix and match multiple content types to create the card you need, or throw everything in there.
+              </p>
+              <!-- /card text-->
+
+              <!-- Card Link-->
+              <a href="javascript:void(0)" class="card-link">Goto Link</a>
+              <!-- /card link-->
+
+            </bs-card-body>
+            <!-- /card body -->
+
+          </div>
+          <!-- /tab panel -->
+
+          <!-- Tab panel -->
+          <div class="tab-pane" [ngClass]="{active:cardPillsTab === 2}">
+
+            <!-- Card Body -->
+            <bs-card-body card-title="Tabs In Button Style">
+
+              <!-- Card Text-->
+              <p class="card-text">
+                Some quick example text to build on the
+                card title and make up the bulk of the
+                card's content.
+              </p>
+              <!-- /card text-->
+
+              <!-- Card Link-->
+              <a href="javascript:void(0)" class="card-link">Goto Link</a>
+              <!-- /card link-->
+
+            </bs-card-body>
+            <!-- /card body -->
+
+          </div>
+          <!-- /tab panel -->
+
+          <!-- Tab panel -->
+          <div class="tab-pane" [ngClass]="{active:cardPillsTab === 3}">
+
+            <!-- Card Body -->
+            <bs-card-body card-title="Tabs In Button Style">
+
+              <!-- Card Text-->
+              <p class="card-text">
+                Some quick example text to build on the
+                card title and make up the bulk of the
+                card's content.
+              </p>
+              <!-- /card text-->
+
+              <!-- Card Link-->
+              <a href="javascript:void(0)" class="card-link">Goto Link</a>
+              <!-- /card link-->
+
+            </bs-card-body>
+            <!-- /card body -->
+
+          </div>
+          <!-- /tab panel -->
+
+        </div>
+        <!-- /tab content-->
+
+      </bs-card-outer-body>
+
+    </bs-card>
+    <!-- /card -->
+
+  </div>
+  <!-- /grid item -->
+
+  <!-- Grid Item -->
+  <div ngxMasonryItem class="col-xl-4 col-sm-6">
+
+    <!-- Card -->
+    <bs-card card-img="https://via.placeholder.com/640X420" class="text-white">
+
+      <!-- Card Overlay -->
+      <bs-card-img-overlay>
+
+        <h2 class="card-title text-white">Card title</h2>
+
+        <!-- Card Text -->
+        <p class="card-text">
+          This is a wider card with supporting text below as a natural lead-in to additional content.
+          This content is a little bit longer.
+        </p>
+        <p class="card-text">Last updated 3 mins ago</p>
+        <!-- /card text -->
+
+      </bs-card-img-overlay>
+      <!-- /card overlay -->
+
+    </bs-card>
+    <!-- /card -->
+
+  </div>
+  <!-- /grid item -->
+
+</ngx-masonry>
+<!-- /grid -->
+
+<!-- Entry Header -->
+<app-entry-header heading="Card Text Alignment"></app-entry-header>
+<!-- /entry header -->
+
+<!-- Grid -->
+<div class="row mb-sm-8">
+
+  <!-- Grid Item -->
+  <div class="col-md-4 col-sm-6 order-md-1">
+
+    <!-- Card -->
+    <bs-card card-title="Header & Footer">
+
+      <!-- Card Header -->
+      <bs-card-header class="h4">Left Aligned Card</bs-card-header>
+      <!-- /card header -->
+
+      <!-- Card Body -->
+
+      <!-- Card Text-->
+      <p class="card-text">
+        Some quick example text to build on the
+        card title and make up the bulk of the
+        card's content.
+      </p>
+      <!-- /card text-->
+
+      <!-- Card Button-->
+      <a href="javascript:void(0)" class="btn btn-primary">Go somewhere</a>
+      <!-- /card button-->
+
+      <!-- /card body -->
+
+      <!-- Card Footer -->
+      <bs-card-footer class="text-muted">2 days ago | footer content</bs-card-footer>
+      <!-- /card footer -->
+
+    </bs-card>
+    <!-- /card -->
+
+  </div>
+  <!-- /grid item -->
+
+  <!-- Grid Item -->
+  <div class="col-md-4 col-sm-6 order-md-3">
+
+    <!-- Card -->
+    <bs-card card-title="Header & Footer" class="text-right">
+
+      <!-- Card Header -->
+      <bs-card-header class="h4">Right Aligned Card</bs-card-header>
+      <!-- /card header -->
+
+      <!-- Card Body -->
+
+      <!-- Card Text-->
+      <p class="card-text">
+        Some quick example text to build on the
+        card title and make up the bulk of the
+        card's content.
+      </p>
+      <!-- /card text-->
+
+      <!-- Card Button-->
+      <a href="javascript:void(0)" class="btn btn-primary">Go somewhere</a>
+      <!-- /card button-->
+
+      <!-- /card body -->
+
+      <!-- Card Footer -->
+      <bs-card-footer class="text-muted">2 days ago | footer content</bs-card-footer>
+      <!-- /card footer -->
+
+    </bs-card>
+    <!-- /card -->
+
+  </div>
+  <!-- /grid item -->
+
+  <!-- Grid Item -->
+  <div class="col-md-4 col-12 order-md-2">
+
+    <!-- Card -->
+    <bs-card card-title="Header & Footer" class="text-center">
+
+      <!-- Card Header -->
+      <bs-card-header class="h4">Center Aligned Card</bs-card-header>
+      <!-- /card header -->
+
+      <!-- Card Body -->
+
+      <!-- Card Text-->
+      <p class="card-text">
+        Some quick example text to build on the
+        card title and make up the bulk of the
+        card's content.
+      </p>
+      <!-- /card text-->
+
+      <!-- Card Button-->
+      <a href="javascript:void(0)" class="btn btn-primary">Go somewhere</a>
+      <!-- /card button-->
+
+      <!-- /card body -->
+
+      <!-- Card Footer -->
+      <bs-card-footer class="text-muted">2 days ago | footer content</bs-card-footer>
+      <!-- /card footer -->
+
+    </bs-card>
+    <!-- /card -->
+
+  </div>
+  <!-- /grid item -->
+
+</div>
+<!-- /grid -->
+
+<!-- Entry Header -->
+<app-entry-header heading="Card Background Style"></app-entry-header>
+<!-- /entry header -->
+
+<!-- Grid -->
+<div class="row mb-sm-8">
+
+  <!-- Grid Item -->
+  <div class="col-xl-4 col-sm-6">
+
+    <!-- Card -->
+    <bs-card class="text-white bg-primary">
+
+      <!-- Card Header -->
+      <bs-card-header class="h4 text-white">Header</bs-card-header>
+      <!-- /card header -->
+
+      <!-- Card Title-->
+      <h2 class="card-title text-white">Header & Footer</h2>
+      <!-- Card Title-->
+
+      <!-- Card Text-->
+      <p class="card-text">
+        Some quick example text to build on the
+        card title and make up the bulk of the
+        card's content.
+      </p>
+      <!-- /card text-->
+
+      <!-- Card Footer -->
+      <bs-card-footer>2 days ago | footer content</bs-card-footer>
+      <!-- /card footer -->
+
+    </bs-card>
+    <!-- /card -->
+
+  </div>
+  <!-- /grid item -->
+
+  <!-- Grid Item -->
+  <div class="col-xl-4 col-sm-6">
+
+    <!-- Card -->
+    <bs-card class="text-white bg-secondary">
+
+      <!-- Card Header -->
+      <bs-card-header class="h4 text-white">Header</bs-card-header>
+      <!-- /card header -->
+
+      <!-- Card Title-->
+      <h2 class="card-title text-white">Header & Footer</h2>
+      <!-- Card Title-->
+
+      <!-- Card Text-->
+      <p class="card-text">
+        Some quick example text to build on the
+        card title and make up the bulk of the
+        card's content.
+      </p>
+      <!-- /card text-->
+
+      <!-- Card Footer -->
+      <bs-card-footer>2 days ago | footer content</bs-card-footer>
+      <!-- /card footer -->
+
+    </bs-card>
+    <!-- /card -->
+
+  </div>
+  <!-- /grid item -->
+
+  <!-- Grid Item -->
+  <div class="col-xl-4 col-sm-6">
+
+    <!-- Card -->
+    <bs-card class="text-white bg-success">
+
+      <!-- Card Header -->
+      <bs-card-header class="h4 text-white">Header</bs-card-header>
+      <!-- /card header -->
+
+      <!-- Card Title-->
+      <h2 class="card-title text-white">Header & Footer</h2>
+      <!-- Card Title-->
+
+      <!-- Card Text-->
+      <p class="card-text">
+        Some quick example text to build on the
+        card title and make up the bulk of the
+        card's content.
+      </p>
+      <!-- /card text-->
+
+      <!-- Card Footer -->
+      <bs-card-footer>2 days ago | footer content</bs-card-footer>
+      <!-- /card footer -->
+
+    </bs-card>
+    <!-- /card -->
+
+  </div>
+  <!-- /grid item -->
+
+  <!-- Grid Item -->
+  <div class="col-xl-4 col-sm-6">
+
+    <!-- Card -->
+    <bs-card class="text-white bg-danger">
+
+      <!-- Card Header -->
+      <bs-card-header class="h4 text-white">Header</bs-card-header>
+      <!-- /card header -->
+
+      <!-- Card Title-->
+      <h2 class="card-title text-white">Header & Footer</h2>
+      <!-- Card Title-->
+
+      <!-- Card Text-->
+      <p class="card-text">
+        Some quick example text to build on the
+        card title and make up the bulk of the
+        card's content.
+      </p>
+      <!-- /card text-->
+
+      <!-- Card Footer -->
+      <bs-card-footer>2 days ago | footer content</bs-card-footer>
+      <!-- /card footer -->
+
+    </bs-card>
+    <!-- /card -->
+
+  </div>
+  <!-- /grid item -->
+
+  <!-- Grid Item -->
+  <div class="col-xl-4 col-sm-6">
+
+    <!-- Card -->
+    <bs-card class="text-white bg-warning">
+
+      <!-- Card Header -->
+      <bs-card-header class="h4 text-white">Header</bs-card-header>
+      <!-- /card header -->
+
+      <!-- Card Title-->
+      <h2 class="card-title text-white">Header & Footer</h2>
+      <!-- Card Title-->
+
+      <!-- Card Text-->
+      <p class="card-text">
+        Some quick example text to build on the
+        card title and make up the bulk of the
+        card's content.
+      </p>
+      <!-- /card text-->
+
+      <!-- Card Footer -->
+      <bs-card-footer>2 days ago | footer content</bs-card-footer>
+      <!-- /card footer -->
+
+    </bs-card>
+    <!-- /card -->
+
+  </div>
+  <!-- /grid item -->
+
+  <!-- Grid Item -->
+  <div class="col-xl-4 col-sm-6">
+
+    <!-- Card -->
+    <bs-card class="text-white bg-info">
+
+      <!-- Card Header -->
+      <bs-card-header class="h4 text-white">Header</bs-card-header>
+      <!-- /card header -->
+
+      <!-- Card Title-->
+      <h2 class="card-title text-white">Header & Footer</h2>
+      <!-- Card Title-->
+
+      <!-- Card Text-->
+      <p class="card-text">
+        Some quick example text to build on the
+        card title and make up the bulk of the
+        card's content.
+      </p>
+      <!-- /card text-->
+
+      <!-- Card Footer -->
+      <bs-card-footer>2 days ago | footer content</bs-card-footer>
+      <!-- /card footer -->
+
+    </bs-card>
+    <!-- /card -->
+
+  </div>
+  <!-- /grid item -->
+
+  <!-- Grid Item -->
+  <div class="col-xl-4 col-sm-6">
+
+    <!-- Card -->
+    <bs-card card-title="Header & Footer" class="bg-light">
+
+      <!-- Card Header -->
+      <bs-card-header class="h4">Header</bs-card-header>
+      <!-- /card header -->
+
+      <!-- Card Text-->
+      <p class="card-text">
+        Some quick example text to build on the
+        card title and make up the bulk of the
+        card's content.
+      </p>
+      <!-- /card text-->
+
+      <!-- Card Footer -->
+      <bs-card-footer>2 days ago | footer content</bs-card-footer>
+      <!-- /card footer -->
+
+    </bs-card>
+    <!-- /card -->
+
+  </div>
+  <!-- /grid item -->
+
+  <!-- Grid Item -->
+  <div class="col-xl-4 col-sm-6">
+
+    <!-- Card -->
+    <bs-card class="text-white bg-dark">
+
+      <!-- Card Header -->
+      <bs-card-header class="h4 text-white">Header</bs-card-header>
+      <!-- /card header -->
+
+      <!-- Card Title-->
+      <h2 class="card-title text-white">Header & Footer</h2>
+      <!-- Card Title-->
+
+      <!-- Card Text-->
+      <p class="card-text">
+        Some quick example text to build on the
+        card title and make up the bulk of the
+        card's content.
+      </p>
+      <!-- /card text-->
+
+      <!-- Card Footer -->
+      <bs-card-footer>2 days ago | footer content</bs-card-footer>
+      <!-- /card footer -->
+
+    </bs-card>
+    <!-- /card -->
+
+  </div>
+  <!-- /grid item -->
+
+</div>
+<!-- /grid -->
+
+<!-- Entry Header -->
+<app-entry-header heading="Card Border Style"></app-entry-header>
+<!-- /entry header -->
+
+<!-- Grid -->
+<div class="row">
+
+  <!-- Grid Item -->
+  <div class="col-xl-4 col-sm-6">
+
+    <!-- Card -->
+    <bs-card card-title="Header & Footer" class="border border-primary">
+
+      <!-- Card Header -->
+      <bs-card-header class="h4 border-bottom border-primary">Header</bs-card-header>
+      <!-- /card header -->
+
+      <!-- Card Text-->
+      <p class="card-text">
+        Some quick example text to build on the
+        card title and make up the bulk of the
+        card's content.
+      </p>
+      <!-- /card text-->
+
+      <!-- Card Footer -->
+      <bs-card-footer class="border-top border-primary">2 days ago | footer content</bs-card-footer>
+      <!-- /card footer -->
+
+    </bs-card>
+    <!-- /card -->
+
+  </div>
+  <!-- /grid item -->
+
+  <!-- Grid Item -->
+  <div class="col-xl-4 col-sm-6">
+
+    <!-- Card -->
+    <bs-card card-title="Header & Footer" class="border border-secondary">
+
+      <!-- Card Header -->
+      <bs-card-header class="h4 border-bottom border-secondary">Header</bs-card-header>
+      <!-- /card header -->
+
+      <!-- Card Text-->
+      <p class="card-text">
+        Some quick example text to build on the
+        card title and make up the bulk of the
+        card's content.
+      </p>
+      <!-- /card text-->
+
+      <!-- Card Footer -->
+      <bs-card-footer class="border-top border-secondary">2 days ago | footer content</bs-card-footer>
+      <!-- /card footer -->
+
+    </bs-card>
+    <!-- /card -->
+
+  </div>
+  <!-- /grid item -->
+
+  <!-- Grid Item -->
+  <div class="col-xl-4 col-sm-6">
+
+    <!-- Card -->
+    <bs-card card-title="Header & Footer" class="border border-success">
+
+      <!-- Card Header -->
+      <bs-card-header class="h4 border-bottom border-success">Header</bs-card-header>
+      <!-- /card header -->
+
+      <!-- Card Text-->
+      <p class="card-text">
+        Some quick example text to build on the
+        card title and make up the bulk of the
+        card's content.
+      </p>
+      <!-- /card text-->
+
+      <!-- Card Footer -->
+      <bs-card-footer class="border-top border-success">2 days ago | footer content</bs-card-footer>
+      <!-- /card footer -->
+
+    </bs-card>
+    <!-- /card -->
+
+  </div>
+  <!-- /grid item -->
+
+  <!-- Grid Item -->
+  <div class="col-xl-4 col-sm-6">
+
+    <!-- Card -->
+    <bs-card card-title="Header & Footer" class="border border-danger">
+
+      <!-- Card Header -->
+      <bs-card-header class="h4 border-bottom border-danger">Header</bs-card-header>
+      <!-- /card header -->
+
+      <!-- Card Text-->
+      <p class="card-text">
+        Some quick example text to build on the
+        card title and make up the bulk of the
+        card's content.
+      </p>
+      <!-- /card text-->
+
+      <!-- Card Footer -->
+      <bs-card-footer class="border-top border-danger">2 days ago | footer content</bs-card-footer>
+      <!-- /card footer -->
+
+    </bs-card>
+    <!-- /card -->
+
+  </div>
+  <!-- /grid item -->
+
+  <!-- Grid Item -->
+  <div class="col-xl-4 col-sm-6">
+
+    <!-- Card -->
+    <bs-card card-title="Header & Footer" class="border border-warning">
+
+      <!-- Card Header -->
+      <bs-card-header class="h4 border-bottom border-warning">Header</bs-card-header>
+      <!-- /card header -->
+
+      <!-- Card Text-->
+      <p class="card-text">
+        Some quick example text to build on the
+        card title and make up the bulk of the
+        card's content.
+      </p>
+      <!-- /card text-->
+
+      <!-- Card Footer -->
+      <bs-card-footer class="border-top border-warning">2 days ago | footer content</bs-card-footer>
+      <!-- /card footer -->
+
+    </bs-card>
+    <!-- /card -->
+
+  </div>
+  <!-- /grid item -->
+
+  <!-- Grid Item -->
+  <div class="col-xl-4 col-sm-6">
+
+    <!-- Card -->
+    <bs-card card-title="Header & Footer" class="border border-info">
+
+      <!-- Card Header -->
+      <bs-card-header class="h4 border-bottom border-info">Header</bs-card-header>
+      <!-- /card header -->
+
+      <!-- Card Text-->
+      <p class="card-text">
+        Some quick example text to build on the
+        card title and make up the bulk of the
+        card's content.
+      </p>
+      <!-- /card text-->
+
+      <!-- Card Footer -->
+      <bs-card-footer class="border-top border-info">2 days ago | footer content</bs-card-footer>
+      <!-- /card footer -->
+
+    </bs-card>
+    <!-- /card -->
+
+  </div>
+  <!-- /grid item -->
+
+  <!-- Grid Item -->
+  <div class="col-xl-4 col-sm-6">
+
+    <!-- Card -->
+    <bs-card card-title="Header & Footer" class="border border-light">
+
+      <!-- Card Header -->
+      <bs-card-header class="h4 border-bottom border-light">Header</bs-card-header>
+      <!-- /card header -->
+
+      <!-- Card Text-->
+      <p class="card-text">
+        Some quick example text to build on the
+        card title and make up the bulk of the
+        card's content.
+      </p>
+      <!-- /card text-->
+
+      <!-- Card Footer -->
+      <bs-card-footer class="border-top border-light">2 days ago | footer content</bs-card-footer>
+      <!-- /card footer -->
+
+    </bs-card>
+    <!-- /card -->
+
+  </div>
+  <!-- /grid item -->
+
+  <!-- Grid Item -->
+  <div class="col-xl-4 col-sm-6">
+
+    <!-- Card -->
+    <bs-card card-title="Header & Footer" class="border border-dark">
+
+      <!-- Card Header -->
+      <bs-card-header class="h4 border-bottom border-dark">Header</bs-card-header>
+      <!-- /card header -->
+
+      <!-- Card Text-->
+      <p class="card-text">
+        Some quick example text to build on the
+        card title and make up the bulk of the
+        card's content.
+      </p>
+      <!-- /card text-->
+
+      <!-- Card Footer -->
+      <bs-card-footer class="border-top border-dark">2 days ago | footer content</bs-card-footer>
+      <!-- /card footer -->
+
+    </bs-card>
+    <!-- /card -->
+
+  </div>
+  <!-- /grid item -->
+
+</div>
+<!-- /grid -->

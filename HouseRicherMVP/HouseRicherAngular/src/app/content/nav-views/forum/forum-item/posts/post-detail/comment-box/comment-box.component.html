@@ -1,0 +1,15 @@
+<!-- Avatar -->
+<img class="dt-avatar dt-avatar__shadow size-{{imageSize}} mr-2" [src]="currentUser.small_image" alt="{{currentUser.name}}">
+<!-- /avatar -->
+
+<!-- Media Body -->
+<div class="media-body">
+    <form [formGroup]="commentForm" (ngSubmit)="commentForm.valid && submitComment()">
+        <!-- Input Area -->
+        <input type="text" class="form-control border-0 shadow-none bg-focus"
+               [ngClass]="{'form-control-sm':formSize == 'small'}" formControlName="message"
+               placeholder="Type your comment here...">
+        <!-- /input area -->
+    </form>
+</div>
+<!-- /media body -->

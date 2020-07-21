@@ -1,0 +1,22 @@
+<!-- Card Body -->
+<card-body class="p-xl-8 py-sm-8 py-6 px-4" [ngClass]="{'p-xl-8 py-sm-8': !isVertical, 'text-center': isVertical}">
+  <!-- Media -->
+  <div class="media" [ngClass]="{'flex-column align-items-center': isVertical}">
+    <gx-icon [name]="data.icon.name"
+             [size]="iconSize"
+             [ngClass]="[data.icon.color, classNames]"></gx-icon>
+
+    <!-- Media Body -->
+    <div class=" media-body">
+      <div class="display-3 font-weight-600 mb-1 init-counter" [ngClass]="data.counter.color">
+        {{data.counter.number | currency:data.counter.currency:data.counter.symbol:'1.0-0'}}
+      </div>
+
+      <span class="d-block" [ngClass]="data.tagLine.color">{{data.tagLine.text}}</span>
+    </div>
+    <!-- /media body -->
+
+  </div>
+  <!-- /media -->
+</card-body>
+<!-- /card body -->

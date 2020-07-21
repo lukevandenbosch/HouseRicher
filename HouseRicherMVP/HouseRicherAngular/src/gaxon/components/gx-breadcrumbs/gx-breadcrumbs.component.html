@@ -1,0 +1,15 @@
+<ol class="breadcrumb" *ngIf="displayAs == 'list'">
+  <li class="breadcrumb-item" *ngFor="let item of data" [ngClass]="{active:item.active}">
+    <a *ngIf="!item.active && item.route" [routerLink]="[item.route]">{{item.label}}</a>
+    <a *ngIf="!item.active && !item.route" href="javascript:void(0)">{{item.label}}</a>
+    <ng-container *ngIf="item.active">{{item.label}}</ng-container>
+  </li>
+</ol>
+
+<nav class="breadcrumb" *ngIf="displayAs != 'list'">
+  <ng-container *ngFor="let item of data">
+    <a *ngIf="!item.active && item.route" [routerLink]="[item.route]" class="breadcrumb-item">{{item.label}}</a>
+    <a *ngIf="!item.active && !item.route" href="javascript:void(0)" class="breadcrumb-item">{{item.label}}</a>
+    <span *ngIf="item.active" class="active breadcrumb-item">{{item.label}}</span>
+  </ng-container>
+</nav>

@@ -1,0 +1,56 @@
+<!-- Card Header -->
+<card-header *ngIf="title" [card-title]="title"></card-header>
+<!-- /card header -->
+
+<card-body [ngClass]="bodyClasses">
+
+  <!-- Widget -->
+  <div class="dt-widget dt-widget-hover" *ngFor="let row of activities">
+    <h6 class="dt-widget__heading">{{row.day}}</h6>
+
+    <!-- Widget Item -->
+    <div class="dt-widget__item" *ngFor="let activity of row.activities">
+
+      <!-- Widget Image -->
+      <div class="dt-widget__img">
+        <!-- Avatar -->
+        <gx-avatar [user]="activity" [charLength]="0" class="size-35 rounded"></gx-avatar>
+        <!-- /avatar -->
+      </div>
+      <!-- /widget image -->
+
+      <!-- Widget Info -->
+      <div class="dt-widget__info">
+        <a href="javascript:void(0)" class="dt-widget__title" [innerHTML]="activity.content"></a>
+
+        <ul class="dt-team-list mt-2" *ngIf="activity.mediaList.length > 0">
+          <li *ngFor="let media of activity.mediaList.slice(0, 2)" class="mb-1">
+            <!-- Avatar -->
+            <a href="javascript:void(0)">
+              <gx-avatar [user]="{thumb: media, name: ''}" class="size-35 min-w-55 rounded"></gx-avatar>
+            </a>
+            <!-- /avatar -->
+          </li>
+
+          <li *ngIf="activity.mediaList.length > 2">
+            <!-- Avatar -->
+            <a class="border py-2 px-4 rounded text-light-gray d-inline-block" href="javascript:void(0)">+5 More</a>
+            <!-- /avatar -->
+          </li>
+        </ul>
+      </div>
+      <!-- /widget info -->
+
+    </div>
+    <!-- /widgets item -->
+
+  </div>
+  <!-- /widget -->
+
+  <!-- Widget Link -->
+  <div class="dt-widget-link">
+    <a href="javascript:void(0)" class="text-uppercase font-weight-500">Load More</a>
+  </div>
+  <!-- /widget link -->
+
+</card-body>

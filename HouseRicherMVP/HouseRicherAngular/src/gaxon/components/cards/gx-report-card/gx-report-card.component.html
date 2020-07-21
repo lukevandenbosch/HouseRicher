@@ -1,0 +1,56 @@
+<!-- Card Header -->
+<card-header [card-title]="title">
+
+  <!-- Card Tools -->
+  <card-tool>
+    <a href="javascript:void(0)" class="dt-card__more">See All</a>
+  </card-tool>
+  <!-- /card tools -->
+
+</card-header>
+<!-- /card header -->
+
+<card-body>
+
+  <!-- Grid -->
+  <div class="row">
+
+    <!-- Grid Item -->
+    <div class="col-xl-4 col-md-12 col-sm-4">
+
+      <!-- Chart -->
+      <gx-chart chartClasses="mx-auto mb-5 mb-sm-0 mb-md-5 mb-xl-0"
+                [chartType]="chart.chartType"
+                [options]="chart.options"
+                [labels]="chart.labels"
+                [colors]="chart.colors"
+                [datasets]="chart.datasets"></gx-chart>
+      <!-- /chart -->
+
+    </div>
+    <!-- /grid item -->
+
+    <!-- Grid Item -->
+    <div class="col-xl-8 col-md-12 col-sm-8">
+
+      <div class="pb-3 mb-3 border-bottom">
+        <span class="display-4 d-inline-block mr-2 font-weight-500 text-dark">{{data.value}}</span><span
+        class="font-weight-light f-16">{{data.content}}</span>
+      </div>
+
+      <!-- List -->
+      <ul class="dt-list dt-list-col-6">
+        <li class="dt-list__item" *ngFor="let item of data.items">
+          <span class="dot-shape dot-shape-lg mr-3" [ngClass]="item.dotColor"></span>
+          <span class="d-inline-block">{{item.title}}</span>
+        </li>
+      </ul>
+      <!-- /list -->
+
+    </div>
+    <!-- /grid item -->
+
+  </div>
+  <!-- /grid -->
+
+</card-body>

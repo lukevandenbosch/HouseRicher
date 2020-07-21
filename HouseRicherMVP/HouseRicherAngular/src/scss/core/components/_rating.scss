@@ -1,0 +1,59 @@
+// -----------------------------------------------------------------------------
+// This file contains styles that are specific to the Rating Widget.
+// -----------------------------------------------------------------------------
+
+//rating widget
+.rating-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.ratings,
+.rated {
+  position: relative;
+  font: {
+    family: "gaxondrift";
+  }
+  letter-spacing: 0.3rem;
+  display: inline-block;
+  overflow: hidden;
+
+  &:before {
+    content: '\e0a3' '\e0a3' '\e0a3' '\e0a3' '\e0a3';
+  }
+}
+
+//Ratings
+.ratings {
+  color: $gray-200;
+
+  &:not(:last-child) {
+    margin-right: 4px;
+  }
+}
+
+//Rated
+.rated {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: $yellow;
+}
+
+// Review
+.ratings-review {
+  color: $text-muted;
+  cursor: pointer;
+
+  &:not([class*="f-"]) {
+    font-size: $font-size-base;
+
+    @include media-breakpoint-down(xs) {
+      font-size: ($font-size-base + 0.2rem);
+    }
+  }
+
+  & .count-number {
+    color: $headings-color;
+  }
+}

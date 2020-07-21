@@ -1,0 +1,3 @@
+<ng-container *ngFor="let alert of alerts">
+  <ngb-alert [type]="alert.type" [dismissible]="false">{{ alert.message }}</ngb-alert>
+</ng-container>

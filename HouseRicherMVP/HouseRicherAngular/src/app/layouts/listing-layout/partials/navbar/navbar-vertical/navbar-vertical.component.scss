@@ -1,0 +1,22 @@
+app-navbar-vertical {
+  .scrollbar-sidebar {
+    height: 100% !important;
+
+    .ng-scrollbar {
+      box-shadow: inset 0 0 0 2px #fff;
+      border-radius: 5px;
+      &.-vertical {
+        width: 6px;
+      }
+      .ng-scrollbar-thumb {
+        background-color: #fff;
+        box-shadow: 0 0 0 2px #eee;
+      }
+    }
+  }
+
+}
+
+appe-navbar-horizontal + .content-wrapper > app-navbar-vertical {
+  display: none;
+}

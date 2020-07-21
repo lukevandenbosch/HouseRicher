@@ -1,0 +1,26 @@
+<!-- Card Image -->
+<div class="card-image">
+  <img class="img-fluid" [src]="data.media" alt="{{data.title}}">
+</div>
+<!-- /card image -->
+
+<!-- Card Stacked -->
+<div class="card-stacked">
+  <!-- Card Body -->
+  <bs-card-body class="py-3 pr-7 pl-3">
+    <h4 *ngIf="data.title" class="d-inline-block mr-2 mb-2">{{data.title}}</h4>
+    <span *ngIf="data.badge" class="badge badge-success p-1">{{data.badge}}</span>
+    <span *ngIf="data.subtitle" class="d-block f-12 mb-1">{{data.subtitle}}</span>
+    <span *ngIf="data.content" class="d-block f-12">{{data.content}}</span>
+
+    <!-- Action Area -->
+    <div class="action-area">
+      <a [routerLink]="data.route" class="text-body">
+        <gx-icon name="chevrolet-right" size="xl"></gx-icon>
+      </a>
+    </div>
+    <!-- /action area -->
+  </bs-card-body>
+  <!-- /card body -->
+</div>
+<!-- /Card Stacked -->

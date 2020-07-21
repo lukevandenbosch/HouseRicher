@@ -1,0 +1,6 @@
+// -----------------------------------------------------------------------------
+// This file contains CSS Background Gradient Colors.
+// -----------------------------------------------------------------------------
+@each $color, $value in $dt-colors {
+  @include text-emphasis-variant(".text-#{$color}", $value);
+}

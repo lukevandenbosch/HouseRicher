@@ -1,0 +1,19 @@
+// -----------------------------------------------------------------------------
+// This file contains CSS Background Gradient Colors.
+// -----------------------------------------------------------------------------
+
+//Gradient classes
+.bg-gradient-blue,
+.bg-gradient-blue--after:after {
+  @include gradient-directional(#25228a, #24a484, 135deg);
+}
+
+.bg-gradient-purple,
+.bg-gradient-purple--after:after {
+  @include gradient-directional(#3f3f91, #ec45a0, 135deg);
+}
+
+.bg-gradient-orange,
+.bg-gradient-orange--after:after {
+  @include gradient-directional(#c01111, #eac519, 90deg);
+}

@@ -1,0 +1,37 @@
+<!-- Overlay Content -->
+<div class="bg-overlay__inner">
+
+  <!-- Card Body -->
+  <card-body class="py-6">
+
+    <!-- Grid -->
+    <div class="row no-gutters">
+
+      <!-- Grid Item -->
+      <div class="col-sm-7">
+        <div class="text-center text-sm-left mb-8 mb-sm-0">
+          <p class="display-5 font-weight-500">{{cardData.heading}}</p>
+          <span class="d-block mb-3">{{cardData.subHeading}}</span>
+          <div *ngFor="let item of cardData.apps; index as i" [ngClass]="{'mb-2': i === 0}">
+            <a href="javascript:void(0)" class="d-inline-block">
+              <img [src]="item.thumb" alt="{{item.title}}" class="img-fluid">
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- /grid item -->
+
+      <!-- Grid Item -->
+      <div class="col-sm-5 align-self-sm-end text-center text-sm-right">
+        <img class="img-fluid mb-n18" [src]="cardData.thumb" alt="App Store">
+      </div>
+      <!-- /grid item -->
+
+    </div>
+    <!-- /grid -->
+
+  </card-body>
+  <!-- /card body -->
+
+</div>
+<!-- /overlay content -->

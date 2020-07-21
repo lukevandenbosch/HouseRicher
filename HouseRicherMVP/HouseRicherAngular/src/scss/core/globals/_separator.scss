@@ -1,0 +1,28 @@
+// -----------------------------------------------------------------------------
+// This file contains CSS Separator.
+// -----------------------------------------------------------------------------
+
+.#{$class-prefix}-separator {
+  &-h {
+    display: block;
+    height: 1px;
+    width: 100%;
+    background-color: $gray-300;
+  }
+
+  &-h-v1 {
+    display: inline-block;
+    height: 2px;
+    width: 20px;
+    background-color: $gray-300;
+  }
+
+  &-v {
+    border-left: $dt-border;
+    display: inline-block;
+    height: 100%;
+    width: 1px;
+    margin-left: 1.4rem;
+    margin-right: 1.4rem;
+  }
+}

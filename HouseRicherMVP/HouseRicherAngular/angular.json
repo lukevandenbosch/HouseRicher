@@ -1,0 +1,146 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "drift-angular": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "",
+      "sourceRoot": "src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "aot": true,
+            "outputPath": "dist",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.app.json",
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.scss",
+              "node_modules/perfect-scrollbar/css/perfect-scrollbar.css",
+              "node_modules/chartist/dist/chartist.min.css",
+              "node_modules/ng-pick-datetime/assets/style/picker.min.css",
+              "src/assets/vendor/gaxon-icon/styles.css",
+              "node_modules/quill/dist/quill.snow.css",
+              "node_modules/quill/dist/quill.bubble.css",
+              "node_modules/snazzy-info-window/dist/snazzy-info-window.css"
+            ],
+            "scripts": [
+              "node_modules/amcharts3/amcharts/amcharts.js",
+              "node_modules/amcharts3/amcharts/serial.js",
+              "node_modules/amcharts3/amcharts/pie.js",
+              "node_modules/amcharts3/amcharts/gauge.js",
+              "node_modules/ammap3/ammap/ammap.js",
+              "node_modules/ammap3/ammap/maps/js/continentsLow.js",
+              "node_modules/ammap3/ammap/maps/js/worldLow.js",
+              "node_modules/amcharts3/amcharts/plugins/animate/animate.min.js",
+              "node_modules/amcharts3/amcharts/themes/light.js",
+              "node_modules/amcharts3/amcharts/plugins/responsive/responsive.min.js"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "4mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "350kb",
+                  "maximumError": "500kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "drift-angular:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "drift-angular:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "drift-angular:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "src/test.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.spec.json",
+            "karmaConfig": "karma.conf.js",
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "tsconfig.app.json",
+              "tsconfig.spec.json",
+              "e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "e2e/protractor.conf.js",
+            "devServerTarget": "drift-angular:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "drift-angular:serve:production"
+            }
+          }
+        }
+      }
+    }},
+  "defaultProject": "drift-angular"
+}

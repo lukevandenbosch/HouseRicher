@@ -1,0 +1,25 @@
+<card-body class="px-5 py-4">
+
+  <h6 class="text-uppercase mb-2" [ngClass]="headingColor">{{data.heading.text}}</h6>
+  <div class="d-flex align-items-baseline mb-4">
+    <span class="display-4 font-weight-500 text-dark mr-2">{{data.amount | number}}</span>
+
+    <div class="d-flex align-items-center">
+      <div *ngIf="data.trending" class="trending-section font-weight-500 mr-2" [ngClass]="data.trending.color">
+        <span *ngIf="data.trending.text" class="value">{{data.trending.text}}</span>
+        <gx-icon *ngIf="data.trending.icon" [name]="data.trending.icon"></gx-icon>
+      </div>
+      <span class="f-12" [ngClass]="data.tagLine.color">{{data.tagLine.text}}</span>
+    </div>
+  </div>
+
+  <gx-status-bar class="mb-2"
+                 [fillVal]="data.progressBar.val"
+                 [maxVal]="data.progressBar.maxVal"
+                 [barColor]="data.progressBar.color"
+                 [fullWidth]="true"
+                 [hideCounter]="true"
+                 [showPoint]="true">
+  </gx-status-bar>
+
+</card-body>

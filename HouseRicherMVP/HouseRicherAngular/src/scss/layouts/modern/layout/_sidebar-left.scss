@@ -1,0 +1,308 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the sidebar of the site/application.
+// -----------------------------------------------------------------------------
+.#{$class-prefix}-sidebar {
+  position: relative;
+  width: $sidebar-width;
+  display: flex;
+  flex-direction: column;
+  background-color: $sidebar-bg;
+  @include transition(all 0.2s ease);
+
+  @media screen and (min-width: 1367px) {
+    width: calc(#{$sidebar-width + 40px});
+  }
+
+  & .#{$class-prefix}-action-bar__header,
+  &__header {
+    min-height: $header-height;
+    max-height: $header-height;
+    background-color: darken($sidebar-bg, 2%);
+  }
+
+  &__header {
+
+    & .#{$class-prefix}-brand {
+      min-height: $header-height;
+      max-height: $header-height;
+    }
+
+    & .#{$class-prefix}-brand__logo-symbol {
+      display: none;
+    }
+  }
+
+  &__container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 2rem 2rem 2rem 0;
+  }
+
+  &__notification {
+    padding-left: 2rem;
+
+    & .#{$class-prefix}-list {
+      margin-left: 0;
+
+      &__item {
+        margin-bottom: 0;
+      }
+
+      &__link {
+        color: $sidebar-color;
+
+        @include hover-focus-active {
+          color: $sidebar-color-hover;
+        }
+      }
+    }
+  }
+
+  &--fixed & {
+    position: fixed;
+    z-index: 1000;
+    height: 100%;
+
+    & .#{$class-prefix}-sidebar__container {
+      height: calc(100vh - #{$header-height});
+      overflow-y: auto;
+
+      & .#{$class-prefix}-side-nav {
+        padding-bottom: 2rem;
+      }
+    }
+
+    & + .#{$class-prefix}-content-wrapper {
+      @include transition(all 0.2s ease);
+      margin-left: $sidebar-width;
+
+      @media screen and (min-width: 1367px) {
+        margin-left: calc(#{$sidebar-width + 40px});
+      }
+    }
+  }
+}
+
+.#{$class-prefix}-sidebar {
+  &__children {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__content {
+    position: relative;
+    max-width: calc(100% - 6rem);
+    flex: 1 0 auto;
+    -ms-flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  & .#{$class-prefix}-action {
+    &-nav {
+      @extend %list-style-none;
+
+      &__item {
+        @include transition(all 0.4s ease);
+
+        &.active .#{$class-prefix}-action-nav__link {
+          background-color: transparent;
+          color: $sidebar-active-color;
+          @include border-right-radius(0);
+        }
+
+        & > [data-toggle="main-sidebar"] {
+          display: none;
+        }
+      }
+
+      &__link {
+        padding-left: 2rem;
+        color: $sidebar-color;
+
+        @include hover-focus-active {
+          color: $sidebar-color-hover;
+        }
+      }
+
+      & + .#{$class-prefix}-action-nav:last-child {
+        margin-top: auto;
+      }
+    }
+
+    &-bar {
+      height: 100vh;
+    }
+
+    &-bar__header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &-bar__header + .#{$class-prefix}-action-nav {
+      padding-top: 2.8rem;
+    }
+  }
+}
+
+.#{$class-prefix}-side-nav {
+  @extend %list-style-none;
+
+  &__header {
+    position: relative;
+    text-transform: capitalize;
+    padding: 15px 0 15px 20px;
+    line-height: 1.2;
+    color: $sidebar-header-color;
+    font-size: 1.4rem;
+
+    .nav-group:not(:first-child) & {
+      padding-top: 20px;
+
+      &:before {
+        content: '';
+        display: block;
+        height: 1px;
+        width: 100%;
+        background-color: $sidebar-separator;
+        margin-bottom: 30px;
+      }
+    }
+  }
+
+  &__text {
+    display: inline-block;
+    vertical-align: middle;
+    white-space: nowrap;
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    flex: 1;
+    -ms-flex: 1;
+  }
+
+  &__item {
+    display: block;
+  }
+}
+
+.#{$class-prefix}-side-nav {
+
+  & > .nav-group > &__item {
+    & > .#{$class-prefix}-side-nav__link.active,
+    &.selected > a,
+    &.open > a {
+      color: $sidebar-color;
+
+      &:not(.#{$class-prefix}-side-nav__arrow).active {
+        color: $sidebar-active-color;
+        padding-right: 28px;
+
+        &:after {
+          content: '';
+          position: absolute;
+          top: 50%;
+          right: 1.8rem;
+          @include translateY(-50%);
+          @include border-radius($border-radius-circle);
+          display: inline-block;
+          height: 6px;
+          width: 6px;
+          background-color: $sidebar-active-color;
+        }
+      }
+    }
+
+    & > .#{$class-prefix}-side-nav__sub-menu {
+      display: none;
+    }
+
+    &.open > .#{$class-prefix}-side-nav__sub-menu {
+      display: block;
+    }
+  }
+
+  &__link {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 10px 10px 10px 20px;
+    line-height: 1.2;
+    text-transform: capitalize;
+    white-space: nowrap;
+    color: $sidebar-color;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+
+    &:not([href]):not([tabindex]) {
+      color: $sidebar-color;
+    }
+
+    & .icon,
+    & i {
+      margin-right: 12px;
+    }
+
+    @include hover-focus-active {
+      &:not([href]):not([tabindex]) {
+        color: $sidebar-color-hover;
+      }
+      color: $sidebar-color-hover;
+      text-decoration: none;
+    }
+  }
+
+  &__arrow:after {
+    content: '\32';
+    font-family: 'gaxondrift';
+    color: inherit;
+    @include transition(all 100ms ease);
+  }
+
+  & > .nav-group > &__item {
+    & > .#{$class-prefix}-side-nav__link.active,
+    &.selected {
+      background-color: $sidebar-active-bg;
+      @include border-radius($border-radius);
+    }
+  }
+
+    &__item.open &__arrow:after {
+    @include rotate(90deg);
+  }
+}
+
+.#{$class-prefix}-side-nav__sub-menu {
+  @extend %list-style-none;
+
+  & .#{$class-prefix}-side-nav__link {
+    color: $sidebar-submenu-color;
+    padding-left: 50px;
+
+    &.active {
+      color: $sidebar-active-color;
+      @include border-right-radius(50px);
+      padding-right: 28px;
+    }
+
+    &.active:after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: 1.8rem;
+      @include translateY(-50%);
+      @include border-radius($border-radius-circle);
+      display: inline-block;
+      height: 6px;
+      width: 6px;
+      background-color: $sidebar-active-color;
+    }
+
+    @include hover-focus-active {
+      color: $sidebar-color-hover;
+    }
+  }
+}

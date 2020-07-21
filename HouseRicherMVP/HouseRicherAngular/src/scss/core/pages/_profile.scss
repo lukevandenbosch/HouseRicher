@@ -1,0 +1,124 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the Widget component.
+// -----------------------------------------------------------------------------
+
+//Profile Style
+.profile {
+  &__banner {
+    position: relative;
+    margin: -4.4rem -3.2rem -5.5rem;
+    padding: 4.4rem 3.2rem 8rem;
+    background-color: rgba(darken($primary, 15%), 0.9);
+    color: $white;
+
+    @include media-breakpoint-down(md) {
+      .#{$class-prefix}-layout--modern &,
+      .#{$class-prefix}-layout--back-office &,
+      .#{$class-prefix}-layout--back-office-mini & {
+        margin-top: 0;
+      }
+    }
+
+    .#{$class-prefix}-layout--intranet & {
+      background-color: darken($primary, 15%);
+      @include media-breakpoint-up(lg) {
+        @include border-top-radius($border-radius);
+      }
+    }
+
+    @include media-breakpoint-down(xs) {
+      margin-bottom: 3.2rem;
+      padding-bottom: 3.2rem;
+    }
+
+    &-detail {
+      position: relative;
+      z-index: 2;
+
+      @include media-breakpoint-up(sm) {
+        display: flex;
+        align-items: center;
+      }
+    }
+
+    &-navigation {
+      position: relative;
+      z-index: 2;
+      display: flex;
+    }
+
+    &-detail {
+      @include media-breakpoint-down(xs) {
+        & .#{$class-prefix}-avatar-wrapper {
+          flex-direction: column;
+          margin-bottom: 4rem;
+
+          & .#{$class-prefix}-avatar-info {
+            text-align: center;
+            margin-top: 2rem;
+          }
+        }
+      }
+
+      &:not(:last-child) {
+        margin-bottom: 9rem;
+
+        @include media-breakpoint-down(xs) {
+          margin-bottom: 5rem;
+        }
+      }
+    }
+
+    & .#{$class-prefix}-list {
+      margin-left: -2.6rem;
+      margin-right: -2.6rem;
+    }
+
+    & .#{$class-prefix}-list__item {
+      padding-left: 2.6rem;
+      padding-right: 2.6rem;
+    }
+  }
+
+  &-content {
+    & .#{$class-prefix}-list-col-4 .#{$class-prefix}-list__item {
+      margin-bottom: 4rem;
+
+      @include media-breakpoint-down(md) {
+        width: 50%;
+      }
+
+      @include media-breakpoint-down(xs) {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.profile__banner {
+  & .navbar-nav {
+    flex-flow: row wrap;
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+
+  & .nav-link {
+    padding-left: 8px;
+    padding-right: 8px;
+
+    color: rgba($white, 0.85);
+
+    @include hover-focus-active {
+      color: rgba($white, 1);
+    }
+  }
+
+  & .nav-item {
+    padding-left: 10px;
+    padding-right: 10px;
+
+    &.active .nav-link {
+      color: rgba($white, 1);
+    }
+  }
+}

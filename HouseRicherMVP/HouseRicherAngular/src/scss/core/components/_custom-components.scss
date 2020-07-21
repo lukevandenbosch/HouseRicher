@@ -1,0 +1,85 @@
+// -----------------------------------------------------------------------------
+// This file contains styles that are specific to the Custom Components Widget.
+// -----------------------------------------------------------------------------
+
+//User Background card
+.user-bg-card {
+  position: relative;
+  display: block;
+  min-width: 132px;
+  width: 100%;
+  padding: 0;
+  overflow: hidden;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  &:before {
+    content: "";
+    display: block;
+    padding-top: 68%;
+  }
+
+  &-sm {
+    min-width: 88px;
+  }
+
+  & .#{$class-prefix}-status {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 1;
+    border: 1px solid $white;
+  }
+
+  & &__info {
+    content: '';
+    display: block;
+    @include gradient-y(rgba($black, 0), rgba($black, 0.8));
+    position: absolute;
+    bottom: 0;
+    z-index: 1;
+    width: 100%;
+    padding: 10px;
+    color: $white;
+
+    .#{$class-prefix}-avatar-name {
+      @include text-truncate;
+    }
+  }
+}
+
+//Campaigns Widget
+.campaigns-widget {
+  & .#{$class-prefix}-widget {
+    margin-left: -($dt-card-padding-x / 2);
+    margin-right: -($dt-card-padding-x /2);
+  }
+  & .#{$class-prefix}-widget__item {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    padding: 10px ($dt-card-padding-x / 2);
+    @include border-radius($border-radius);
+  }
+
+  @media screen and (max-width: 450px) {
+    font-size: 12px;
+
+    & .#{$class-prefix}-widget__title {
+      font-size: 12px;
+    }
+  }
+}
+
+//Real Time User Widget
+.real-time-widget {
+  position: relative;
+  @include gradient-y(rgba($primary, 0.65), rgba($primary, 1));
+
+  & .chart-fluid {
+    position: relative;
+    margin-bottom: -$dt-card-padding-y;
+    margin-left: -$dt-card-padding-x;
+    margin-right: -$dt-card-padding-x;
+  }
+}

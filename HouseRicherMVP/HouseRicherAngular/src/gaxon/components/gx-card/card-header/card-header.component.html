@@ -1,0 +1,9 @@
+<ng-container *ngIf="cardTitle || cardSubTitle">
+  <div class="dt-card__heading">
+    <h3 *ngIf="cardTitle" class="dt-card__title" [innerHTML]="cardTitle"></h3>
+    <h5 *ngIf="cardSubTitle" class="dt-card__subtitle" [innerHTML]="cardSubTitle"></h5>
+  </div>
+</ng-container>
+
+<ng-content></ng-content>
+<!-- /card header -->

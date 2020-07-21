@@ -1,0 +1,48 @@
+/*------------------------------------
+  Opacity
+------------------------------------*/
+.overlay-opacity {
+  &-0:after {
+    opacity: 0 !important;
+  }
+
+  &-0_1:after {
+    opacity: .1;
+  }
+
+  &-0_2:after {
+    opacity: .2;
+  }
+
+  &-0_3:after {
+    opacity: .3;
+  }
+
+  &-0_4:after {
+    opacity: .4;
+  }
+
+  &-0_5:after {
+    opacity: .5;
+  }
+
+  &-0_6:after {
+    opacity: .6;
+  }
+
+  &-0_7:after {
+    opacity: .7;
+  }
+
+  &-0_8:after {
+    opacity: .8;
+  }
+
+  &-0_9:after {
+    opacity: .9;
+  }
+
+  &-1:after {
+    opacity: 1;
+  }
+}

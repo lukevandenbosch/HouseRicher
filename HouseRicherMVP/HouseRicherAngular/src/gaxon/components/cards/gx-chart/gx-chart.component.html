@@ -1,0 +1,10 @@
+<canvas #chartRef baseChart
+        [ngClass]="chartClasses"
+        [data]="data"
+        [datasets]="datasets"
+        [labels]="labels"
+        [options]="options"
+        [colors]="colors"
+        [chartType]="chartType"
+        (chartHover)="chartHovered($event)"
+        (chartClick)="chartClicked($event)"></canvas>

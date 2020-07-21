@@ -1,0 +1,26 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Keyframes.
+// -----------------------------------------------------------------------------
+
+// Show Hide Animation
+@-webkit-keyframes show-hide {
+  0% {
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes show-hide {
+  0% {
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

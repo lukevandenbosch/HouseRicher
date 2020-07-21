@@ -1,0 +1,19 @@
+<!-- Vertical Navigation Layout -->
+<ng-container *ngIf="layout === 'vertical'">
+  <ng-container *ngFor="let item of navigation">
+    <app-nav-vertical-group *ngIf="item.type=='group'" [item]="item"></app-nav-vertical-group>
+    <app-nav-vertical-collapse *ngIf="item.type=='collapse'" [item]="item"></app-nav-vertical-collapse>
+    <app-nav-vertical-item *ngIf="item.type=='item'" [item]="item"></app-nav-vertical-item>
+  </ng-container>
+</ng-container>
+<!-- / Vertical Navigation Layout -->
+
+<!-- Horizontal Navigation Layout -->
+<ng-container *ngIf="layout === 'horizontal'">
+  <ng-container *ngFor="let item of headerMenu">
+    <app-nav-horizontal-mega *ngIf="item.type=='mega'" [item]="item"></app-nav-horizontal-mega>
+    <app-nav-horizontal-collapse *ngIf="item.type=='collapse'" [item]="item"></app-nav-horizontal-collapse>
+    <app-nav-horizontal-item *ngIf="item.type=='item'" [item]="item"></app-nav-horizontal-item>
+  </ng-container>
+</ng-container>
+<!-- / Horizontal Navigation Layout -->

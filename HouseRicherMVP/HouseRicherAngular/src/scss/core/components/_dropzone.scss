@@ -1,0 +1,38 @@
+.dropzone {
+  border-style: dashed;
+  @include border-radius($border-radius-lg);
+  min-height: 300px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+
+  & .dz-message {
+    font-size: $h1-font-size;
+
+    @include media-breakpoint-down(lg) {
+      font-size: $h4-font-size;
+    }
+  }
+
+  dropzone > & {
+    &.dz-wrapper.dz-single .dz-message,
+    &.dz-wrapper.dz-multiple .dz-message {
+      height: 100%;
+      max-height: calc(100% - 16px);
+    }
+
+    &.disabled {
+      height: 100%;
+    }
+  }
+
+  @include media-breakpoint-down(sm) {
+    dropzone > & {
+      &.dz-wrapper {
+        min-height: 200px;
+      }
+    }
+  }
+}

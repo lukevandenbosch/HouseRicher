@@ -1,0 +1,53 @@
+<div class="example-row mb-2">
+  <h5 class="text-muted">Basic Collapse</h5>
+  <p>
+    <button type="button" class="btn btn-outline-primary" [ngClass]="{active:!isCollapsed}" (click)="isCollapsed = !isCollapsed"
+            [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
+      {{(isCollapsed) ? 'Expand' : 'Collapse'}}
+    </button>
+  </p>
+  <div id="collapseExample" [ngbCollapse]="isCollapsed">
+    <div class="card">
+      <div class="card-body">
+        You can collapse this card by clicking Toggle
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<div class="example-row">
+  <h5 class="text-muted">Multiple Targets Collapse</h5>
+  <p class="mb-0">
+    <a class="btn btn-primary mr-2 mb-2" href="#multiCollapseExample1" (click)="collapsedWithAnchor($event)"
+       role="button"
+       [attr.aria-expanded]="!multiple.option1" aria-controls="multiCollapseExample1">First Element</a>
+
+    <button class="btn btn-primary mr-2 mb-2" type="button" (click)="multiple.option2 = !multiple.option2"
+            [attr.aria-expanded]="!multiple.option2" aria-controls="multiCollapseExample2">Second Element
+    </button>
+
+    <button class="btn btn-primary mr-2 mb-2" type="button" (click)="toggleCollapsed($event)"
+            aria-controls="multiCollapseExample1 multiCollapseExample2">Toggle both elements
+    </button>
+  </p>
+  <div class="row">
+    <div class="col">
+      <div class="multi-collapse" id="multiCollapseExample1" [ngbCollapse]="multiple.option1">
+        <div class="card card-body mb-0">
+          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
+          Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="multi-collapse" id="multiCollapseExample2" [ngbCollapse]="multiple.option2">
+        <div class="card card-body mb-0">
+          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
+          Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

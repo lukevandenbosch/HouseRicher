@@ -1,0 +1,39 @@
+<!-- Avatar -->
+<card-body style="width: 100%;" class="card">
+    <form>
+        <!-- Media -->
+        <div class="media">
+            <!-- Avatar -->
+            <img class="dt-avatar dt-avatar__shadow size-50 mr-2"
+                 
+                 alt="{{currentUser.name}}">
+            <!-- /avatar -->
+
+            <!-- Media Body -->
+            <div class="media-body">
+                <!-- Text Area -->
+                <textarea class="form-control border-0 shadow-none bg-focus" rows="3"
+                          placeholder="Ask a question!" ></textarea>
+                <!-- /text area -->
+            </div>
+            <!-- /media body -->
+        </div>
+        <!-- /media -->
+
+        <!-- Separator -->
+        <hr>
+        <!-- /separator -->
+
+        <div class="d-flex align-items-center">
+            <div class="dt-attachment-btn border-0 d-inline-flex align-items-center overflow-hidden">
+                <input type="file">
+                <gx-icon name="camera" class="mr-2" size="xl"></gx-icon>
+                <span class="d-inline-block">Add Photos/Album</span>
+            </div>
+
+            <button type="submit"
+                    class="btn btn-primary btn text-uppercase ml-auto">Submit</button>
+        </div>
+    </form>
+</card-body>
+<!-- /media body -->

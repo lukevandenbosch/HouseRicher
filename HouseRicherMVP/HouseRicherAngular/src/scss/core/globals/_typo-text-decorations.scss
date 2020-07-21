@@ -1,0 +1,22 @@
+// -----------------------------------------------------------------------------
+// This file contains CSS Typography Text Decoration.
+// -----------------------------------------------------------------------------
+.text-decoration {
+  &-underline {
+    text-decoration: underline;
+  }
+
+  &-none {
+    text-decoration: none;
+  }
+
+  &-none--hover {
+    @include hover-focus {
+      text-decoration: none;
+    }
+  }
+}
+
+.text-strike {
+  text-decoration: line-through;
+}

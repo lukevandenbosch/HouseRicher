@@ -1,0 +1,80 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the sidebar of the site/application.
+// -----------------------------------------------------------------------------
+
+//Sidebar Folded style
+.#{$class-prefix}-sidebar--folded {
+  & .#{$class-prefix}-brand,
+  & .#{$class-prefix}-brand__logo,
+  & .#{$class-prefix}-sidebar,
+  & .#{$class-prefix}-side-nav__text,
+  & .#{$class-prefix}-content-wrapper,
+  & .#{$class-prefix}-header__toolbar {
+    @include transition(all 0.2s cubic-bezier(0.4, 0.0, 0.2, 1) 0s);
+  }
+
+  & .#{$class-prefix}-sidebar__container {
+    padding-right: 2rem;
+  }
+
+  &:not(.#{$class-prefix}-sidebar--expended) {
+    & .#{$class-prefix}-brand,
+    & .#{$class-prefix}-sidebar {
+      width: $folded-sidebar-width;
+    }
+
+    & .#{$class-prefix}-content-wrapper,
+    & .#{$class-prefix}-header__toolbar {
+      width: calc(100% - #{$folded-sidebar-width});
+    }
+
+    & .#{$class-prefix}-brand__logo {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    & .#{$class-prefix}-side-nav__text,
+    & .#{$class-prefix}-side-nav__arrow::after,
+    & .#{$class-prefix}-brand__logo {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    & .#{$class-prefix}-side-nav__item {
+      &.open .#{$class-prefix}-side-nav__sub-menu {
+        display: none !important;
+      }
+    }
+
+    & .#{$class-prefix}-side-nav__header {
+
+      & .#{$class-prefix}-side-nav__text {
+        display: none;
+      }
+    }
+
+    .nav-group {
+      &:first-child .#{$class-prefix}-side-nav__header {
+        padding: 0;
+      }
+
+      &:not(:first-child) .#{$class-prefix}-side-nav__header:before {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &.#{$class-prefix}-sidebar--fixed {
+    & .#{$class-prefix}-content-wrapper,
+    & .#{$class-prefix}-header__toolbar {
+      margin-left: $folded-sidebar-width;
+      width: calc(100% - #{$folded-sidebar-width});
+    }
+
+    &:not(.#{$class-prefix}-header--fixed):not(.theme-semidark):not(.theme-dark) {
+      & .#{$class-prefix}-header .#{$class-prefix}-header__toolbar {
+        margin-left: ($folded-sidebar-width + 20px);
+      }
+    }
+  }
+}

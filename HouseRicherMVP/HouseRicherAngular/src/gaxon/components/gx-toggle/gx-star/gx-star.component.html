@@ -1,0 +1,5 @@
+<input id="{{uniqueId}}" type="checkbox" [(ngModel)]="gxModel" (change)="onInputChange()">
+<label class="font-weight-light dt-checkbox-content" for="{{uniqueId}}">
+  <span class="unchecked"><gx-icon name="star-o" [fw]="true" size="xl"></gx-icon></span>
+  <span class="checked"><gx-icon class="text-warning" name="star-fill" [fw]="true" size="xl"></gx-icon></span>
+</label>
