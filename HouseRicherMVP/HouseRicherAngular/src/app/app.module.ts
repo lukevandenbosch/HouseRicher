@@ -13,10 +13,11 @@ import {SharedModule} from '@gaxon/modules';
 import {AppRoutingModule} from '@app/app-routing.module';
 
 import {AppService} from '@app/app.service';
-import {AuthService} from '@app/layouts/auth-layout/auth.service';
+import {AuthenticationService} from './_services/authentication.service';
 import {DbdataService} from '@app/data-db/dbdata.service';
 import {SettingsService} from '@app/settings/settings.service';
 import {NavigationService} from '@gaxon/components/navigation/navigation.service';
+import {UtiltiesModule} from './content/utitlies/utilties.module'
 
 import {AppComponent} from './app.component';
 
@@ -43,6 +44,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     ToastNoAnimationModule,
     ToastrModule.forRoot(),
     AppRoutingModule,
+    UtiltiesModule,
     SharedModule,
     NgProgressModule,
     HttpClientInMemoryWebApiModule.forRoot(DbdataService, {dataEncapsulation: false, passThruUnknownUrl: true}),
@@ -51,7 +53,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
   providers: [
     SettingsService,
     NavigationService,
-    AuthService,
+    AuthenticationService,
     AppService
   ],
   bootstrap: [AppComponent]

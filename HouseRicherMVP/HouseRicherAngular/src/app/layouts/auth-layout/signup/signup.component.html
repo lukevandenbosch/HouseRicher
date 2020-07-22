@@ -2,7 +2,7 @@
 <div class="dt-login__content-wrapper">
 
   <!-- Header -->
-  <auth-header title="Sign Up" desc="Sign up and explore in-built apps of Drift."></auth-header>
+  <auth-header title="Sign Up" desc="Sign up and interact with realtors and other experts"></auth-header>
   <!-- /header -->
 
   <!-- Login Content Section -->
@@ -12,92 +12,85 @@
     <div class="dt-login__content-inner">
 
       <!-- Form -->
-      <form (ngSubmit)="onSubmitSignup(f)" #f="ngForm">
-
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
         <!-- Form Group -->
         <div class="form-group">
-          <label class="sr-only" for="user-name">Name</label>
-          <input type="text" class="form-control" id="user-name" aria-describedby="user-name"
-                 placeholder="User Name">
+          <label>First Name</label>
+          <input type="text" formControlName="firstName" placeholder="First Name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
+          <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+              <div class="form-error" *ngIf="f.firstName.errors.required">* First Name is required</div>
+          </div>
         </div>
         <!-- /form group -->
 
         <!-- Form Group -->
         <div class="form-group">
-          <label class="sr-only" for="email-1">Email address</label>
-          <input type="email" class="form-control" id="email-1" aria-describedby="emailHelp"
-                 placeholder="Enter email">
+          <label>Last Name</label>
+          <input type="text" formControlName="lastName" placeholder="Last Name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
+          <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+              <div class="form-error" *ngIf="f.lastName.errors.required">* Last Name is required</div>
+          </div>
         </div>
         <!-- /form group -->
 
         <!-- Form Group -->
         <div class="form-group">
-          <label class="sr-only" for="password-1">Password</label>
-          <input type="password" class="form-control" id="password-1" placeholder="Password">
+          <label>Email</label>
+          <input type="text" formControlName="email" placeholder="Email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+          <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+              <div class="form-error" *ngIf="f.email.errors.required">* Email is required</div>
+              <div class="form-error" *ngIf="f.email.errors.email">* Email must be a valid email</div>
+          </div>
+        </div>
+        <!-- /form group -->
+
+        <!-- Form Group -->
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" formControlName="password" placeholder="Password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+            <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                <div class="form-error" *ngIf="f.password.errors.required">* Password is required</div>
+                <div class="form-error" *ngIf="f.password.errors.minlength">* Password must be at least 6 characters</div>
+                <div class="form-error" *ngIf="f.password.errors.passwordValidation">* Password must contain 1 special character, 1 number, 1 Upper case letter, and 1 lowercase letter</div>
+            </div>
+        </div>
+        <!-- /form group -->
+
+        <!-- Form Group -->
+        <div class="form-group">
+          <label>Confirm Password</label>
+          <input type="password" formControlName="passwordConfirm" placeholder="Confirm Password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.passwordConfirm.errors }" />
+            <div *ngIf="submitted && f.passwordConfirm.errors" class="invalid-feedback">
+                <div class="form-error" *ngIf="f.passwordConfirm.errors.required">* Password Confirm is required</div>
+                <div class="form-error" *ngIf="f.passwordConfirm.errors.passwordConfirmValidation">* Passwords must match</div>
+            </div>
         </div>
         <!-- /form group -->
 
         <!-- Form Group -->
         <div class="dt-checkbox d-block mb-6">
-          <input type="checkbox" id="checkbox-1">
-          <label class="dt-checkbox-content" for="checkbox-1">
-            Keep me login on this device
+          <input type="checkbox" formControlName="accept" [ngClass]="{ 'is-invalid': submitted && f.accept.errors }">
+          <label class="dt-checkbox-content">
+            by signing up, I accept the <a href="javascript:void(0)">Terms &amp; Conditions</a>
           </label>
+          <div *ngIf="submitted && f.accept.errors" class="invalid-feedback">
+            <div class="form-error" *ngIf="f.accept.errors.required">* The terms of service must be accepted</div>
+          </div>
         </div>
         <!-- /form group -->
+        
+        <span class="d-inline-block" style="margin-bottom: 20px;">
+          <a class="d-inline-block font-weight-500" routerLink="/signup-realtor">Sign up as a Realtor</a>
+        </span>
 
         <!-- Form Group -->
         <div class="form-group">
           <button type="submit" class="btn btn-primary text-uppercase">Sign up</button>
           <span class="d-inline-block ml-5">Or
-              <a class="d-inline-block font-weight-500 ml-3" routerLink="/signin">Login</a>
-            </span>
+            <a class="d-inline-block font-weight-500 ml-3" routerLink="/signin">Login</a>
+          </span>
         </div>
         <!-- /form group -->
-
-        <!-- Form Group -->
-        <div class="d-flex flex-wrap align-items-center">
-          <span class="d-inline-block mr-2">Or connect with</span>
-
-          <!-- List -->
-          <ul class="dt-list dt-list-sm dt-list-cm-0 ml-auto">
-            <li class="dt-list__item">
-              <!-- Fab Button -->
-              <a href="javascript:void(0)" class="btn btn-outline-primary dt-fab-btn size-30">
-                <gx-icon name="facebook" size="xl"></gx-icon>
-              </a>
-              <!-- /fab button -->
-            </li>
-
-            <li class="dt-list__item">
-              <!-- Fab Button -->
-              <a href="javascript:void(0)" class="btn btn-outline-primary dt-fab-btn size-30">
-                <gx-icon name="google-plus" size="xl"></gx-icon>
-              </a>
-              <!-- /fab button -->
-            </li>
-
-            <li class="dt-list__item">
-              <!-- Fab Button -->
-              <a href="javascript:void(0)" class="btn btn-outline-primary dt-fab-btn size-30">
-                <gx-icon name="github" size="xl"></gx-icon>
-              </a>
-              <!-- /fab button -->
-            </li>
-
-            <li class="dt-list__item">
-              <!-- Fab Button -->
-              <a href="javascript:void(0)" class="btn btn-outline-primary dt-fab-btn size-30">
-                <gx-icon name="twitter" size="xl"></gx-icon>
-              </a>
-              <!-- /fab button -->
-            </li>
-          </ul>
-          <!-- /list -->
-        </div>
-        <!-- /form group -->
-
-
       </form>
       <!-- /form -->
 

@@ -12,6 +12,14 @@ export class ProfilePageService implements Resolve<any> {
 
     bannerData: any;
     contentData: any;
+    following: any;
+    aboutButton: string;
+    userID: number;
+    isCurrentUser: boolean;
+    isRealtor: boolean;
+    
+    public editDescription: boolean = false;
+    public editProfilePicture: boolean = false;
 
     constructor(private http: HttpClient) {
     }

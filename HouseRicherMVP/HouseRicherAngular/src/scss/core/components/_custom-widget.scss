@@ -196,7 +196,7 @@
           & .#{$class-prefix}-task__number {
             color: $primary;
             margin-right: 6rem;
- `        }
+          }
 
           & .#{$class-prefix}-task__redirect {
             @include translateX(-50%);
@@ -220,7 +220,7 @@
             & .#{$class-prefix}-task__number {
               color: $primary;
               margin-right: 6rem;
-`           }
+            }
 
             & .#{$class-prefix}-task__redirect {
               @include translateX(0);

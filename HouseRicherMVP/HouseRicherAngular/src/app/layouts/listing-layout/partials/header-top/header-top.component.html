@@ -13,7 +13,7 @@
 
     <!-- Brand logo -->
     <span class="dt-brand__logo">
-      <a class="dt-brand__logo-link" routerLink="/portal/index/home">
+      <a class="dt-brand__logo-link" routerLink="/">
         <img class="dt-brand__logo-img d-none d-sm-inline-block" src="/assets/HouseRicher/HouseRicher Nav Bar Logo.png" alt="HouseRicher">
         <img class="dt-brand__logo-symbol d-sm-none" src="/assets/HouseRicher/HouseRicher Icon.png" alt="HouseRicher">
       </a>
@@ -129,7 +129,7 @@
           <a href="javascript:void(0)" class="dt-nav__link no-arrow dt-avatar-wrapper"
              ngbDropdownToggle>
 
-            <gx-avatar [user]="currentUser" class="size-50"></gx-avatar>
+            <avatar img_class="circle dt-avatar size-50" src="{{currentUser.picture}}" firstName="{{currentUser.name}}"></avatar>
             <span class="dt-avatar-info d-none">
               <span class="d-block text-light-primary f-10 mb-1">Welcome back!</span>
               <span class="dt-avatar-name">{{currentUser.name}}</span>
@@ -140,19 +140,15 @@
           <!-- Dropdown Option -->
           <div ngbDropdownMenu>
             <div class="dt-avatar-wrapper flex-nowrap p-6 mt-n2 bg-gradient-purple text-white rounded-top">
-              <gx-avatar [user]="currentUser"></gx-avatar>
+              <avatar img_class="dt-avatar size-40 mr-6 mb-6 mb-sm-0" src="{{currentUser.picture}}" firstName="{{currentUser.name}}"></avatar>
               <span class="dt-avatar-info">
                   <span class="dt-avatar-name">{{currentUser.name}}</span>
                   <span class="f-12">{{currentUser.position}}</span>
                 </span>
             </div>
-            <a class="dropdown-item" href="/portal/user/user-views">
+            <a class="dropdown-item" href="/portal/user/profile/realtor/current">
               <gx-icon name="user" [fw]="true" class="mr-2 mr-sm-1"></gx-icon>
               Account
-            </a>
-            <a class="dropdown-item" href="javascript:void(0)">
-              <gx-icon name="settings" [fw]="true" class="mr-2 mr-sm-1"></gx-icon>
-              Setting
             </a>
 
             <a class="dropdown-item" href="#logout" (click)="onLogout($event)">
