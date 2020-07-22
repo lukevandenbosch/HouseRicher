@@ -17,8 +17,8 @@
       <!-- List -->
       <div class="d-sm-flex flex-sm-row">
 
-        <avatar img_class="dt-avatar size-60 mr-6 mb-6 mb-sm-0" src="{{user.profilePicture}}" firstName="{{user.firstName}}"></avatar>
-        <!--<img class="dt-avatar size-60 mr-6 mb-6 mb-sm-0" [src]="user.profilePicture" alt="{{user.name}}">-->
+        <!-- User Avatar-->
+        <img class="dt-avatar size-60 mr-6 mb-6 mb-sm-0" [src]="user.profilePicture" alt="{{user.name}}">
         <!-- /user avatar-->
 
         <!-- Content -->
@@ -37,7 +37,8 @@
                       <gx-icon name="heart-o" size="sm" [fw]="true" [ngClass]="user.isLiked ? 'text-danger' : ''"></gx-icon>
                       <span class="d-inline-block">{{user.likes | thousandSuff}} {{user.likes !== 1 ? 'Likes' : 'Like'}}</span>
                   </a>
-                  <a *ngIf="user.commentCount !== 0" href="javascript:void(0)" class="f-12 d-inline-block text-light-gray">
+                  <a *ngIf="user.commentCount !== 0" href="javascript:void(0)"
+                    class="f-12 d-inline-block text-light-gray">
                       <gx-icon name="message" size="sm" [fw]="true"></gx-icon>
                       <span class="d-inline-block">{{user.commentCount | thousandSuff}} {{user.commentCount !== 1 ? 'Comments' : 'Comment'}}</span>
                   </a>

@@ -5,26 +5,15 @@
     <div class="profile__banner-detail">
         <!-- Avatar Wrapper -->
         <div class="dt-avatar-wrapper">
-            <a (click)="profilePicEdit()">
-                <avatar img_class="dt-avatar size-90 mr-sm-4" src="{{bannerData.user.image}}" firstName="Reece Jacklin"></avatar>
-            </a>
+            <!-- Avatar -->
+            <img class="dt-avatar dt-avatar__shadow size-90 mr-sm-4"
+                 src="{{bannerData.user.image}}" alt="Reece Jacklin">
+            <!-- /avatar -->
 
             <!-- Info -->
             <div class="dt-avatar-info">
                 <span class="dt-avatar-name display-4 mb-2 font-weight-light">{{bannerData.user.name}}</span>
                 <span class="f-16">{{bannerData.user.address}}</span>
-                
-                <div class="mb-5" style="margin-top:10px;">
-                    <div class="d-flex mb-1">
-                        <div class="rating-container flex-column">
-                            <div style="display:flex;"><div class="rating-1">☆</div><div class="rating-2">☆</div><div class="rating-3">☆</div><div class="rating-4">☆</div><div class="rating-5">☆</div></div>
-                            
-                            <div class="ratings-review f-16" style="color: #e6e6e6;">
-                                <span class="count-number" style="color: #e6e6e6;">350</span> Reviews
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
             <!-- /info -->
         </div>
@@ -34,7 +23,7 @@
             <!-- List -->
             <ul class="dt-list dt-list-bordered dt-list-col-4">
                 <!-- List Item -->
-                <li class="dt-list__item text-center" *ngFor="let feed of bannerData.feeds" style="padding-right: 70px;">
+                <li class="dt-list__item text-center" *ngFor="let feed of bannerData.feeds">
                     <span class="h4 font-weight-500 mb-0 text-white">{{feed.value | thousandSuff}}</span>
                     <span class="d-block f-12">{{feed.label}}</span>
                 </li>
@@ -53,19 +42,62 @@
 
             <!-- Nav Item -->
             <li class="nav-item active">
-                <a class="nav-link button-about-switch" [style]="profilePageService.aboutButton == 'following' ? 'color: #e6e6e6;' : 'color: white;'" (click)="aboutClick('about')">About</a>
+                <a class="nav-link " href="javascript:void(0)">Timeline</a>
             </li>
             <!-- /nav item -->
 
             <!-- Nav Item -->
             <li class="nav-item">
-                <a class="nav-link button-about-switch" [style]="profilePageService.aboutButton == 'following' ? 'color: white;' : 'color: #e6e6e6;'" (click)="aboutClick('following')">Following
+                <a class="nav-link" href="javascript:void(0)">About</a>
+            </li>
+            <!-- /nav item -->
+
+            <!-- Nav Item -->
+            <li class="nav-item">
+                <a class="nav-link" href="javascript:void(0)">Photos</a>
+            </li>
+            <!-- /nav item -->
+
+            <!-- Nav Item -->
+            <li class="nav-item">
+                <a class="nav-link" href="javascript:void(0)">Friends
                     <small class="text-light-gray">287</small>
                 </a>
             </li>
             <!-- /nav item -->
+
+            <!-- Nav Item -->
+            <li class="nav-item">
+                <a class="nav-link" href="javascript:void(0)">More</a>
+            </li>
+            <!-- /nav item -->
+
         </ul>
         <!-- /navbar -->
+
+        <!-- Dropdown -->
+        <div class="pl-3 mt-2 ml-auto" ngbDropdown placement="bottom-right">
+
+            <!-- Dropdown Button -->
+            <a href="javascript:void(0)" class="no-arrow text-white" ngbDropdownToggle>
+                <gx-icon name="settings" size="xl" class="mr-2"></gx-icon><span
+                    class="d-none d-sm-inline-block">Settings</span>
+            </a>
+            <!-- /dropdown button -->
+
+            <!-- Dropdown Menu -->
+            <div ngbDropdownMenu>
+                <a class="dropdown-item" href="javascript:void(0)">Action</a>
+                <a class="dropdown-item" href="javascript:void(0)">Another action</a>
+                <a class="dropdown-item" href="javascript:void(0)">Something else here</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="javascript:void(0)">Separated link</a>
+            </div>
+            <!-- /dropdown menu -->
+
+        </div>
+        <!-- /dropdown -->
+
     </div>
     <!-- /profile banner bottom -->
 

@@ -15304,6 +15304,7 @@ select.ng-touched.ng-invalid {
 .dt-login__bg-section {
   position: relative;
   padding: 3.2rem 3.2rem;
+  background-image: url("https://via.placeholder.com/640x962");
   background-position: center bottom;
   background-repeat: no-repeat;
   background-size: cover;

@@ -17,7 +17,6 @@ export class NavigationModel implements NavigationModelInterface {
             title: 'Forum',
             translate: 'Forum',
             type: 'item',
-            icon: 'list',
             url: 'forum/forum-list'
           },
           {
@@ -25,9 +24,15 @@ export class NavigationModel implements NavigationModelInterface {
             title: 'Realtors',
             translate: 'Realtors',
             type: 'item',
-            icon: 'company',
-            url: 'realtor/realtor-list'
-          }
+            url: 'realtors/forum-list'
+          },
+          {
+            id: 'menu-apps',
+            title: 'Contact Us',
+            translate: 'Contact Us',
+            type: 'item',
+            url: 'portal/contact'
+          },
         ]
       }
     ];

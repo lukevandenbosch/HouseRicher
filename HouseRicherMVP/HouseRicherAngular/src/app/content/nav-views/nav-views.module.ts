@@ -13,7 +13,7 @@ const routes: Routes = [
   },
   {
     path: 'index',
-    loadChildren: () => import('./index/index.module').then(m => m.IndexModule)
+    loadChildren: () => import('./index/home.module').then(m => m.IndexModule)
   }
 ];
 
@@ -21,7 +21,8 @@ const routes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes)
-  ]
+  ],
+  declarations: []
 })
 export class NavViewsModule {
 }

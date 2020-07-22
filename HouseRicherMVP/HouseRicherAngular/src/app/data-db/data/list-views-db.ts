@@ -22,7 +22,7 @@ export class ListViewsDb {
           "datePosted": "2020-06-28T21:34:42-04:00",
           "firstName": "Anonymous",
           "lastName": "",
-          "profilePicture": '',
+          "profilePicture": 'https://via.placeholder.com/150X150',
           "description": "",
           "commentCount": 3
       },
@@ -35,7 +35,7 @@ export class ListViewsDb {
           "datePosted": "2020-06-28T20:48:38-04:00",
           "firstName": "Anonymous",
           "lastName": "",
-          "profilePicture": '',
+          "profilePicture": 'https://via.placeholder.com/150X150',
           "description": "",
           "commentCount": 3
       },

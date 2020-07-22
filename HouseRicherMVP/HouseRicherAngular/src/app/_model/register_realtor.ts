@@ -9,7 +9,6 @@ export class Register_Realtor {
     twitter: string;
     instagram: string;
     about: string;
-    brokerage: string;
     cellPhone: string;
     officePhone: string;
     province: string;
@@ -17,6 +16,4 @@ export class Register_Realtor {
     officeAddress: string;
     fileType: string;
     profilePicture: File;
-    termsAndConditions: boolean;
-    trial: boolean;
 }

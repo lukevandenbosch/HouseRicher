@@ -17,7 +17,7 @@
     <a href="javascript:void(0)" class="media" *ngFor="let notification of notifications">
 
       <!-- Avatar -->
-      <avatar img_class="dt-avatar size-40 mr-3 mb-3 mb-sm-0" src="{{notification.icon.picture}}" firstName="{{notification.icon.name}}"></avatar>
+      <gx-avatar [user]="notification" [charLength]="0" class="mr-3"></gx-avatar>
       <!-- avatar -->
 
       <!-- Media Body -->
@@ -37,3 +37,11 @@
     <!-- /media -->
   </div>
 </div>
+
+<!-- Dropdown Menu Footer -->
+<div class="dropdown-menu-footer">
+  <a href="javascript:void(0)" class="card-link">
+    See All <gx-icon name="arrow-right" [fw]="true"></gx-icon>
+  </a>
+</div>
+<!-- /dropdown menu footer -->

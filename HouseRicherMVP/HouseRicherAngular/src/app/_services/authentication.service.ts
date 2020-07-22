@@ -5,7 +5,7 @@ import { map } from 'rxjs/operators';
 import { CookieService } from 'ngx-cookie-service'; 
 
 import { Token } from '../_model/token';
-import { DOCUMENT } from '@angular/common';
+import { LocationStrategy, DOCUMENT } from '@angular/common';
 
 @Injectable({
     providedIn: 'root'
@@ -16,11 +16,12 @@ export class AuthenticationService {
     private url: String;
 
     constructor(private http: HttpClient, 
-                @Inject(DOCUMENT) private readonly document: any,
+                @Inject(DOCUMENT) private readonly document: any, 
+                private readonly locationStrategy: LocationStrategy,
                 private cookieService: CookieService) {
         this.currentUserSubject = new BehaviorSubject<Token>(JSON.parse(localStorage.getItem('currentUser')));
         this.currentUser = this.currentUserSubject.asObservable();
-        this.url = 'https://localhost:5001'//this.document.location.origin;
+        this.url = this.document.location.origin;
     }
 
     public get currentUserValue(): Token {

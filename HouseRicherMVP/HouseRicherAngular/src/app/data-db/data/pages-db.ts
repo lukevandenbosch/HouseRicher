@@ -70,7 +70,7 @@ export class PagesDb {
 
     public static wallPagePosts = [
         {
-            id: 2,
+            id: 1,
             user_name: 'Reece Jacklin',
             user_image: 'https://via.placeholder.com/150X150',
             message: 'Had the opportunity to meet Shally today. It was such an amazing experience to talk to someone who is so close to you and shares the same vibe.',
@@ -299,41 +299,23 @@ export class PagesDb {
 
     public static profilePageBannerData = {
         user: {name: 'Reece Jacklin', address: 'Florida, USA', image: 'https://via.placeholder.com/150X150'},
-        feeds: [{label: 'Followers', value: 2000}, {label: 'Following', value: 847}]
+        feeds: [{label: 'Followers', value: 2000}, {label: 'Following', value: 847}, {label: 'Friends', value: 324}]
     };
 
     public static profilePageContentData = {
-        contact_detail: {
-            email: 'kiley.brown@example.com', 
-            website: 'https://www.example.com',
-            brokerage: 'Century 21',
-            phoneNumberOffice: '+1-987 (454) 987',
-            PhoneNumberCell: '+1-987 (454) 987',
-            facebook: 'https://www.facebook.com/user/bob',
-            linkedin: 'https://www.linkedin.com/user/bob',
-            twitter: 'https://www.twitter.com/user/bob',
-            instagram: 'https://www.instagram.com/user/bob',
-            about: "This is my paragraph about myself. I hope no one notices that is repeats after a while. But this won't go on forever. I am rambling at this point, but I need this to be a longer verson of an about page. please notice that this is myself talking an not anyone else. I am not a realtor, but I am trying to help. Please listen.",
-            profilePicture: 'https://via.placeholder.com/150X150',
-            address: '123 Fake Street',
-            city: 'Toronto',
-            provinceState: 'Ontario'
-        },
+        contact_detail: {email: 'kiley.brown@example.com', website: 'example.com', mobile: '+1-987 (454) 987'},
         about_user: {
-            email: 'kiley.brown@example.com', 
-            website: 'https://www.example.com',
-            brokerage: 'Century 21',
-            phoneNumberOffice: '+1-987 (454) 987',
-            PhoneNumberCell: '+1-987 (454) 987',
-            facebook: 'https://www.facebook.com/user/bob',
-            linkedin: 'https://www.linkedin.com/user/bob',
-            twitter: 'https://www.twitter.com/user/bob',
-            instagram: 'https://www.instagram.com/user/bob',
-            about: "This is my paragraph about myself. I hope no one notices that is repeats after a while. But this won't go on forever. I am rambling at this point, but I need this to be a longer verson of an about page. please notice that this is myself talking an not anyone else. I am not a realtor, but I am trying to help. Please listen.",
-            profilePicture: '',
-            address: '123 Fake Street',
-            city: 'Toronto',
-            provinceState: 'Ontario',
+            company: 'G-axon Tech Pvt. Ltd.',
+            birthday: 'Oct 25, 1984',
+            university: 'Oxford University',
+            hometown: 'Switzerland',
+            current_city: 'London',
+            members: [
+                {name: 'Steve Smith', image: 'https://via.placeholder.com/150X150'},
+                {name: 'Alex Dolgove', image: 'https://via.placeholder.com/150X150'},
+                {name: 'Reece Jacklin', image: 'https://via.placeholder.com/150X150'},
+                {name: 'Selena', image: 'https://via.placeholder.com/150X150'},
+            ]
         },
         friends: [
             {name: 'Domnic Harris', image: 'https://via.placeholder.com/150X150', status: 'online'},

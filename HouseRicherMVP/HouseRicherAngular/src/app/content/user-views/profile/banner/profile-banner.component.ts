@@ -3,24 +3,12 @@ import {ProfilePageService} from '@app/content/user-views/profile/profile-page.s
 
 @Component({
     selector: 'profile-banner',
-    templateUrl: './profile-banner.component.html',
-    styleUrls: ['./profile-banner.component.scss']
+    templateUrl: './profile-banner.component.html'
 })
 export class ProfileBannerComponent {
     bannerData: any;
 
-    constructor(public profilePageService: ProfilePageService) {
+    constructor(private profilePageService: ProfilePageService) {
         this.bannerData = this.profilePageService.bannerData;
-    }
-
-    aboutClick(value: string) {
-        this.profilePageService.aboutButton = value;
-    }
-
-    profilePicEdit() {
-        this.profilePageService.aboutButton = 'about'
-        this.profilePageService.editDescription = true;
-        this.profilePageService.editProfilePicture = true;
-        console.log(this.profilePageService.editProfilePicture)
     }
 }

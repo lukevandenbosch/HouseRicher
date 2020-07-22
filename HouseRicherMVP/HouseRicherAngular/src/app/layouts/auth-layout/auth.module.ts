@@ -8,7 +8,6 @@ import {RouterModule} from '@angular/router';
 
 import {PagesRoutingModule} from './pages-routing.module';
 import {SignupComponent} from './signup/signup.component';
-import {SignupRealtorComponent} from './signup-realtor/signup-realtor.component';
 import {HeaderComponent} from './header/header.component';
 
 @NgModule({
@@ -23,7 +22,6 @@ import {HeaderComponent} from './header/header.component';
     SigninComponent,
     AuthComponent,
     SignupComponent,
-    SignupRealtorComponent,
     HeaderComponent
   ],
   exports: [
