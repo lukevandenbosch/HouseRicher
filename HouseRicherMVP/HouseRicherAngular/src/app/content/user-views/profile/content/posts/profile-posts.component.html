@@ -1,0 +1,23 @@
+<tabs-about-profile title="Posts" class="card">
+    <div>
+        <div class="tab-content">
+            <div *ngFor="let post of posts; index as j;">
+                <a href="{{post.link}}">
+                    <div class="container row" [style]="j === (posts.length - 1) ? 'margin-bottom: 10px;' : ''">
+                        <p class="mb-0 text-light-gray text-truncate">{{ post.type }}</p>
+                        <div class="dt-module__list-item-content" data-location="mail-detail.html">
+                            <div class="user-detail">
+                                <span class="dt-separator-v">&nbsp;</span>
+                                <span class="designation date-designation">{{ post.date }}</span>
+                            </div>
+                            <p class="mb-0 text-light-gray text-truncate">{{ post.question | htmlToPlainText | slice:0:100 }}</p>
+                        </div>
+                    </div>
+                </a>
+                <div *ngIf="j !== (posts.length - 1)">
+                    <hr>
+                </div>
+            </div>
+        </div>
+    </div>
+</tabs-about-profile>

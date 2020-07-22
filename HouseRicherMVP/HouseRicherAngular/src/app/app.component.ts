@@ -7,7 +7,7 @@ import {NgProgress} from 'ngx-progressbar';
 import {TranslateService} from '@ngx-translate/core';
 
 import {AppService} from '@app/app.service';
-import {AuthService} from '@app/layouts/auth-layout/auth.service';
+import {AuthenticationService} from './_services/authentication.service';
 import {SettingsService} from '@app/settings/settings.service';
 
 @Component({
@@ -25,7 +25,7 @@ export class AppComponent {
 
   constructor(private appService: AppService,
               public translate: TranslateService,
-              public authService: AuthService,
+              public authService: AuthenticationService,
               public settingService: SettingsService,
               public ngProgress: NgProgress,
               private router: Router,
@@ -49,16 +49,16 @@ export class AppComponent {
       }
     );
 
-    this.isAuthenticated = this.authService.isAuthenticated();
+    //this.isAuthenticated = this.authService.isAuthenticated();
 
     router.events.subscribe((event) => {
       if (event instanceof NavigationStart) {
         this.ngProgress.start();
-        this.isAuthenticated = this.authService.isAuthenticated();
+        //this.isAuthenticated = this.authService.isAuthenticated();
       }
 
       if (event instanceof NavigationEnd) {
-        this.isAuthenticated = this.authService.isAuthenticated();
+        //this.isAuthenticated = this.authService.isAuthenticated();
         this.ngProgress.done();
 
         const {fragment} = router.parseUrl(router.url);

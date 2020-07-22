@@ -1,0 +1,189 @@
+  <!--Navbar Start-->
+  <nav class="navbar navbar-expand-lg fixed-top navbar-custom sticky sticky-dark" (window:scroll)="windowScroll()"
+    id="navbar">
+    <div class="container">
+      <!-- LOGO -->
+      <a class="navbar-brand logo" href="/">
+        <img src="assets/images/HouseRicher-Nav-Bar-Logo-light.png" alt="" class="HouseRicher" height="24" />
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" (click)="toggleMenu()">
+        <i class="mdi mdi-menu"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mx-auto navbar-center" id="mySidenav">
+          <li class="nav-item" [ngClass]="{'active':currentSection === 'home'}">
+            <a href="javascript: void(0);" [ngxScrollTo]="'#home'" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item" [ngClass]="{'active':currentSection === 'features'}">
+            <a href="javascript: void(0);" [ngxScrollTo]="'#features'" class="nav-link">Features</a>
+          </li>
+          <li class="nav-item" [ngClass]="{'active':currentSection === 'pricing'}">
+            <a href="javascript: void(0);" [ngxScrollTo]="'#pricing'" class="nav-link"
+              [ngxScrollToOffset]="5">Pricing</a>
+          </li>
+          <li class="nav-item" [ngClass]="{'active':currentSection === 'blog'}">
+            <a href="javascript: void(0);" [ngxScrollTo]="'#blog'" class="nav-link" [ngxScrollToOffset]="5">Blog</a>
+          </li>
+          <li class="nav-item" [ngClass]="{'active':currentSection === 'contact'}">
+            <a href="javascript: void(0);" [ngxScrollTo]="'#contact'" class="nav-link" [ngxScrollToOffset]="5">Contact
+              Us</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav navbar-center">
+          <li class="nav-item">
+            <a href="javascript: void(0);" class="nav-link" (click)="loginModal(content)">Log
+              in</a>
+          </li>
+          <li class="nav-item">
+            <a href="javascript: void(0);" class="nav-link" (click)="registerModal(registercontent)">Register</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- Navbar End -->
+  <div appScrollspy [spiedTags]="['SECTION']" (sectionChange)="onSectionChange($event)">
+    <!-- Hero Start -->
+    <section class="hero-1-bg" style="background-image: url(assets/images/hero-1-bg-img.png)" id="home">
+      <div class="container">
+        <div class="row align-items-center justify-content-center">
+          <div class="col-lg-6">
+            <h1 class="hero-1-title text-dark font-weight-bold text-shadow mb-4">Creative Landing Page</h1>
+            <div class="w-75 mb-5 mb-lg-0">
+              <p class="text-muted mb-5 pb-5 font-size-17">A creative & modern landing page with Lezir template & We
+                love
+                make things amazing.</p>
+              <p class=""><span class="font-size-20 mr-2">🥳️</span>Nemo enim ipsam voluptatem quia voluptas sit
+                aspernatur that is fugit.</p>
+              <div class="subscribe-form">
+                <form action="#">
+                  <input type="text" placeholder="Enter  email...">
+                  <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-10">
+            <div class=" mt-5 mt-lg-0">
+              <img src="assets/images/hero-1-img.png" alt="" class="img-fluid d-block mx-auto">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Hero End -->
+
+    <app-services></app-services>
+    <app-features></app-features>
+    <app-pricing></app-pricing>
+    <app-blog></app-blog>
+    <app-contact></app-contact>
+    <app-footer></app-footer>
+  </div>
+
+  <ng-template #content let-c="close" let-d="dismiss">
+    <div class="modal-body">
+      <div class="text-center">
+        <h3 class="title mb-4">Welcome To Lezir</h3>
+        <h4 class="text-uppercase text-primary"><b>Login</b></h4>
+      </div>
+      <div class="login-form mt-4">
+        <form>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Username / Email</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Youremail@gmail.com">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+          </div>
+          <a href="javascript: void(0);" class="float-right text-muted font-size-15">Forgot Password.?</a>
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="customCheck1">
+            <label class="custom-control-label font-size-15" for="customCheck1">Remember Me</label>
+          </div>
+          <div class="text-center mt-4">
+            <button type="submit" class="btn btn-primary">Login <i-feather class="icon-size-15 icon ml-1"
+                name="arrow-right-circle"></i-feather></button>
+          </div>
+        </form>
+        <div class="position-relative text-center mt-4">
+          <span class="login-border"></span>
+          <p class="social-login text-muted font-size-17">Social Login</p>
+        </div>
+        <div class="text-center">
+          <ul class="list-inline mt-2 mb-3">
+            <li class="list-inline-item mr-3"><a href="javascript: void(0);" class="login-social-icon icon-primary">
+                <i-feather class="icon-xs" name="facebook"></i-feather>
+              </a></li>
+            <li class="list-inline-item mr-3"><a href="javascript: void(0);" class="login-social-icon icon-info">
+                <i-feather class="icon-xs" name="twitter"></i-feather>
+              </a></li>
+            <li class="list-inline-item mr-3"><a href="javascript: void(0);" class="login-social-icon icon-danger">
+                <i-feather class="icon-xs" name="instagram"></i-feather>
+              </a></li>
+            <li class="list-inline-item"><a href="javascript: void(0);" class="login-social-icon icon-success">
+                <i-feather class="icon-xs" name="linkedin"></i-feather>
+              </a></li>
+          </ul>
+          <p class="text-muted mb-0">New User? <a href="javascript: void(0);" class="text-primary">Signup</a></p>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+
+  <ng-template #registercontent let-c="close" let-d="dismiss">
+    <div class="modal-body">
+      <div class="text-center">
+        <h3 class="title mb-4">Welcome To Lezir</h3>
+        <h4 class="text-uppercase text-primary"><b>Register</b></h4>
+      </div>
+      <div class="login-form mt-4">
+        <form>
+          <div class="form-group">
+            <label for="exampleInputUsername">User Name</label>
+            <input type="text" class="form-control" id="exampleInputUsername" placeholder="Enter Name">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail2">Email</label>
+            <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Youremail@gmail.com">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword2">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
+          </div>
+          <a href="javascript: void(0);" class="float-right text-muted font-size-15">Forgot Password.?</a>
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="customCheck2">
+            <label class="custom-control-label font-size-15" for="customCheck2">Remember Me</label>
+          </div>
+          <div class="text-center mt-4">
+            <button type="submit" class="btn btn-primary">Register <i-feather class="icon-size-15 icon ml-1"
+                name="arrow-right-circle"></i-feather></button>
+          </div>
+        </form>
+        <div class="position-relative text-center mt-4">
+          <span class="login-border"></span>
+          <p class="social-login text-muted font-size-17">Social Login</p>
+        </div>
+        <div class="text-center">
+          <ul class="list-inline mt-2 mb-3">
+            <li class="list-inline-item mr-3"><a href="javascript: void(0);" class="login-social-icon icon-primary">
+                <i-feather class="icon-xs" name="facebook"></i-feather>
+              </a></li>
+            <li class="list-inline-item mr-3"><a href="javascript: void(0);" class="login-social-icon icon-info">
+                <i-feather class="icon-xs" name="twitter"></i-feather>
+              </a></li>
+            <li class="list-inline-item mr-3"><a href="javascript: void(0);" class="login-social-icon icon-danger">
+                <i-feather class="icon-xs" name="instagram"></i-feather>
+              </a></li>
+            <li class="list-inline-item"><a href="javascript: void(0);" class="login-social-icon icon-success">
+                <i-feather class="icon-xs" name="linkedin"></i-feather>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </ng-template>

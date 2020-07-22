@@ -4,13 +4,20 @@
   <!-- /login title -->
 
   <p class="f-16">{{desc}}</p>
+
+  <div *ngIf="step !== undefined">
+    <p class="f-16" [style]="step === 'about' ? 'font-size: 25px;' : 'color: #D3D3D3;'">Step 1: About</p>
+    <p class="f-16" [style]="step === 'contact' ? 'font-size: 25px;' : 'color: #D3D3D3;'">Step 2: Contact</p>
+    <p class="f-16" [style]="step === 'login' ? 'font-size: 25px;' : 'color: #D3D3D3;'">Step 3: Login</p>
+    <p class="f-16" [style]="step === 'review' ? 'font-size: 25px;' : 'color: #D3D3D3;'">Step 4: Review</p>
+  </div>
 </div>
 
 
 <!-- Brand logo -->
 <div class="dt-login__logo">
   <a class="dt-brand__logo-link" routerLink="/">
-    <img class="dt-brand__logo-img" src="https://via.placeholder.com/360x108" alt="Drift">
+    <img class="dt-brand__logo-img" src="/assets/HouseRicher/HouseRicher Icon.png" alt="HouseRicher">
   </a>
 </div>
 <!-- /brand logo -->

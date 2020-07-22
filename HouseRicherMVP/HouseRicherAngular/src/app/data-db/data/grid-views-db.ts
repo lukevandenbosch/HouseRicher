@@ -1,76 +1,76 @@
 export class GridViewsDb {
   public static usersList = [
     {
-      id: 50,
       name: 'Chris Mathew',
       picture: 'https://via.placeholder.com/150X150',
-      followed: true
+      position: 'Graphics designer',
+      favourite: true
     },
     {
-      id: 503,
       name: 'Alia Joseph',
       picture: 'https://via.placeholder.com/150X150',
-      followed: false
+      position: 'UI/UI Expert',
+      favourite: false
     },
     {
-      id: 504,
       name: 'Joshua Brian',
       picture: 'https://via.placeholder.com/150X150',
-      followed: true
+      position: 'Data Analyst',
+      favourite: true
     },
     {
-      id: 505,
       name: 'Kemroon White',
       picture: 'https://via.placeholder.com/150X150',
-      followed: false
+      position: 'Data Scientist',
+      favourite: false
     },
     {
-      id: 506,
       name: 'Selena',
       picture: 'https://via.placeholder.com/150X150',
-      followed: true
+      position: 'Web designer',
+      favourite: true
     },
     {
-      id: 507,
       name: 'Jeson Born',
       picture: 'https://via.placeholder.com/150X150',
-      followed: false
+      position: 'Web Developer',
+      favourite: false
     },
     {
-      id: 508,
       name: 'Nikki Johnson',
       picture: 'https://via.placeholder.com/150X150',
-      followed: false
+      position: 'React Developer',
+      favourite: false
     },
     {
-      id: 509,
       name: 'Amay Mathur',
       picture: 'https://via.placeholder.com/150X150',
-      followed: true
+      position: 'Data Scientist',
+      favourite: true
     },
     {
-      id: 5099,
       name: 'Garry Sobars',
       picture: 'https://via.placeholder.com/150X150',
-      followed: false
+      position: 'iOS Developer',
+      favourite: false
     },
     {
-      id: 5088,
       name: 'Jimmy Jo',
       picture: 'https://via.placeholder.com/150X150',
-      followed: true
+      position: 'Data Analyst',
+      favourite: true
     },
     {
-      id: 5077,
       name: 'Chris Harris',
       picture: 'https://via.placeholder.com/150X150',
-      followed: false
+      position: 'Graphics designe',
+      favourite: false
     },
     {
-      id: 5066,
       name: 'Domnic Brown',
       picture: 'https://via.placeholder.com/150X150',
-      followed: true
+      position: 'Android Developer',
+      favourite: true
     }
   ];
 

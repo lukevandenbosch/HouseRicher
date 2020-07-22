@@ -18,6 +18,7 @@ import {FooterComponent} from './partials/footer/footer.component';
 import {CustomizerComponent} from './partials/customizer/customizer.component';
 import {HeaderTopComponent} from './partials/header-top/header-top.component';
 import {TopbarComponent} from './partials/topbar/topbar.component';
+import {UtiltiesModule} from '../../content/utitlies/utilties.module';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
@@ -31,6 +32,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     RouterModule,
     PagesRoutingModule,
     NavigationModule,
+    UtiltiesModule,
     SweetAlert2Module.forRoot(),
     PerfectScrollbarModule,
     SearchBoxModule

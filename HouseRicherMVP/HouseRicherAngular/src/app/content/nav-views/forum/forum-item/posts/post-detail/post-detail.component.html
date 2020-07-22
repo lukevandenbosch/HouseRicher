@@ -2,11 +2,7 @@
 <card-body>
     <!-- Avatar Wrapper -->
     <div class="dt-avatar-wrapper mb-3">
-        <!-- Avatar -->
-        <img class="dt-avatar dt-avatar__shadow size-50"
-             [src]="post.user_image"
-             alt="{{post.user_name}}">
-        <!-- /avatar -->
+        <avatar img_class="dt-avatar size-60 mr-6 mb-6 mb-sm-0" src="{{post.user_image}}" firstName="{{post.user_name}}"></avatar>
 
         <!-- Info -->
         <div class="dt-avatar-info">
@@ -58,9 +54,7 @@
     <!-- Media -->
     <div class="media px-5 mb-3" *ngFor="let comment of post.comments ;let commentIndexNumber=index">
         <!-- Avatar -->
-        <img class="dt-avatar dt-avatar__shadow size-35 mr-2"
-             src="{{comment.image}}"
-             alt="{{comment.name}}">
+        <avatar img_class="dt-avatar size-50 mr-6 mb-6 mb-sm-0" src="{{comment.image}}" firstName="{{comment.name}}"></avatar>
         <!-- /avatar -->
 
         <!-- Media Body -->

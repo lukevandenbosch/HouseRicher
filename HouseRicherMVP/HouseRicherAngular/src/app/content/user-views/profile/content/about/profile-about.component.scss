@@ -1,0 +1,27 @@
+.date-designation {
+    display: inline;
+}
+
+.review-designation {
+    display: inline;
+}
+
+@media only screen and (max-width: 500px) {
+    .date-designation {
+        background-color: blue;
+        word-break: break-all;
+    }
+
+    .review-designation {
+        background-color: blue;
+        word-break: break-all;
+    }
+}
+
+.btn-hover:hover {
+    cursor: pointer;
+}
+
+.form-spacing {
+    margin: 10px 0px;
+}

@@ -2,7 +2,7 @@ import {Component, HostBinding, OnDestroy, OnInit} from '@angular/core';
 import {Subscription} from 'rxjs/Subscription';
 import {LangChangeEvent, TranslateService} from '@ngx-translate/core';
 import {SettingsService} from '@app/settings/settings.service';
-import {AuthService} from '@app/layouts/auth-layout/auth.service';
+import {AuthenticationService} from '../../../../_services/authentication.service';
 
 @Component({
   selector: 'app-header-top',
@@ -31,7 +31,7 @@ export class HeaderTopComponent implements OnInit, OnDestroy {
 
   constructor(private settingService: SettingsService,
               public translate: TranslateService,
-              private authService: AuthService) {
+              private authService: AuthenticationService) {
     this.setActiveLang(this.translate.currentLang);
     this.onLanguageChanged = this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
       this.setActiveLang(event.lang);

@@ -1,0 +1,362 @@
+<!-- Login Content -->
+<div class="dt-login__content-wrapper" (window:beforeunload)="areYouSure($event)">
+  <auth-header title="Sign Up Realtor" step="{{aboutPage ? 'about' : contactPage ? 'contact' : loginPage ? 'login' : reviewPage ? 'review': ''}}" desc="Sign up and interact with realtors and other experts"></auth-header>
+
+  <!-- Login Content Section -->
+  <div class="dt-login__content">
+
+    <!-- Login Content Inner -->
+    <div class="dt-login__content-inner">
+      <form [formGroup]="aboutForm" (ngSubmit)="onSubmitAbout()">
+        <div *ngIf="aboutPage">
+          <!-- Form Group -->
+          <div class="form-group">
+            <label>Website</label>
+            <input type="text" formControlName="website" placeholder="Website" class="form-control" />
+          </div>
+          <!-- /form group -->
+
+          <!-- Form Group -->
+          <div class="form-group">
+            <label>Facebook</label>
+            <input type="text" formControlName="facebook" placeholder="Facebook" class="form-control" />
+          </div>
+          <!-- /form group -->
+
+          <!-- Form Group -->
+          <div class="form-group">
+            <label>Linkedin</label>
+            <input type="text" formControlName="linkedin" placeholder="Linkedin" class="form-control" />
+          </div>
+          <!-- /form group -->
+
+          <!-- Form Group -->
+          <div class="form-group">
+            <label>Twitter</label>
+            <input type="text" formControlName="twitter" placeholder="Twitter" class="form-control" />
+          </div>
+          <!-- /form group -->
+
+          <!-- Form Group -->
+          <div class="form-group">
+            <label>Instagram</label>
+            <input type="text" formControlName="instagram" placeholder="Instagram" class="form-control" />
+          </div>
+          <!-- /form group -->
+
+          <!-- Form Group -->
+          <div class="form-group">
+            <label>About</label>
+            <textarea type="text" style="resize: none; height: 90px" formControlName="about" placeholder="About" class="form-control"  [ngClass]="{ 'is-invalid': submittedAbout && fa.about.errors }"></textarea>
+            <div *ngIf="submittedAbout && fa.about.errors" class="invalid-feedback">
+                <div class="form-error" *ngIf="fa.about.errors.required">* About is required</div>
+            </div>
+          </div>
+          <!-- /form group -->          
+        </div>
+        <div [hidden]="!aboutPage">
+          <div class="form-group">
+            <label>Proile Picture</label>
+            <div class="custom-file">
+                <input type="file" id="profilePic" (change)="changedFile($event)" formControlName="profilePic" class="custom-file-input"  [ngClass]="{ 'is-invalid': submittedAbout && fa.profilePic.errors }">
+                <label class="custom-file-label" for="file-field">Upload Picture Less than 1 MB</label>
+                <div *ngIf="submittedAbout && fa.profilePic.errors" class="invalid-feedback">
+                  <div class="form-error" *ngIf="fa.profilePic.errors.pngjpgValidation">* File must be png or jpg</div>
+                  <div class="form-error" *ngIf="fa.profilePic.errors.sizeValidation">* File must be between 100KB and 1MB</div>
+                </div>
+            </div>
+          </div>
+          <div class="row" style="margin-bottom: 10px; display: block; margin-left: auto; margin-right: auto; width: 50%;">
+            <img id="profilePicLoaded" style="display: none;" class="dt-avatar size-100 mr-6 mb-6 mb-sm-0">
+          </div>
+          
+          <span class="d-inline-block" style="margin-bottom: 20px;">
+            <a class="d-inline-block font-weight-500" routerLink="/signup">Sign up as a User</a>
+          </span>
+  
+          <!-- Form Group -->
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary text-uppercase">Continue</button>
+            <span class="d-inline-block ml-5">Or
+              <a class="d-inline-block font-weight-500 ml-3" routerLink="/signin">Login</a>
+            </span>
+          </div>
+          <!-- /form group -->
+        </div>
+      </form>
+      <form [formGroup]="contactForm" (ngSubmit)="onSubmitContact()">
+        <div *ngIf="contactPage">
+          <!-- Form Group -->
+          <div class="form-group">
+            <label>Brokerage</label>
+            <input type="text" formControlName="brokerage" placeholder="Brokerage" class="form-control" />
+          </div>
+          <!-- /form group -->
+
+          <!-- Form Group -->
+          <div class="form-group">
+            <label>Cell Phone</label>
+            <input type="text" formControlName="cellPhone" placeholder="Cell Phone" class="form-control" />
+          </div>
+          <!-- /form group -->
+
+          <!-- Form Group -->
+          <div class="form-group">
+            <label>Office Phone</label>
+            <input type="text" formControlName="officePhone" placeholder="Office Phone" class="form-control" />
+          </div>
+          <!-- /form group -->
+
+          <!-- Form Group -->
+          <div class="form-group">
+            <label>Province</label>
+            <select formControlName="province" class="form-control" [ngClass]="{ 'is-invalid': submittedContact && fc.province.errors }">
+              <option value="" disabled selected>Province</option>
+              <option>Alberta</option>
+              <option>British Columbia</option>
+              <option>Manitoba</option>
+              <option>New Brunswick</option>
+              <option>Newfoundland and Labrador</option>
+              <option>Northwest Territories</option>
+              <option>Nova Scotia</option>
+              <option>Nunavut</option>
+              <option>Ontario</option>
+              <option>Prince Edward Island</option>
+              <option>Quebec</option>
+              <option>Saskachewan</option>
+              <option>Yukon</option>
+            </select>
+            <div *ngIf="submittedContact && fc.province.errors" class="invalid-feedback">
+                <div class="form-error" *ngIf="fc.province.errors.required">* Province is required</div>
+            </div>
+          </div>
+          <!-- /form group -->
+
+          <!-- Form Group -->
+          <div class="form-group">
+            <label>City</label>
+            <input type="text" formControlName="city" placeholder="City" class="form-control" [ngClass]="{ 'is-invalid': submittedContact && fc.city.errors }" />
+            <div *ngIf="submittedContact && fc.city.errors" class="invalid-feedback">
+                <div class="form-error" *ngIf="fc.city.errors.required">* City is required</div>
+            </div>
+          </div>
+          <!-- /form group -->
+
+          <!-- Form Group -->
+          <div class="form-group">
+            <label>Office Address</label>
+            <input type="text" formControlName="officeAddress" placeholder="Office Address" class="form-control" [ngClass]="{ 'is-invalid': submittedContact && fc.officeAddress.errors }" />
+            <div *ngIf="submittedContact && fc.officeAddress.errors" class="invalid-feedback">
+                <div class="form-error" *ngIf="fc.officeAddress.errors.required">* Office Address is required</div>
+            </div>
+          </div>
+          <!-- /form group -->
+
+          <span class="d-inline-block" style="margin-bottom: 20px;">
+            <a class="d-inline-block font-weight-500" routerLink="/signup">Sign up as a User</a>
+          </span>
+
+          <!-- Form Group -->
+          <div class="form-group">
+            <button type="submit" (click)="onBackContact()" class="btn text-uppercase">Back</button>
+            <button type="submit" class="btn btn-primary text-uppercase">Continue</button>
+            <span class="d-inline-block ml-5">Or
+              <a class="d-inline-block font-weight-500 ml-3" routerLink="/signin">Login</a>
+            </span>
+          </div>
+          <!-- /form group -->
+        </div>
+      </form>
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmitLogin()">
+        <div *ngIf="loginPage">
+          <!-- Form Group -->
+          <div class="form-group">
+            <label>First Name</label>
+            <input type="text" formControlName="firstName" placeholder="First Name" class="form-control" [ngClass]="{ 'is-invalid': submittedLogin && f.firstName.errors }" />
+            <div *ngIf="submittedLogin && f.firstName.errors" class="invalid-feedback">
+                <div class="form-error" *ngIf="f.firstName.errors.required">* First Name is required</div>
+            </div>
+          </div>
+          <!-- /form group -->
+
+          <!-- Form Group -->
+          <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" formControlName="lastName" placeholder="Last Name" class="form-control" [ngClass]="{ 'is-invalid': submittedLogin && f.lastName.errors }" />
+            <div *ngIf="submittedLogin && f.lastName.errors" class="invalid-feedback">
+                <div class="form-error" *ngIf="f.lastName.errors.required">* Last Name is required</div>
+            </div>
+          </div>
+          <!-- /form group -->
+
+          <!-- Form Group -->
+          <div class="form-group">
+            <label>Email</label>
+            <input type="text" formControlName="email" placeholder="Email" class="form-control" [ngClass]="{ 'is-invalid': submittedLogin && f.email.errors }" />
+            <div *ngIf="submittedLogin && f.email.errors" class="invalid-feedback">
+                <div class="form-error" *ngIf="f.email.errors.required">* Email is required</div>
+                <div class="form-error" *ngIf="f.email.errors.email">* Email must be a valid email</div>
+            </div>
+          </div>
+          <!-- /form group -->
+
+          <!-- Form Group -->
+          <div class="form-group">
+            <label>Password</label>
+            <input type="password" formControlName="password" placeholder="Password" class="form-control" [ngClass]="{ 'is-invalid': submittedLogin && f.password.errors }" />
+              <div *ngIf="submittedLogin && f.password.errors" class="invalid-feedback">
+                  <div class="form-error" *ngIf="f.password.errors.required">* Password is required</div>
+                  <div class="form-error" *ngIf="f.password.errors.minlength">* Password must be at least 6 characters</div>
+                  <div class="form-error" *ngIf="f.password.errors.passwordValidation">* Password must contain 1 special character, 1 number, 1 Upper case letter, and 1 lowercase letter</div>
+              </div>
+          </div>
+          <!-- /form group -->
+
+          <!-- Form Group -->
+          <div class="form-group">
+            <label>Confirm Password</label>
+            <input type="password" formControlName="passwordConfirm" placeholder="Confirm Password" class="form-control" [ngClass]="{ 'is-invalid': submittedLogin && f.passwordConfirm.errors }" />
+              <div *ngIf="submittedLogin && f.passwordConfirm.errors" class="invalid-feedback">
+                  <div class="form-error" *ngIf="f.passwordConfirm.errors.required">* Password Confirm is required</div>
+                  <div class="form-error" *ngIf="f.passwordConfirm.errors.passwordConfirmValidation">* Passwords must match</div>
+              </div>
+          </div>
+          <!-- /form group -->
+          
+          <span class="d-inline-block" style="margin-bottom: 20px;">
+            <a class="d-inline-block font-weight-500" routerLink="/signup">Sign up as a User</a>
+          </span>
+  
+          <!-- Form Group -->
+          <div class="form-group">
+            <button type="submit" (click)="onBackLogin()" class="btn text-uppercase">Back</button>
+            <button type="submit" class="btn btn-primary text-uppercase">Continue</button>
+            <span class="d-inline-block ml-5">Or
+              <a class="d-inline-block font-weight-500 ml-3" routerLink="/signin">Login</a>
+            </span>
+          </div>
+          <!-- /form group -->
+        <!-- /form -->
+        </div>
+      </form>
+      <form [formGroup]="reviewForm" (ngSubmit)="onSubmitReview()">
+        <div id="review-page" *ngIf="reviewPage">
+          <hr>
+          <h3>
+              Basic Information
+          </h3>
+          <hr>
+          <div class="form-group verify-form">
+              <span class="label-value">First Name: </span><span class="value-form">{{ f.firstName.value }}</span>
+          </div>
+          <div class="form-group verify-form">
+              <span class="label-value">Last Name: </span><span class="value-form">{{ f.lastName.value }}</span>
+          </div>
+          <div class="form-group verify-form">
+              <span class="label-value">Email: </span><span class="value-form">{{ f.email.value }}</span>
+          </div>
+          <hr>
+          <h3>
+              About
+          </h3>
+          <hr>
+          <div class="form-group verify-form" *ngIf="fa.website.value">
+              <span class="label-value">Website: </span><span class="value-form">{{ fa.website.value }}</span>
+          </div>
+          <div class="form-group verify-form" *ngIf="fa.facebook.value">
+              <span class="label-value">Facebook: </span><span class="value-form">{{ fa.facebook.value }}</span>
+          </div>
+          <div class="form-group verify-form" *ngIf="fa.linkedin.value">
+              <span class="label-value">Linkedin: </span><span class="value-form">{{ fa.linkedin.value }}</span>
+          </div>
+          <div class="form-group verify-form" *ngIf="fa.twitter.value">
+              <span class="label-value">Twitter: </span><span class="value-form">{{ fa.twitter.value }}</span>
+          </div>
+          <div class="form-group verify-form" *ngIf="fa.instagram.value">
+              <span class="label-value">Instagram: </span><span class="value-form">{{ fa.instagram.value }}</span>
+          </div>
+          <div class="form-group verify-form" *ngIf="fa.about.value">
+              <span class="label-value">About: </span><span class="value-form">{{ fa.about.value }}</span>
+          </div>
+          <hr>
+          <h3>
+              Contact
+          </h3>
+          <hr>
+          <div class="form-group verify-form" *ngIf="fc.brokerage.value">
+              <span class="label-value">Brokerage: </span><span class="value-form">{{ fc.brokerage.value }}</span>
+          </div>
+          <div class="form-group verify-form" *ngIf="fc.cellPhone.value">
+              <span class="label-value">Cell Phone: </span><span class="value-form">{{ fc.cellPhone.value }}</span>
+          </div>
+          <div class="form-group verify-form" *ngIf="fc.officePhone.value">
+              <span class="label-value">Office Phone: </span><span class="value-form">{{ fc.officePhone.value }}</span>
+          </div>
+          <div class="form-group verify-form" *ngIf="fc.province.value">
+              <span class="label-value">Province: </span><span class="value-form">{{ fc.province.value }}</span>
+          </div>
+          <div class="form-group verify-form" *ngIf="fc.city.value">
+              <span class="label-value">City: </span><span class="value-form">{{ fc.city.value }}</span>
+          </div>
+          <div class="form-group verify-form" *ngIf="fc.officeAddress.value">
+              <span class="label-value">Office Address: </span><span class="value-form">{{ fc.officeAddress.value }}</span>
+          </div>
+          <hr>
+
+          <!-- Form Group -->
+          <div class="dt-checkbox d-block mb-6">
+            <input type="checkbox" formControlName="trail" [ngClass]="{ 'is-invalid': submittedReview && fr.trail.errors }">
+            <label class="dt-checkbox-content">
+              Sign up for a 2 month free trial.
+            </label>
+            <div *ngIf="submittedReview && fr.trail.errors" class="invalid-feedback">
+              <div class="form-error" *ngIf="fr.trail.errors.required">* Please accept the 2 months free trial</div>
+            </div>
+          </div>
+          <!-- /form group -->
+
+          <!-- Form Group -->
+          <div class="dt-checkbox d-block mb-6">
+            <input type="checkbox" formControlName="verify" [ngClass]="{ 'is-invalid': submittedReview && fr.verify.errors }">
+            <label class="dt-checkbox-content">
+              All of the information above is correct.
+            </label>
+            <div *ngIf="submittedReview && fr.verify.errors" class="invalid-feedback">
+              <div class="form-error" *ngIf="fr.verify.errors.required">* Please verify your information</div>
+            </div>
+          </div>
+          <!-- /form group -->
+
+          <!-- Form Group -->
+          <div class="dt-checkbox d-block mb-6">
+            <input type="checkbox" formControlName="termsAndConditions" [ngClass]="{ 'is-invalid': submittedReview && fr.termsAndConditions.errors }">
+            <label class="dt-checkbox-content">
+              by signing up, I accept the <a href="javascript:void(0)">Terms &amp; Conditions</a>
+            </label>
+            <div *ngIf="submittedReview && fr.termsAndConditions.errors" class="invalid-feedback">
+              <div class="form-error" *ngIf="fr.termsAndConditions.errors.required">* The terms and Conditions must be accepted</div>
+            </div>
+          </div>
+          <!-- /form group -->
+
+          <span class="d-inline-block" style="margin-bottom: 20px;">
+            <a class="d-inline-block font-weight-500" routerLink="/signup">Sign up as a User</a>
+          </span>
+          
+          <div class="form-group">
+              <button type="submit" (click)="onBackReview()" class="btn text-uppercase">Back</button>
+              <button type="submit" class="btn btn-primary text-uppercase">Register</button>
+              <span class="d-inline-block ml-5">Or
+                <a class="d-inline-block font-weight-500 ml-3" routerLink="/signin">Login</a>
+              </span>
+          </div>
+        </div>
+      </form>
+    </div>
+    <!-- /login content inner -->
+
+  </div>
+  <!-- /login content section -->
+
+</div>
+<!-- /login content -->

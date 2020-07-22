@@ -216,7 +216,7 @@
 
   @include hover-focus {
     & .custom-tooltip {
-    ` position: absolute;
+      position: absolute;
       top: -120%;
       left: 50%;
       @include translateX(-50%);
@@ -245,7 +245,7 @@
         margin-bottom: 2.4rem;
       }
     }
-    @include media-breakpoint-down(x3) {
+    @include media-breakpoint-down(xs) {
       &.media-news {
         flex-direction: column;
       }

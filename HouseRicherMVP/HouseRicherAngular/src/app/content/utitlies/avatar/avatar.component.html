@@ -1,0 +1,6 @@
+<div *ngIf="src === '' || src === undefined">
+    <div class="circle" [class]="img_class" [style]="img_style">{{firstName.charAt(0)}}</div>
+</div>
+<div *ngIf="src !== '' && src !== undefined">
+    <img class="{{img_class}}" [style]="img_style" [src]="src" alt="{{firstName}}">
+</div>
