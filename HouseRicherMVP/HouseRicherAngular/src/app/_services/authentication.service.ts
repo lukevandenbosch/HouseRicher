@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { CookieService } from 'ngx-cookie-service'; 
+import { Router } from '@angular/router';
 
 import { Token } from '../_model/token';
 import { DOCUMENT } from '@angular/common';
@@ -17,10 +18,11 @@ export class AuthenticationService {
 
     constructor(private http: HttpClient, 
                 @Inject(DOCUMENT) private readonly document: any,
-                private cookieService: CookieService) {
+                private cookieService: CookieService,
+                private router: Router) {
         this.currentUserSubject = new BehaviorSubject<Token>(JSON.parse(localStorage.getItem('currentUser')));
         this.currentUser = this.currentUserSubject.asObservable();
-        this.url = 'https://localhost:5001'//this.document.location.origin;
+        this.url = this.document.location.origin;
     }
 
     public get currentUserValue(): Token {
@@ -64,5 +66,6 @@ export class AuthenticationService {
         localStorage.removeItem('currentUser');
         this.cookieService.deleteAll();
         this.currentUserSubject.next(null);
+        this.router.navigate(['auth/signin']);
     }
 }

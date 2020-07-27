@@ -24,13 +24,14 @@ export class FeedService {
     return this.feedSubject.value;
   }
 
-  getFeed(currentUser: Token, postNumber: number) {
+  getFeed(currentUser: Token, postNumberMin: number, postNumberMax: number) {
     var httpOptions;
     if (currentUser == null) {
       httpOptions = {
         headers: new HttpHeaders({
           'Content-Type':  'application/json',
-          'Range': postNumber.toString()
+          'RangeMin': postNumberMin.toString(),
+          'RangeMax': postNumberMax.toString()
         })
       };
     }
@@ -39,12 +40,13 @@ export class FeedService {
         headers: new HttpHeaders({
           'Content-Type':  'application/json',
           'Authorization': 'Bearer ' + currentUser.token,
-          'Range': postNumber.toString()
+          'RangeMin': postNumberMin.toString(),
+          'RangeMax': postNumberMax.toString()
         })
       };
     }
 
-    return this.http.get(`${this.url}/api/feed/get`, httpOptions)
+    return this.http.get(`${this.url}/api/feed/getposts`, httpOptions)
       .pipe(map(feed => {
         localStorage.setItem('feed', JSON.stringify(feed));
         this.feedSubject.next(<any>feed);

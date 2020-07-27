@@ -8,7 +8,6 @@ import {UtiltiesModule} from '../../utitlies/utilties.module';
 
 import { ForumListComponent } from './forum-list/forum-list.component';
 import { WallPageComponent } from './forum-item/wall-page.component';
-import { ForumService } from './forum.service';
 import { WallPageService } from './forum-item/wall-page.service';
 
 import {PostsComponent} from './forum-item/posts/posts.component';
@@ -20,10 +19,7 @@ import {CommentBoxListComponent} from './forum-list/post/comment-box-list.compon
 const routes: Routes = [
   {
     path: 'forum-list',
-    component: ForumListComponent,
-    resolve: {
-      usersList: ForumService
-    }
+    component: ForumListComponent
   },
   {
     path: 'forum-item/:id',

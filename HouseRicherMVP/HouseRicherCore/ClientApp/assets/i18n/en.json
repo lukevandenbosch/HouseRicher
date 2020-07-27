@@ -1,0 +1,72 @@
+{
+  "NAV":{
+    "WIDGET_CLASSIC":"Classic",
+    "WIDGET_MODERN":"Modern",
+    "EXTENSIONS":"Extensions",
+    "HOME":"Home",
+    "MORE":"More",
+    "APPS":"Apps",
+    "EXTRA":"Extra",
+    "MAIN":{
+      "TITLE":"Main",
+      "DASHBOARDS":"Dashboard",
+      "WIDGETS":"Widgets",
+      "METRICS":"Metrics",
+      "LAYOUTS":"Layouts"
+    },
+    "COMPONENTS":{
+      "TITLE":"Components",
+      "BASIC":"Basic Components",
+      "TABLES":"Tables",
+      "GENERAL":"General",
+      "NAVIGATION":"Navigation",
+      "DATA_DISPLAY":"Data Display",
+      "FEEDBACK":"Feedback"
+    },
+    "FORMS":{
+      "TITLE":"Forms",
+      "BASIC_FORM":"Basic Form",
+      "ADVANCED_FORM":"Advanced Form",
+      "FILE_UPLOAD":"File Upload"
+    },
+    "EXTRA_COMPONENTS":{
+      "TITLE":"Extra Components",
+      "EDITORS":"Editors",
+      "PICKERS":"Pickers",
+      "SWEET_ALERTS":"Sweet Alerts",
+      "NOTIFICATIONS":"Notifications"
+    },
+    "DATA_VISUALIZATION":{
+      "TITLE":"Data Visualization",
+      "CHARTS":"Charts",
+      "MAPS":"Maps"
+    },
+    "PAGES":{
+      "TITLE":"Pages",
+      "WALL_PAGE":"Wall Page",
+      "PROFILE_PAGE":"Profile Page",
+      "LOGIN_PAGE":"Login Page",
+      "SIGN_UP_PAGE":"Sign Up Page",
+      "FORGOT_PASSWORD":"Forgot Password",
+      "LOCK_SCREEN_PAGE":"Lock Screen",
+      "BLANK_PAGE":"Blank Page",
+      "SEARCH_PAGE":"Search Page",
+      "ERROR_404":"Error 400",
+      "ERROR_500":"Error 500"
+    },
+    "EXTRA_VIEWS":{
+      "TITLE":"Extra Views",
+      "GRID":"Grid",
+      "LIST":"List"
+    },
+    "PREBUILT_APPS":{
+      "TITLE":"Pre-built Apps",
+      "TASK_MANAGER":"Task Manager",
+      "MAIL_APP":"Mail App",
+      "CONTACTS_APP":"Contacts App",
+      "CHAT_APP":"Chat App",
+      "WALL_APP":"Wall App",
+      "PROFILE_APP":"Profile App"
+    }
+  }
+}

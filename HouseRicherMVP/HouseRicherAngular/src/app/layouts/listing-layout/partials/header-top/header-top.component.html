@@ -122,17 +122,16 @@
       <!-- /header menu -->
 
       <!-- Header Menu -->
-      <ul class="dt-nav">
+      <ul class="dt-nav" *ngIf="currentUser">
         <li class="dt-nav__item" placement="bottom-right" ngbDropdown>
 
           <!-- Dropdown Link -->
-          <a href="javascript:void(0)" class="dt-nav__link no-arrow dt-avatar-wrapper"
-             ngbDropdownToggle>
+          <a href="javascript:void(0)" class="dt-nav__link no-arrow dt-avatar-wrapper" ngbDropdownToggle>
 
-            <avatar img_class="circle dt-avatar size-50" src="{{currentUser.picture}}" firstName="{{currentUser.name}}"></avatar>
+            <avatar img_class="circle dt-avatar size-50" src="{{currentUser.profilePicture}}" firstName="{{currentUser.firstName}}"></avatar>
             <span class="dt-avatar-info d-none">
               <span class="d-block text-light-primary f-10 mb-1">Welcome back!</span>
-              <span class="dt-avatar-name">{{currentUser.name}}</span>
+              <span class="dt-avatar-name">{{currentUser.firstName + ' ' + currentUser.lastName}}</span>
             </span>
           </a>
           <!-- /dropdown link -->
@@ -140,10 +139,9 @@
           <!-- Dropdown Option -->
           <div ngbDropdownMenu>
             <div class="dt-avatar-wrapper flex-nowrap p-6 mt-n2 bg-gradient-purple text-white rounded-top">
-              <avatar img_class="dt-avatar size-40 mr-6 mb-6 mb-sm-0" src="{{currentUser.picture}}" firstName="{{currentUser.name}}"></avatar>
+              <avatar img_class="dt-avatar size-40 mr-6 mb-6 mb-sm-0" src="{{currentUser.profilePicture}}" firstName="{{currentUser.firstName}}"></avatar>
               <span class="dt-avatar-info">
-                  <span class="dt-avatar-name">{{currentUser.name}}</span>
-                  <span class="f-12">{{currentUser.position}}</span>
+                  <span class="dt-avatar-name">{{currentUser.firstName + ' ' + currentUser.lastName}}</span>
                 </span>
             </div>
             <a class="dropdown-item" href="/portal/user/profile/realtor/current">
@@ -151,7 +149,7 @@
               Account
             </a>
 
-            <a class="dropdown-item" href="#logout" (click)="onLogout($event)">
+            <a class="dropdown-item logout-button" (click)="logout()">
               <gx-icon name="editors" [fw]="true" class="mr-2 mr-sm-1"></gx-icon>
               Logout
             </a>

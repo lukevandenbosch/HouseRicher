@@ -21,5 +21,7 @@ namespace HouseRicherCore.ModelAPI
         public string Address { get; set; }
         public string City { get; set; }
         public string ProvinceState { get; set; }
+        public string TermsAndConditions { get; set; }
+        public string Trial { get; set; }
     }
 }

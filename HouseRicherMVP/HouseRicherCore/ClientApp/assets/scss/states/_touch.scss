@@ -1,0 +1,25 @@
+
+/**
+ * Touch
+ *
+ * Style for touch devices only.
+ * Modernizr.js is required for this
+ */
+
+.visible-touch {
+    .touch & {
+        display: inline-block !important;
+    }
+    .no-touch & {
+        display: none !important;
+    }
+}
+
+.hidden-touch {
+    .touch & {
+        display: none !important;
+    }
+    .no-touch & {
+        display: inline-block !important;
+    }
+}

@@ -4,7 +4,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { passwordValidation, passwordConfirmValidation, pngjpgValidation, sizeValidation } from '../../../_utiltlies/validators';
 import { AlertService } from '../../../_services/alert.service';
 import { Register_Realtor } from '../../../_model/register_realtor'
-import { RealtorService } from '../../../_services/realtor.service';
+import { RegisterService } from '../../../_services/register.service';
 
 @Component({
   selector: 'app-signup-realtor',
@@ -12,6 +12,8 @@ import { RealtorService } from '../../../_services/realtor.service';
   styleUrls: ['./signup-realtor.component.scss']
 })
 export class SignupRealtorComponent implements OnInit {
+    public loading = false;
+
     public loginForm: FormGroup;
     public aboutForm: FormGroup;
     public contactForm: FormGroup;
@@ -32,7 +34,7 @@ export class SignupRealtorComponent implements OnInit {
     constructor(private router: Router,
                 private formBuilder: FormBuilder,
                 private alertService: AlertService,
-                private realtorService: RealtorService) { }
+                private registerService: RegisterService) { }
   
     ngOnInit(): void {  
       this.loginForm = this.formBuilder.group({
@@ -67,10 +69,26 @@ export class SignupRealtorComponent implements OnInit {
       });
   
       this.reviewForm = this.formBuilder.group({
-        trail: ['', Validators.required],
+        trial: ['', Validators.required],
         verify: ['', Validators.required],
         termsAndConditions: ['', Validators.required]
       });
+    }
+
+    changePhone(phone: string) {
+      if (phone == 'cellPhone') {
+        if (this.fc.cellPhone.value[this.fc.cellPhone.value.length - 1] !== undefined) {
+          if (this.fc.cellPhone.value[this.fc.cellPhone.value.length - 1].match(/[0-9]/g) === null) {
+            this.contactForm.controls.cellPhone.setValue(this.fc.cellPhone.value.substring(0, this.fc.cellPhone.value.length - 1));
+          }
+        }
+      } else {
+        if (this.fc.officePhone.value[this.fc.officePhone.value.length - 1] !== undefined) {
+          if (this.fc.officePhone.value[this.fc.officePhone.value.length - 1].match(/[0-9]/g) === null) {
+            this.contactForm.controls.officePhone.setValue(this.fc.officePhone.value.substring(0, this.fc.officePhone.value.length - 1));
+          }
+        }
+      }
     }
   
     areYouSure(event: Event) {
@@ -197,14 +215,17 @@ export class SignupRealtorComponent implements OnInit {
         termsAndConditions: this.fr.termsAndConditions.value,
         trial: this.fr.trial.value
       }
+      this.loading = true;
   
-      this.realtorService.register(realtor)
+      this.registerService.registerRealtor(realtor)
       .subscribe(
           data => {
             this.alertService.success('Registration successful', true);
-            this.router.navigate(['/realtors'])
+            this.router.navigate(["auth/signin"]);
+            this.alertService.information("Registered Successfully");
           },
           error => {
+            this.loading = false;
             this.alertService.error(error);
           });
     }

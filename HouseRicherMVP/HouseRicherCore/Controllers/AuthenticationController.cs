@@ -36,16 +36,18 @@ namespace HouseRicherCore.Controllers
                 }
                 using (HouseRicherContext db = new HouseRicherContext()) {
                     JWTToken user = (from person in db.PersonalPerson
-                                    join login in db.PersonalLogin on person.LoginId equals login.Id
-                                where login.Username == body["username"].ToLower() && login.IsActive == 1 
-                                select new JWTToken {
-                                    Id = person.Id,
-                                    FirstName = person.FirstName,
-                                    LastName = person.LastName,
-                                    Description = person.Description,
-                                    Email = login.Username,
-                                    Password = login.Password
-                                }).FirstOrDefault();
+                                        join login in db.PersonalLogin on person.LoginId equals login.Id
+                                        join profilePic in db.PersonalProfilePicture on person.Id equals profilePic.PersonId into pp
+                                        from profilePic in pp.DefaultIfEmpty()
+                                    where login.Username == body["username"].ToLower() && login.IsActive == 1 
+                                        select new JWTToken {
+                                            Id = person.Id,
+                                            FirstName = person.FirstName,
+                                            LastName = person.LastName,
+                                            Email = login.Username,
+                                            Password = login.Password,
+                                            ProfilePicture = profilePic == null ? "" : profilePic.ProfilePicture
+                                        }).FirstOrDefault();
 
                     if (user == null || !BCrypt.Net.BCrypt.Verify(body["password"], user.Password)) {
                         Response.StatusCode = 401;

@@ -24,7 +24,7 @@ export class NavigationModel implements NavigationModelInterface {
             title: 'Realtors',
             translate: 'Realtors',
             type: 'item',
-            url: 'realtor/forum-list'
+            url: 'realtor/realtor-list'
           },
           {
             id: 'menu-apps',

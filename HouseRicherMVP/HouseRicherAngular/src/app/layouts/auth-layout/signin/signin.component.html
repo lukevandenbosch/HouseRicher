@@ -36,9 +36,9 @@
 
         <!-- Form Group -->
         <div class="form-group">
-          <button type="submit" id="login-button-id" class="btn btn-primary text-uppercase">Login</button>
+          <button type="submit" id="login-button-id" [disabled]="loading" class="btn btn-primary text-uppercase">Login</button>
           <span class="d-inline-block ml-5">Or
-              <a class="d-inline-block font-weight-500 ml-3" routerLink="/signup">Create a New Account</a>
+              <a class="d-inline-block font-weight-500 ml-3" href="auth/signup">Create a New Account</a>
             </span>
         </div>
         <!-- /form group -->

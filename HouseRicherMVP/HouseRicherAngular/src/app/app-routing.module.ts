@@ -1,6 +1,7 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {RouteErrorComponent} from './content/route-error/route-error.component';
+import {AuthGuard} from './_guards/auth.guard';
 
 const appRoutes: Routes = [
   {
@@ -9,12 +10,13 @@ const appRoutes: Routes = [
     redirectTo: '/portal/forum/forum-list'
   },
   {
-    path: '',
-    loadChildren: () => import('./layouts/auth-layout/auth.module').then(m => m.AuthModule)
+    path: 'portal',
+    loadChildren: () => import('./layouts/listing-layout/listing-layout.module').then(m => m.ListingLayoutModule),
+    canActivate: [AuthGuard]
   },
   {
-    path: 'portal',
-    loadChildren: () => import('./layouts/listing-layout/listing-layout.module').then(m => m.ListingLayoutModule)
+    path: 'auth',
+    loadChildren: () => import('./layouts/auth-layout/auth.module').then(m => m.AuthModule)
   },
   {
     path: 'navigation-error',

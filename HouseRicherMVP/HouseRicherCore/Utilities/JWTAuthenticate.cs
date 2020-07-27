@@ -38,7 +38,7 @@ namespace HouseRicherCore.Utilties {
                 userToken.Id = Int64.Parse(userJson["certserialnumber"]);
                 userToken.FirstName = userJson["given_name"];
                 userToken.LastName = userJson["family_name"];
-                userToken.Description = userJson["nameid"];
+                userToken.ProfilePicture = userJson["nameid"];
                 
                 return userToken;
             }
@@ -58,7 +58,7 @@ namespace HouseRicherCore.Utilties {
                     new Claim(ClaimTypes.Email, tokenUser.Email),
                     new Claim(ClaimTypes.GivenName, tokenUser.FirstName),
                     new Claim(ClaimTypes.Surname, tokenUser.LastName),
-                    new Claim(ClaimTypes.NameIdentifier, tokenUser.Description)
+                    new Claim(ClaimTypes.NameIdentifier, tokenUser.ProfilePicture)
                 }),
                 Expires = DateTime.UtcNow.AddHours(1),
                 Issuer = "HouseRicher",

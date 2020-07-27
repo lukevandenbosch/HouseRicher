@@ -1,4 +1,5 @@
 import {Component, HostBinding, OnInit} from '@angular/core';
+import {AuthenticationService} from '../../../../_services/authentication.service';
 
 @Component({
   selector: 'app-topbar',
@@ -7,10 +8,12 @@ import {Component, HostBinding, OnInit} from '@angular/core';
 })
 export class TopbarComponent implements OnInit {
   @HostBinding('class') classNames = 'dt-topbar';
+  public currentUser: any;
 
-  constructor() { }
+  constructor(private authService: AuthenticationService) { }
 
   ngOnInit() {
-  }
 
+    this.currentUser = this.authService.currentUserValue
+  }  
 }

@@ -17,16 +17,23 @@ namespace HouseRicherCore.Model
 
         public virtual DbSet<FeedComment> FeedComment { get; set; }
         public virtual DbSet<FeedCommentLikes> FeedCommentLikes { get; set; }
+        public virtual DbSet<FeedNotifications> FeedNotifications { get; set; }
         public virtual DbSet<FeedPost> FeedPost { get; set; }
         public virtual DbSet<FeedPostLikes> FeedPostLikes { get; set; }
+        public virtual DbSet<LegalAcceptedTerms> LegalAcceptedTerms { get; set; }
         public virtual DbSet<LocationCountry> LocationCountry { get; set; }
         public virtual DbSet<LocationLocation> LocationLocation { get; set; }
         public virtual DbSet<LocationProvinceState> LocationProvinceState { get; set; }
+        public virtual DbSet<MessageConversation> MessageConversation { get; set; }
+        public virtual DbSet<MessageMessage> MessageMessage { get; set; }
         public virtual DbSet<PersonalEmail> PersonalEmail { get; set; }
+        public virtual DbSet<PersonalFollowing> PersonalFollowing { get; set; }
         public virtual DbSet<PersonalLogin> PersonalLogin { get; set; }
         public virtual DbSet<PersonalPerson> PersonalPerson { get; set; }
         public virtual DbSet<PersonalProfilePicture> PersonalProfilePicture { get; set; }
         public virtual DbSet<PersonalRealtor> PersonalRealtor { get; set; }
+        public virtual DbSet<PersonalReviews> PersonalReviews { get; set; }
+        public virtual DbSet<SiteVisitsPersonal> SiteVisitsPersonal { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -85,6 +92,56 @@ namespace HouseRicherCore.Model
                     .HasColumnType("bigint(20)");
             });
 
+            modelBuilder.Entity<FeedNotifications>(entity =>
+            {
+                entity.ToTable("Feed_Notifications");
+
+                entity.HasIndex(e => e.Id)
+                    .HasName("ID")
+                    .IsUnique();
+
+                entity.Property(e => e.Id)
+                    .HasColumnName("ID")
+                    .HasColumnType("bigint(20) unsigned");
+
+                entity.Property(e => e.CommentId)
+                    .HasColumnName("Comment_ID")
+                    .HasColumnType("bigint(20)");
+
+                entity.Property(e => e.CommentLikesId)
+                    .HasColumnName("Comment_Likes_ID")
+                    .HasColumnType("bigint(20)");
+
+                entity.Property(e => e.DatePosted)
+                    .HasColumnName("Date_Posted")
+                    .HasDefaultValueSql("CURRENT_TIMESTAMP");
+
+                entity.Property(e => e.IsRead)
+                    .HasColumnName("Is_Read")
+                    .HasColumnType("tinyint(1)")
+                    .HasDefaultValueSql("'0'");
+
+                entity.Property(e => e.PersonId)
+                    .HasColumnName("Person_ID")
+                    .HasColumnType("bigint(20)");
+
+                entity.Property(e => e.PostId)
+                    .HasColumnName("Post_ID")
+                    .HasColumnType("bigint(20)");
+
+                entity.Property(e => e.PostLikesId)
+                    .HasColumnName("Post_Likes_ID")
+                    .HasColumnType("bigint(20)");
+
+                entity.Property(e => e.ReviewId)
+                    .HasColumnName("Review_ID")
+                    .HasColumnType("bigint(20)");
+
+                entity.Property(e => e.VisitsPersonalId)
+                    .HasColumnName("Visits_Personal_ID")
+                    .HasColumnType("bigint(20)");
+            });
+
             modelBuilder.Entity<FeedPost>(entity =>
             {
                 entity.ToTable("Feed_Post");
@@ -127,6 +184,35 @@ namespace HouseRicherCore.Model
                     .HasColumnType("bigint(20)");
             });
 
+            modelBuilder.Entity<LegalAcceptedTerms>(entity =>
+            {
+                entity.ToTable("Legal_Accepted_Terms");
+
+                entity.HasIndex(e => e.Id)
+                    .HasName("ID")
+                    .IsUnique();
+
+                entity.Property(e => e.Id)
+                    .HasColumnName("ID")
+                    .HasColumnType("bigint(20) unsigned");
+
+                entity.Property(e => e.DateAccepted)
+                    .HasColumnName("Date_Accepted")
+                    .HasDefaultValueSql("CURRENT_TIMESTAMP");
+
+                entity.Property(e => e.DocumentName)
+                    .IsRequired()
+                    .HasColumnName("Document_Name");
+
+                entity.Property(e => e.IsAccepted)
+                    .HasColumnName("Is_Accepted")
+                    .HasColumnType("tinyint(1)");
+
+                entity.Property(e => e.PersonId)
+                    .HasColumnName("Person_ID")
+                    .HasColumnType("bigint(20)");
+            });
+
             modelBuilder.Entity<LocationCountry>(entity =>
             {
                 entity.ToTable("Location_Country");
@@ -158,9 +244,7 @@ namespace HouseRicherCore.Model
                     .HasColumnName("ID")
                     .HasColumnType("bigint(20) unsigned");
 
-                entity.Property(e => e.Address1)
-                    .IsRequired()
-                    .HasColumnName("Address_1");
+                entity.Property(e => e.Address1).HasColumnName("Address_1");
 
                 entity.Property(e => e.Address2).HasColumnName("Address_2");
 
@@ -194,6 +278,52 @@ namespace HouseRicherCore.Model
                 entity.Property(e => e.ShortName).HasColumnName("Short_Name");
             });
 
+            modelBuilder.Entity<MessageConversation>(entity =>
+            {
+                entity.ToTable("Message_Conversation");
+
+                entity.HasIndex(e => e.Id)
+                    .HasName("ID")
+                    .IsUnique();
+
+                entity.Property(e => e.Id)
+                    .HasColumnName("ID")
+                    .HasColumnType("bigint(20) unsigned");
+
+                entity.Property(e => e.OpeningDate)
+                    .HasColumnName("Opening_Date")
+                    .HasDefaultValueSql("CURRENT_TIMESTAMP");
+
+                entity.Property(e => e.OpeningPersonId)
+                    .HasColumnName("Opening_Person_ID")
+                    .HasColumnType("bigint(20)");
+
+                entity.Property(e => e.OtherPersonId)
+                    .HasColumnName("Other_Person_ID")
+                    .HasColumnType("bigint(20)");
+            });
+
+            modelBuilder.Entity<MessageMessage>(entity =>
+            {
+                entity.ToTable("Message_Message");
+
+                entity.HasIndex(e => e.Id)
+                    .HasName("ID")
+                    .IsUnique();
+
+                entity.Property(e => e.Id)
+                    .HasColumnName("ID")
+                    .HasColumnType("bigint(20) unsigned");
+
+                entity.Property(e => e.ConversationId)
+                    .HasColumnName("Conversation_ID")
+                    .HasColumnType("bigint(20)");
+
+                entity.Property(e => e.DatePosted)
+                    .HasColumnName("Date_Posted")
+                    .HasDefaultValueSql("CURRENT_TIMESTAMP");
+            });
+
             modelBuilder.Entity<PersonalEmail>(entity =>
             {
                 entity.ToTable("Personal_Email");
@@ -211,6 +341,31 @@ namespace HouseRicherCore.Model
                     .HasDefaultValueSql("'0'");
 
                 entity.Property(e => e.Email).IsRequired();
+            });
+
+            modelBuilder.Entity<PersonalFollowing>(entity =>
+            {
+                entity.ToTable("Personal_Following");
+
+                entity.HasIndex(e => e.Id)
+                    .HasName("ID")
+                    .IsUnique();
+
+                entity.Property(e => e.Id)
+                    .HasColumnName("ID")
+                    .HasColumnType("bigint(20) unsigned");
+
+                entity.Property(e => e.DateFollowed)
+                    .HasColumnName("Date_Followed")
+                    .HasDefaultValueSql("CURRENT_TIMESTAMP");
+
+                entity.Property(e => e.FollowerId)
+                    .HasColumnName("Follower_ID")
+                    .HasColumnType("bigint(20)");
+
+                entity.Property(e => e.FollowingId)
+                    .HasColumnName("Following_ID")
+                    .HasColumnType("bigint(20)");
             });
 
             modelBuilder.Entity<PersonalLogin>(entity =>
@@ -311,6 +466,60 @@ namespace HouseRicherCore.Model
                 entity.Property(e => e.PhoneNumberCell).HasColumnName("Phone_Number_Cell");
 
                 entity.Property(e => e.PhoneNumberOffice).HasColumnName("Phone_Number_Office");
+            });
+
+            modelBuilder.Entity<PersonalReviews>(entity =>
+            {
+                entity.ToTable("Personal_Reviews");
+
+                entity.HasIndex(e => e.Id)
+                    .HasName("ID")
+                    .IsUnique();
+
+                entity.Property(e => e.Id)
+                    .HasColumnName("ID")
+                    .HasColumnType("bigint(20) unsigned");
+
+                entity.Property(e => e.DatePosted)
+                    .HasColumnName("Date_Posted")
+                    .HasDefaultValueSql("CURRENT_TIMESTAMP");
+
+                entity.Property(e => e.PersonId)
+                    .HasColumnName("Person_ID")
+                    .HasColumnType("bigint(20)");
+
+                entity.Property(e => e.Rating).HasColumnType("int(11)");
+
+                entity.Property(e => e.RealtorId)
+                    .HasColumnName("Realtor_ID")
+                    .HasColumnType("bigint(20)");
+
+                entity.Property(e => e.ReviewMessage).HasColumnName("Review_Message");
+            });
+
+            modelBuilder.Entity<SiteVisitsPersonal>(entity =>
+            {
+                entity.ToTable("Site_Visits_Personal");
+
+                entity.HasIndex(e => e.Id)
+                    .HasName("ID")
+                    .IsUnique();
+
+                entity.Property(e => e.Id)
+                    .HasColumnName("ID")
+                    .HasColumnType("bigint(20) unsigned");
+
+                entity.Property(e => e.DateVistited)
+                    .HasColumnName("Date_Vistited")
+                    .HasDefaultValueSql("CURRENT_TIMESTAMP");
+
+                entity.Property(e => e.VisitedPersonId)
+                    .HasColumnName("Visited_Person_ID")
+                    .HasColumnType("bigint(20)");
+
+                entity.Property(e => e.VisitingPersonId)
+                    .HasColumnName("Visiting_Person_ID")
+                    .HasColumnType("bigint(20)");
             });
 
             OnModelCreatingPartial(modelBuilder);

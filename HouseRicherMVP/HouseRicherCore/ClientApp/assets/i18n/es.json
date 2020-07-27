@@ -1,0 +1,72 @@
+{
+  "NAV":{
+    "WIDGET_CLASSIC":"Clásica",
+    "WIDGET_MODERN":"Moderna",
+    "EXTENSIONS":"Extensiones",
+    "HOME":"Casa",
+    "MORE":"Más",
+    "APPS":"Aplicaciones",
+    "EXTRA":"Extra",
+    "MAIN":{
+      "TITLE":"Principal",
+      "DASHBOARDS":"Tablero",
+      "WIDGETS":"Widgets",
+      "METRICS":"Métrica",
+      "LAYOUTS":"Diseños"
+    },
+    "COMPONENTS":{
+      "TITLE":"Componentes",
+      "BASIC":"Basic Componentes",
+      "TABLES":"Mesas",
+      "GENERAL":"General",
+      "NAVIGATION":"Navegación",
+      "DATA_DISPLAY":"Visualización de datos",
+      "FEEDBACK":"Realimentación"
+    },
+    "FORMS":{
+      "TITLE":"Formas",
+      "BASIC_FORM":"Forma básica",
+      "ADVANCED_FORM":"Formulario avanzado",
+      "FILE_UPLOAD":"Subir archivo"
+    },
+    "EXTRA_COMPONENTS":{
+      "TITLE":"Extra Componentes",
+      "EDITORS":"Editores",
+      "PICKERS":"Recolectores",
+      "SWEET_ALERTS":"Alertas dulces",
+      "NOTIFICATIONS":"Notificaciones"
+    },
+    "DATA_VISUALIZATION":{
+      "TITLE":"Visualización de datos",
+      "CHARTS":"Cartas",
+      "MAPS":"Mapas"
+    },
+    "PAGES":{
+      "TITLE":"Páginas",
+      "WALL_PAGE":"Página de pared",
+      "PROFILE_PAGE":"Página de perfil",
+      "LOGIN_PAGE":"Página de inicio de sesión",
+      "SIGN_UP_PAGE":"Página de registro",
+      "FORGOT_PASSWORD":"Se te olvidó tu contraseña",
+      "LOCK_SCREEN_PAGE":"Bloquear pantalla",
+      "BLANK_PAGE":"Página en blanco",
+      "SEARCH_PAGE":"Página de búsqueda",
+      "ERROR_404":"Error 400",
+      "ERROR_500":"Error 500"
+    },
+    "EXTRA_VIEWS":{
+      "TITLE":"Vistas extra",
+      "GRID":"Cuadrícula",
+      "LIST":"Lista"
+    },
+    "PREBUILT_APPS":{
+      "TITLE":"Aplicaciones pre-construidas",
+      "TASK_MANAGER":"Administrador de tareas",
+      "MAIL_APP":"Solicitud de correo",
+      "CONTACTS_APP":"Aplicación de contactos",
+      "CHAT_APP":"Aplicación de chat",
+      "WALL_APP":"Aplicación de pared",
+      "PROFILE_APP":"Aplicación de perfil"
+    }
+  }
+}

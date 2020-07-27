@@ -1,5 +1,5 @@
 <!-- Login Content -->
-<div class="dt-login__content-wrapper">
+<div class="dt-login__content-wrapper" (window:beforeunload)="areYouSure($event)">
 
   <!-- Header -->
   <auth-header title="Sign Up" desc="Sign up and interact with realtors and other experts"></auth-header>
@@ -46,6 +46,41 @@
 
         <!-- Form Group -->
         <div class="form-group">
+          <label>Province</label>
+          <select formControlName="province" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.province.errors }">
+            <option value="" disabled selected>Province</option>
+            <option value="Alberta">Alberta</option>
+            <option value="British Columbia">British Columbia</option>
+            <option value="Manitoba">Manitoba</option>
+            <option value="New Brunswick">New Brunswick</option>
+            <option value="Newfoundland and Labrador">Newfoundland and Labrador</option>
+            <option value="Northwest Territories">Northwest Territories</option>
+            <option value="Nova Scotia">Nova Scotia</option>
+            <option value="Nunavut">Nunavut</option>
+            <option value="Ontario">Ontario</option>
+            <option value="Prince Edward Island">Prince Edward Island</option>
+            <option value="Quebec">Quebec</option>
+            <option value="Saskachewan">Saskachewan</option>
+            <option value="Yukon">Yukon</option>
+          </select>
+          <div *ngIf="submitted && f.province.errors" class="invalid-feedback">
+              <div class="form-error" *ngIf="f.province.errors.required">* Province is required</div>
+          </div>
+        </div>
+        <!-- /form group -->
+
+        <!-- Form Group -->
+        <div class="form-group">
+          <label>City</label>
+          <input type="text" formControlName="city" placeholder="City" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.city.errors }" />
+          <div *ngIf="submitted && f.city.errors" class="invalid-feedback">
+              <div class="form-error" *ngIf="f.city.errors.required">* City is required</div>
+          </div>
+        </div>
+        <!-- /form group -->
+
+        <!-- Form Group -->
+        <div class="form-group">
           <label>Password</label>
           <input type="password" formControlName="password" placeholder="Password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
             <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
@@ -69,25 +104,25 @@
 
         <!-- Form Group -->
         <div class="dt-checkbox d-block mb-6">
-          <input type="checkbox" formControlName="accept" [ngClass]="{ 'is-invalid': submitted && f.accept.errors }">
+          <input type="checkbox" formControlName="termsAndConditions" [ngClass]="{ 'is-invalid': submitted && f.termsAndConditions.errors }">
           <label class="dt-checkbox-content">
             by signing up, I accept the <a href="javascript:void(0)">Terms &amp; Conditions</a>
           </label>
-          <div *ngIf="submitted && f.accept.errors" class="invalid-feedback">
-            <div class="form-error" *ngIf="f.accept.errors.required">* The terms of service must be accepted</div>
-          </div>
+        </div>
+        <div *ngIf="submitted && f.termsAndConditions.errors" class="error-container-Value">
+          <div class="form-error" *ngIf="f.termsAndConditions.errors.required">* The terms of service must be accepted</div>
         </div>
         <!-- /form group -->
         
         <span class="d-inline-block" style="margin-bottom: 20px;">
-          <a class="d-inline-block font-weight-500" routerLink="/signup-realtor">Sign up as a Realtor</a>
+          <a class="d-inline-block font-weight-500" href="auth/signup-realtor">Sign up as a Realtor</a>
         </span>
 
         <!-- Form Group -->
         <div class="form-group">
-          <button type="submit" class="btn btn-primary text-uppercase">Sign up</button>
+          <button type="submit" [disabled]="loading" class="btn btn-primary text-uppercase">Sign up</button>
           <span class="d-inline-block ml-5">Or
-            <a class="d-inline-block font-weight-500 ml-3" routerLink="/signin">Login</a>
+            <a class="d-inline-block font-weight-500 ml-3" href="auth/signin">Login</a>
           </span>
         </div>
         <!-- /form group -->

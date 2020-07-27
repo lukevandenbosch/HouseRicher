@@ -5,19 +5,28 @@ using HouseRicherCore.ModelAPI;
 namespace HouseRicherCore.Utilties
 {
     public class Validation {
-        public static bool ValidateUser(Dictionary<string, string> body) {
+        public static bool ValidateUser(PersonIncoming body) {
             try {
                 Regex emailRegex = new Regex(@"^.*@.*\..*$");
-                if (body["firstName"] == null || body["firstName"] == "") {
+                if (body.FirstName == null || body.FirstName == "") {
                     return false;
                 }
-                else if (body["lastName"] == null || body["lastName"] == "") {
+                else if (body.LastName == null || body.LastName == "") {
                     return false;
                 }
-                else if (body["email"] == null || body["email"] == "" || !emailRegex.Match(body["email"]).Success) {
+                else if (body.Email == null || body.Email == "" || !emailRegex.Match(body.Email).Success) {
                     return false;
                 }
-                else if (body["password"] == null || body["password"] == "") {
+                else if (body.Password == null || body.Password == "") {
+                    return false;
+                }
+                else if (body.City == null || body.City == "") {
+                    return false;
+                }
+                else if (body.ProvinceState == null || body.ProvinceState == "") {
+                    return false;
+                }
+                else if (body.TermsAndConditions != "true") {
                     return false;
                 }
                 else {
@@ -63,6 +72,12 @@ namespace HouseRicherCore.Utilties
                     return false;
                 }
                 else if (body.ProfilePicture == null) {
+                    return false;
+                }
+                else if (body.TermsAndConditions != "true") {
+                    return false;
+                }
+                else if (body.Trial != "true") {
                     return false;
                 }
                 //TODO: Validate ProfilePic is not malicious code

@@ -2,13 +2,13 @@
 <div class="dt-container">
 
   <!-- Topbar Inner -->
-  <div class="dt-topbar__inner">
+  <div class="dt-topbar__inner" *ngIf="!currentUser">
     <ul class="dt-list dt-list-xl dt-list-bordered text-uppercase">
       <li class="dt-list__item">
-        <a href="javascript:void(0)" class="dt-list__link">Login</a>
+        <a href="auth/signin" class="dt-list__link">Login</a>
       </li>
       <li class="dt-list__item">
-        <a href="javascript:void(0)" class="dt-list__link">Sign up</a>
+        <a href="auth/signup" class="dt-list__link">Sign up</a>
       </li>
     </ul>
   </div>

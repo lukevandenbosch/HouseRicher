@@ -14,6 +14,7 @@ namespace HouseRicherCore.Model
         public string Twitter { get; set; }
         public string Instagram { get; set; }
         public string About { get; set; }
+        public string Brokerage { get; set; }
         public long? PersonId { get; set; }
     }
 }

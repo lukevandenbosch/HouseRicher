@@ -7,8 +7,10 @@ export class Post {
     likes: number;
     isLiked: boolean;
     datePosted: string;
+    personId: number;
     firstName: string;
     lastName: string;
-    description: string;
+    profilePicture: string;
+    commentCount: number;
     comments: Array<Comment>;
 }

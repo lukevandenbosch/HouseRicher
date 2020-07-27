@@ -17,6 +17,7 @@ export class AlertComponent implements OnInit, OnDestroy {
   timerInterval;
 
   @ViewChild('toastTypeError') private toastTypeError: SwalComponent;
+  @ViewChild('toastTypeInformation') private toastTypeInformation: SwalComponent;
 
   constructor(private alertService: AlertService) { }
 
@@ -25,6 +26,15 @@ export class AlertComponent implements OnInit, OnDestroy {
       .subscribe(message => {
         switch (message && message.type) {
           case 'success':
+            break;
+          case 'information':
+            if (typeof message.text !== "string") {
+              this.messageValue = "Unknown Message";
+            } else {
+              this.messageValue = message.text;
+            }
+            this.toastTypeInformation.html = this.messageValue;
+            this.toastTypeInformation.fire();
             break;
           case 'error':
             if (typeof message.text !== "string") {

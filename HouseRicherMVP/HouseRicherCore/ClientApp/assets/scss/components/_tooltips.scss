@@ -1,0 +1,15 @@
+
+/**
+ * Tooltips
+ *
+ * Tooltips styles.
+ */
+
+.tooltip {
+	border-radius: 500px;
+	font-family: inherit;
+	.tooltip-inner {
+		border-radius: 500px;
+		font-weight: 400;
+	}
+}

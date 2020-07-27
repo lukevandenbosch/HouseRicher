@@ -12,35 +12,35 @@
           <!-- Form Group -->
           <div class="form-group">
             <label>Website</label>
-            <input type="text" formControlName="website" placeholder="Website" class="form-control" />
+            <input type="text" formControlName="website" placeholder="https://www.example.com" class="form-control" />
           </div>
           <!-- /form group -->
 
           <!-- Form Group -->
           <div class="form-group">
             <label>Facebook</label>
-            <input type="text" formControlName="facebook" placeholder="Facebook" class="form-control" />
+            <input type="text" formControlName="facebook" placeholder="https://www.facebook.com/username" class="form-control" />
           </div>
           <!-- /form group -->
 
           <!-- Form Group -->
           <div class="form-group">
             <label>Linkedin</label>
-            <input type="text" formControlName="linkedin" placeholder="Linkedin" class="form-control" />
+            <input type="text" formControlName="linkedin" placeholder="https://www.linkedin.com/in/username" class="form-control" />
           </div>
           <!-- /form group -->
 
           <!-- Form Group -->
           <div class="form-group">
             <label>Twitter</label>
-            <input type="text" formControlName="twitter" placeholder="Twitter" class="form-control" />
+            <input type="text" formControlName="twitter" placeholder="https://twitter.com/username" class="form-control" />
           </div>
           <!-- /form group -->
 
           <!-- Form Group -->
           <div class="form-group">
             <label>Instagram</label>
-            <input type="text" formControlName="instagram" placeholder="Instagram" class="form-control" />
+            <input type="text" formControlName="instagram" placeholder="https://www.instagram.com/username" class="form-control" />
           </div>
           <!-- /form group -->
 
@@ -71,14 +71,14 @@
           </div>
           
           <span class="d-inline-block" style="margin-bottom: 20px;">
-            <a class="d-inline-block font-weight-500" routerLink="/signup">Sign up as a User</a>
+            <a class="d-inline-block font-weight-500" href="auth/signup">Sign up as a User</a>
           </span>
   
           <!-- Form Group -->
           <div class="form-group">
             <button type="submit" class="btn btn-primary text-uppercase">Continue</button>
             <span class="d-inline-block ml-5">Or
-              <a class="d-inline-block font-weight-500 ml-3" routerLink="/signin">Login</a>
+              <a class="d-inline-block font-weight-500 ml-3" href="auth/signin">Login</a>
             </span>
           </div>
           <!-- /form group -->
@@ -96,14 +96,14 @@
           <!-- Form Group -->
           <div class="form-group">
             <label>Cell Phone</label>
-            <input type="text" formControlName="cellPhone" placeholder="Cell Phone" class="form-control" />
+            <input type="tel" id="cellPhoneValue" formControlName="cellPhone" (ngModelChange)="changePhone('cellPhone')" placeholder="(555) 555-5555" class="form-control" />
           </div>
           <!-- /form group -->
 
           <!-- Form Group -->
           <div class="form-group">
             <label>Office Phone</label>
-            <input type="text" formControlName="officePhone" placeholder="Office Phone" class="form-control" />
+            <input type="tel" id="officePhoneValue" formControlName="officePhone" (ngModelChange)="changePhone('officePhone')" placeholder="(555) 555-5555" class="form-control" />
           </div>
           <!-- /form group -->
 
@@ -112,19 +112,19 @@
             <label>Province</label>
             <select formControlName="province" class="form-control" [ngClass]="{ 'is-invalid': submittedContact && fc.province.errors }">
               <option value="" disabled selected>Province</option>
-              <option>Alberta</option>
-              <option>British Columbia</option>
-              <option>Manitoba</option>
-              <option>New Brunswick</option>
-              <option>Newfoundland and Labrador</option>
-              <option>Northwest Territories</option>
-              <option>Nova Scotia</option>
-              <option>Nunavut</option>
-              <option>Ontario</option>
-              <option>Prince Edward Island</option>
-              <option>Quebec</option>
-              <option>Saskachewan</option>
-              <option>Yukon</option>
+              <option value="Alberta">Alberta</option>
+              <option value="British Columbia">British Columbia</option>
+              <option value="Manitoba">Manitoba</option>
+              <option value="New Brunswick">New Brunswick</option>
+              <option value="Newfoundland and Labrador">Newfoundland and Labrador</option>
+              <option value="Northwest Territories">Northwest Territories</option>
+              <option value="Nova Scotia">Nova Scotia</option>
+              <option value="Nunavut">Nunavut</option>
+              <option value="Ontario">Ontario</option>
+              <option value="Prince Edward Island">Prince Edward Island</option>
+              <option value="Quebec">Quebec</option>
+              <option value="Saskachewan">Saskachewan</option>
+              <option value="Yukon">Yukon</option>
             </select>
             <div *ngIf="submittedContact && fc.province.errors" class="invalid-feedback">
                 <div class="form-error" *ngIf="fc.province.errors.required">* Province is required</div>
@@ -153,7 +153,7 @@
           <!-- /form group -->
 
           <span class="d-inline-block" style="margin-bottom: 20px;">
-            <a class="d-inline-block font-weight-500" routerLink="/signup">Sign up as a User</a>
+            <a class="d-inline-block font-weight-500" href="auth/signup">Sign up as a User</a>
           </span>
 
           <!-- Form Group -->
@@ -161,7 +161,7 @@
             <button type="submit" (click)="onBackContact()" class="btn text-uppercase">Back</button>
             <button type="submit" class="btn btn-primary text-uppercase">Continue</button>
             <span class="d-inline-block ml-5">Or
-              <a class="d-inline-block font-weight-500 ml-3" routerLink="/signin">Login</a>
+              <a class="d-inline-block font-weight-500 ml-3" href="auth/signin">Login</a>
             </span>
           </div>
           <!-- /form group -->
@@ -224,7 +224,7 @@
           <!-- /form group -->
           
           <span class="d-inline-block" style="margin-bottom: 20px;">
-            <a class="d-inline-block font-weight-500" routerLink="/signup">Sign up as a User</a>
+            <a class="d-inline-block font-weight-500" href="auth/signup">Sign up as a User</a>
           </span>
   
           <!-- Form Group -->
@@ -232,7 +232,7 @@
             <button type="submit" (click)="onBackLogin()" class="btn text-uppercase">Back</button>
             <button type="submit" class="btn btn-primary text-uppercase">Continue</button>
             <span class="d-inline-block ml-5">Or
-              <a class="d-inline-block font-weight-500 ml-3" routerLink="/signin">Login</a>
+              <a class="d-inline-block font-weight-500 ml-3" href="auth/signin">Login</a>
             </span>
           </div>
           <!-- /form group -->
@@ -305,13 +305,13 @@
 
           <!-- Form Group -->
           <div class="dt-checkbox d-block mb-6">
-            <input type="checkbox" formControlName="trail" [ngClass]="{ 'is-invalid': submittedReview && fr.trail.errors }">
+            <input type="checkbox" formControlName="trial" [ngClass]="{ 'is-invalid': submittedReview && fr.trial.errors }">
             <label class="dt-checkbox-content">
               Sign up for a 2 month free trial.
             </label>
-            <div *ngIf="submittedReview && fr.trail.errors" class="invalid-feedback">
-              <div class="form-error" *ngIf="fr.trail.errors.required">* Please accept the 2 months free trial</div>
-            </div>
+          </div>
+          <div *ngIf="submittedReview && fr.trial.errors" class="error-container-Value">
+            <div class="form-error" *ngIf="fr.trial.errors.required">* Please accept the 2 months free trial</div>
           </div>
           <!-- /form group -->
 
@@ -321,9 +321,9 @@
             <label class="dt-checkbox-content">
               All of the information above is correct.
             </label>
-            <div *ngIf="submittedReview && fr.verify.errors" class="invalid-feedback">
-              <div class="form-error" *ngIf="fr.verify.errors.required">* Please verify your information</div>
-            </div>
+          </div>
+          <div *ngIf="submittedReview && fr.verify.errors" class="error-container-Value">
+            <div class="form-error" *ngIf="fr.verify.errors.required">* Please verify your information</div>
           </div>
           <!-- /form group -->
 
@@ -333,21 +333,21 @@
             <label class="dt-checkbox-content">
               by signing up, I accept the <a href="javascript:void(0)">Terms &amp; Conditions</a>
             </label>
-            <div *ngIf="submittedReview && fr.termsAndConditions.errors" class="invalid-feedback">
-              <div class="form-error" *ngIf="fr.termsAndConditions.errors.required">* The terms and Conditions must be accepted</div>
-            </div>
+          </div>
+          <div *ngIf="submittedReview && fr.termsAndConditions.errors" class="error-container-Value">
+            <div class="form-error" *ngIf="fr.termsAndConditions.errors.required">* The terms and Conditions must be accepted</div>
           </div>
           <!-- /form group -->
 
           <span class="d-inline-block" style="margin-bottom: 20px;">
-            <a class="d-inline-block font-weight-500" routerLink="/signup">Sign up as a User</a>
+            <a class="d-inline-block font-weight-500" href="auth/signup">Sign up as a User</a>
           </span>
           
           <div class="form-group">
               <button type="submit" (click)="onBackReview()" class="btn text-uppercase">Back</button>
-              <button type="submit" class="btn btn-primary text-uppercase">Register</button>
+              <button type="submit" [disabled]="loading" class="btn btn-primary text-uppercase">Register</button>
               <span class="d-inline-block ml-5">Or
-                <a class="d-inline-block font-weight-500 ml-3" routerLink="/signin">Login</a>
+                <a class="d-inline-block font-weight-500 ml-3" href="auth/signin">Login</a>
               </span>
           </div>
         </div>

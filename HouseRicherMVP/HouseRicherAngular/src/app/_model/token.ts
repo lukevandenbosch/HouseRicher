@@ -4,5 +4,6 @@ export class Token {
     description: string;
     email: string;
     password: string;
+    profilePicture: string;
     token: string;
 }

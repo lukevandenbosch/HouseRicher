@@ -1,6 +1,7 @@
 import {Component, HostBinding, Input, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {ForumService} from '@app/content/nav-views/forum/forum.service';
+import {AuthenticationService} from '../../../../../_services/authentication.service';
+import {Token} from '../../../../../_model/token'
 
 @Component({
     selector: 'comment-box-list',
@@ -22,14 +23,23 @@ export class CommentBoxListComponent implements OnInit {
         message: new FormControl(null, Validators.required)
     });
 
-    constructor(private wallPageService: ForumService) {
+    constructor(private authenticationService: AuthenticationService) {
     }
 
     ngOnInit() {
+
+        this.currentUser = this.authenticationService.currentUserValue
+
+        if (this.currentUser === null) {
+            this.currentUser = {
+                firstName: "Anonymous",
+                profilePicture: ""
+            };
+        }
+
         if (this.class) {
             this.classList += ' ' + this.class;
         }
-        this.currentUser = this.wallPageService.usersList;
     }
 
     submitComment() {

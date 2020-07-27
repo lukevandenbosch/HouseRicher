@@ -20,11 +20,7 @@ export class HeaderTopComponent implements OnInit, OnDestroy {
     }
   ];
   currentLanguage: any;
-  currentUser: any = {
-    name: 'Bob Hyden',
-    thumb: 'https://via.placeholder.com/150x150',
-    position: 'Administrator'
-  };
+  currentUser: any ;
 
   onSettingChanged: Subscription;
   onLanguageChanged: Subscription;
@@ -43,7 +39,7 @@ export class HeaderTopComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-
+    this.currentUser = this.authService.currentUserValue;
   }
 
   toggleNavigation() {
@@ -71,13 +67,7 @@ export class HeaderTopComponent implements OnInit, OnDestroy {
     localStorage.setItem('language', lang.id);
   }
 
-  /**
-   * Logout user
-   * @param event
-   */
-  onLogout(event) {
-    event.preventDefault();
-
+  logout() {
     this.authService.logout();
   }
 

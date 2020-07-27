@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
-import { UserService } from '../../../_services/user.service';
+import { RegisterService } from '../../../_services/register.service';
 import { first } from 'rxjs/operators';
 import { Register_User } from '../../../_model/register_user';
 import { passwordValidation, passwordConfirmValidation } from '../../../_utiltlies/validators';
@@ -24,7 +24,7 @@ export class SignupComponent implements OnInit {
       private router: Router,
       private authenticationService: AuthenticationService,
       private alertService: AlertService,
-      private userService: UserService
+      private registerService: RegisterService
   ) {
       // redirect to home if already logged in
       if (this.authenticationService.currentUserValue) {
@@ -34,52 +34,56 @@ export class SignupComponent implements OnInit {
 
   ngOnInit() {
       this.registerForm = this.formBuilder.group({
-          firstName: ['', Validators.required],
-          lastName: ['', Validators.required],
-          email: ['', [Validators.required, Validators.email]],
-          password: ['', [Validators.required, Validators.minLength(6), passwordValidation]],
-          passwordConfirm: ['', Validators.required],
-          accept: ['', Validators.required],
-          realtor: ['']
+            firstName: ['', Validators.required],
+            lastName: ['', Validators.required],
+            email: ['', [Validators.required, Validators.email]],
+            province: ['', Validators.required],
+            city: ['', Validators.required],
+            password: ['', [Validators.required, Validators.minLength(6), passwordValidation]],
+            passwordConfirm: ['', Validators.required],
+            termsAndConditions: ['', Validators.required]
       }, {
           validator: passwordConfirmValidation('password', 'passwordConfirm')
       });
+  }
+
+  areYouSure(event: Event) {
+    event.returnValue = false;
   }
 
   // convenience getter for easy access to form fields
   get f() { return this.registerForm.controls; }
 
   onSubmit() {
-      this.submitted = true;
+    this.submitted = true;
 
-      // stop here if form is invalid
-      if (this.registerForm.invalid) {
-          return;
-      }
+    // stop here if form is invalid
+    if (this.registerForm.invalid) {
+        return;
+    }
+    this.loading = true;
 
-      var userRegister: Register_User = {
-          firstName: this.f.firstName.value,
-          lastName: this.f.lastName.value,
-          email: this.f.email.value,
-          password: this.f.password.value,
-          accept: this.f.accept.value
-      }
+    var userRegister: Register_User = {
+        firstName: this.f.firstName.value,
+        lastName: this.f.lastName.value,
+        email: this.f.email.value,
+        province: this.f.province.value,
+        city: this.f.city.value,
+        password: this.f.password.value,
+        termsAndConditions: this.f.termsAndConditions.value
+    }
 
-      if (this.f.realtor.value) {
-          this.router.navigate(['/realtor-registration/' + encodeURIComponent(this.f.firstName.value) + '/' + encodeURIComponent(this.f.lastName.value) + '/' + encodeURIComponent(this.f.email.value) + '/' + this.f.accept.value.toString() ]);
-      }
-      else {
-          this.loading = true;
-          this.userService.register(userRegister)
-              .pipe(first())
-              .subscribe(
-                  data => {
-                      this.registerForm.reset();
-                  },
-                  error => {
-                      this.loading = false;
-                      this.alertService.error(error);
-                  });
-      }
+    this.registerService.registerUser(userRegister)
+        .pipe(first())
+        .subscribe(
+            data => {
+                this.alertService.success('Registration successful', true);
+                this.router.navigate(["auth/signin"]);
+                this.alertService.information("Registered Successfully");
+            },
+            error => {
+                this.loading = false;
+                this.alertService.error(error);
+            });
   }
 }
