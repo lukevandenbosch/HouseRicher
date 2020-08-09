@@ -1,5 +1,12 @@
 import { Comment } from './comment'
 
+export class PostList {
+    count: number;
+    rangeMin: number;
+    rangeMax: number;
+    feed: Post[];
+}
+
 export class Post {
     id: number;
     name: string;

@@ -8,28 +8,29 @@
 <div class="row">
 
   <!-- Grid Item -->
-  <div *ngFor="let user of usersList; index as i; first as isFirst" class="col-xl-3 col-md-4 col-sm-6 col-12">
+  <div *ngFor="let realtor of realtors; index as i; first as isFirst" class="col-xl-3 col-md-4 col-sm-6 col-12">
 
     <!-- Card -->
     <gx-grid>
-      <avatar img_class="dt-avatar size-60 mr-6 mb-6 mb-sm-0" src="{{user.picture}}" firstName="{{user.name}}"></avatar>
+      <avatar img_class="dt-avatar size-60 mr-6 mb-6 mb-sm-0" src="{{realtor.profilePicture}}" firstName="{{realtor.firstName}}"></avatar>
       <!---->
 
       <div class="mt-7">
-        <h4 class="mb-1 mb-sm-0">{{user.name}}</h4>
+        <h4 class="mb-1 mb-sm-0">{{realtor.firstName + ' ' + realtor.lastName}}</h4>
+        <span style="padding-top: 10px; padding-bottom: 10px;">{{realtor.city + ', ' + realtor.provinceState}}</span>
         <div style="padding:10px;"></div>
-        <a href="javascript:void(0)" class="btn btn-primary btn-sm">See Profile Page</a>
+        <a href="/portal/user/profile/{{realtor.id}}" class="btn btn-primary btn-sm">See Profile Page</a>
       </div>
 
-      <div class="action-tools">
+      <div class="action-tools" *ngIf="currentUser !== null && currentUser.id !== realtor.id">
         <!-- Dropdown -->
         <div placement="bottom-right">
-        <button type="button" class="btn btn-outline-secondary mb-2" [ngClass]="user.followed ? 'toggled_btn_follow' : ''"
-                (click)="user.followed = !user.followed" aria-pressed="false"
-                autocomplete="off">
-                <div *ngIf="user.followed">Following</div>
-                <div *ngIf="!user.followed">Follow</div>
-        </button>
+          <button type="button" class="btn btn-outline-secondary mb-2" [ngClass]="realtor.followed ? 'toggled_btn_follow' : ''"
+                  (click)="follow(realtor)" aria-pressed="false"
+                  autocomplete="off">
+                  <div *ngIf="realtor.followed">Following</div>
+                  <div *ngIf="!realtor.followed">Follow</div>
+          </button>
         </div>
         <!-- /dropdown -->
       </div>

@@ -23,35 +23,46 @@ namespace HouseRicherCore.Controllers
         public ActionResult Get()
         {
             try {
-                if (!Request.Headers.ContainsKey("Range")) {
+                JWTToken user = null;
+
+                if (Request.Headers.ContainsKey("Authorization")) {
+                    string tokenHeader = Request.Headers["Authorization"];
+                    if (!tokenHeader.Contains("Bearer ")) {
+                        Response.StatusCode = 400;
+                        return Json(ResponseMessage.BadRequest);
+                    }
+                    string token = tokenHeader.Split("Bearer ")[1];
+
+                    JWTAuthenticate authenticate = new JWTAuthenticate();
+                    user = authenticate.ValidateJwtToken(token);
+                    if (user == null) {
+                        Response.StatusCode = 401;
+                        return Json(ResponseMessage.UnauthorizedRequest);
+                    }
+                }
+
+                if (!Request.Headers.ContainsKey("RangeMin") || !Request.Headers.ContainsKey("RangeMax")) {
                     Response.StatusCode = 400;
                     return Json(ResponseMessage.BadRequest);
                 }
 
                 using (HouseRicherContext db = new HouseRicherContext()) {
                     var feed =  (from person in db.PersonalPerson
-                                    join email in db.PersonalEmail on person.EmailId equals email.Id
                                     join realtor in db.PersonalRealtor on person.Id equals realtor.PersonId
                                     join profilePicture in db.PersonalProfilePicture on person.Id equals profilePicture.PersonId
                                     join location in db.LocationLocation on person.AddressId equals location.Id
                                     join province in db.LocationProvinceState on location.ProvinceStateId equals province.Id
-                                    select new Realtor{
+                                    join following in db.PersonalFollowing on new { p = (long?)person.Id, f = (long?)(user == null ? -1 : user.Id)} equals new { p = following.FollowingId, f = following.FollowerId} into f
+                                    from following in f.DefaultIfEmpty()
+                                    select new Realtor {
+                                        Id = person.Id,
                                         FirstName = person.FirstName,
                                         LastName = person.LastName,
-                                        Email = email.Email,
-                                        PhoneNumberOffice = realtor.PhoneNumberOffice,
-                                        PhoneNumberCell = realtor.PhoneNumberCell,
-                                        Website = realtor.Website,
-                                        Facebook = realtor.Facebook,
-                                        Linkedin = realtor.Linkedin,
-                                        Twitter = realtor.Twitter,
-                                        Instagram = realtor.Instagram,
-                                        About = realtor.About,
                                         ProfilePicture = profilePicture.ProfilePicture,
-                                        Address = location.Address1,
                                         City = location.City,
-                                        ProvinceState = province.FullName
-                                    }).Take(Int32.Parse(Request.Headers["Range"])).ToArray();
+                                        ProvinceState = province.FullName,
+                                        Followed = (following == null ? false : true)
+                                    }).Skip(Int32.Parse(Request.Headers["RangeMin"])).Take(Int32.Parse(Request.Headers["RangeMax"]) - Int32.Parse(Request.Headers["RangeMin"])).ToArray();
                     
                     Response.StatusCode = 200;
                     return Json(feed);

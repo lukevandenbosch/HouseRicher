@@ -1,0 +1,21 @@
+<!-- Card Header -->
+<div class="card-header card-nav bg-transparent border-bottom d-sm-flex justify-content-sm-between">
+    <h3 class="mb-2 mb-sm-n5">{{title}}</h3>
+
+    <ul class="card-header-links nav nav-underline" role="tablist">
+        <li class="nav-item" *ngFor="let tab of tabs" (click)="selectTab(tab)">
+            <a class="nav-link" href="javascript:void(0)" [class.active]="tab.active">{{tab.title}}</a>
+        </li>
+    </ul>
+
+</div>
+<!-- /card header -->
+
+<!-- Card Body -->
+<div class="card-body pb-2">
+
+    <!-- Tab Content-->
+    <div class="tab-content mt-5">
+        <ng-content></ng-content>
+    </div>
+</div>

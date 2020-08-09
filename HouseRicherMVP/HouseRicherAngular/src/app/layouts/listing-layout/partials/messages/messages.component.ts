@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AppService} from '@app/app.service';
 import {SettingsService} from '@app/settings/settings.service';
 import {Subscription} from 'rxjs';
@@ -8,7 +8,7 @@ import {Subscription} from 'rxjs';
   templateUrl: './messages.component.html',
   styleUrls: ['./messages.component.scss']
 })
-export class MessagesComponent implements OnInit, OnDestroy {
+export class MessagesComponent implements OnInit {
   messages: any[] = [];
   settings: any;
 
@@ -19,18 +19,8 @@ export class MessagesComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.onMessagesChanged = this.appService.onMessagesChanged.subscribe((messages: any[]) => {
-      this.messages = messages;
-    });
-
     this.onSettingChanged = this.settingService.onSettingChanged.subscribe((settings) => {
       this.settings = settings;
     });
   }
-
-  ngOnDestroy() {
-    this.onMessagesChanged.unsubscribe();
-    this.onSettingChanged.unsubscribe();
-  }
-
 }

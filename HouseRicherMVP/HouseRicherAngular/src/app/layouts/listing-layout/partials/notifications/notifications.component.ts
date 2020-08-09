@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AppService} from '@app/app.service';
 import {SettingsService} from '@app/settings/settings.service';
 import {Subscription} from 'rxjs';
@@ -8,7 +8,7 @@ import {Subscription} from 'rxjs';
   templateUrl: './notifications.component.html',
   styleUrls: ['./notifications.component.scss']
 })
-export class NotificationsComponent implements OnInit, OnDestroy {
+export class NotificationsComponent implements OnInit {
   notifications: any[] = [];
   settings: any;
 
@@ -19,18 +19,10 @@ export class NotificationsComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.onNotificationsChanged = this.appService.onNotificationsChanged.subscribe((notifications: any[]) => {
-      this.notifications = notifications;
-    });
 
     this.onSettingChanged = this.settingService.onSettingChanged.subscribe((settings) => {
       this.settings = settings;
     });
-  }
-
-  ngOnDestroy() {
-    this.onNotificationsChanged.unsubscribe();
-    this.onSettingChanged.unsubscribe();
   }
 
 }

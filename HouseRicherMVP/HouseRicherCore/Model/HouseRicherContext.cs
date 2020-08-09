@@ -15,6 +15,10 @@ namespace HouseRicherCore.Model
         {
         }
 
+        public virtual DbSet<EmailConfiguration> EmailConfiguration { get; set; }
+        public virtual DbSet<EmailEmail> EmailEmail { get; set; }
+        public virtual DbSet<EmailMessages> EmailMessages { get; set; }
+        public virtual DbSet<EmailNotification> EmailNotification { get; set; }
         public virtual DbSet<FeedComment> FeedComment { get; set; }
         public virtual DbSet<FeedCommentLikes> FeedCommentLikes { get; set; }
         public virtual DbSet<FeedNotifications> FeedNotifications { get; set; }
@@ -46,6 +50,104 @@ namespace HouseRicherCore.Model
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<EmailConfiguration>(entity =>
+            {
+                entity.ToTable("Email_Configuration");
+
+                entity.HasIndex(e => e.Id)
+                    .HasName("ID")
+                    .IsUnique();
+
+                entity.Property(e => e.Id)
+                    .HasColumnName("ID")
+                    .HasColumnType("bigint(20) unsigned");
+
+                entity.Property(e => e.Port).HasColumnType("int(11)");
+
+                entity.Property(e => e.SmtpServer)
+                    .IsRequired()
+                    .HasColumnName("SMTP_Server");
+            });
+
+            modelBuilder.Entity<EmailEmail>(entity =>
+            {
+                entity.ToTable("Email_Email");
+
+                entity.HasIndex(e => e.Id)
+                    .HasName("ID")
+                    .IsUnique();
+
+                entity.Property(e => e.Id)
+                    .HasColumnName("ID")
+                    .HasColumnType("bigint(20) unsigned");
+
+                entity.Property(e => e.ConfigurationId)
+                    .HasColumnName("Configuration_ID")
+                    .HasColumnType("bigint(20)");
+
+                entity.Property(e => e.Email).IsRequired();
+
+                entity.Property(e => e.EmailType)
+                    .IsRequired()
+                    .HasColumnName("Email_Type");
+
+                entity.Property(e => e.Password).IsRequired();
+            });
+
+            modelBuilder.Entity<EmailMessages>(entity =>
+            {
+                entity.ToTable("Email_Messages");
+
+                entity.HasIndex(e => e.Id)
+                    .HasName("ID")
+                    .IsUnique();
+
+                entity.Property(e => e.Id)
+                    .HasColumnName("ID")
+                    .HasColumnType("bigint(20) unsigned");
+
+                entity.Property(e => e.EmailId)
+                    .HasColumnName("Email_ID")
+                    .HasColumnType("bigint(20)");
+
+                entity.Property(e => e.MessageName)
+                    .IsRequired()
+                    .HasColumnName("Message_Name");
+            });
+
+            modelBuilder.Entity<EmailNotification>(entity =>
+            {
+                entity.ToTable("Email_Notification");
+
+                entity.HasIndex(e => e.Id)
+                    .HasName("ID")
+                    .IsUnique();
+
+                entity.Property(e => e.Id)
+                    .HasColumnName("ID")
+                    .HasColumnType("bigint(20) unsigned");
+
+                entity.Property(e => e.DateSent)
+                    .HasColumnName("Date_Sent")
+                    .HasDefaultValueSql("CURRENT_TIMESTAMP");
+
+                entity.Property(e => e.Email).IsRequired();
+
+                entity.Property(e => e.ExceptionMessage).HasColumnName("Exception_Message");
+
+                entity.Property(e => e.IsSent)
+                    .HasColumnName("Is_Sent")
+                    .HasColumnType("tinyint(1)");
+
+                entity.Property(e => e.MessageId)
+                    .HasColumnName("Message_ID")
+                    .HasColumnType("bigint(20)");
+
+                entity.Property(e => e.PersonId)
+                    .HasColumnName("Person_ID")
+                    .HasColumnType("bigint(20)");
+            });
+
             modelBuilder.Entity<FeedComment>(entity =>
             {
                 entity.ToTable("Feed_Comment");
@@ -196,6 +298,10 @@ namespace HouseRicherCore.Model
                     .HasColumnName("ID")
                     .HasColumnType("bigint(20) unsigned");
 
+                entity.Property(e => e.CommentId)
+                    .HasColumnName("Comment_ID")
+                    .HasColumnType("bigint(20)");
+
                 entity.Property(e => e.DateAccepted)
                     .HasColumnName("Date_Accepted")
                     .HasDefaultValueSql("CURRENT_TIMESTAMP");
@@ -210,6 +316,10 @@ namespace HouseRicherCore.Model
 
                 entity.Property(e => e.PersonId)
                     .HasColumnName("Person_ID")
+                    .HasColumnType("bigint(20)");
+
+                entity.Property(e => e.PostId)
+                    .HasColumnName("Post_ID")
                     .HasColumnType("bigint(20)");
             });
 

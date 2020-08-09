@@ -8,13 +8,6 @@ import {UtiltiesModule} from '../../utitlies/utilties.module';
 
 import { ForumListComponent } from './forum-list/forum-list.component';
 import { WallPageComponent } from './forum-item/wall-page.component';
-import { WallPageService } from './forum-item/wall-page.service';
-
-import {PostsComponent} from './forum-item/posts/posts.component';
-import {PostDetailComponent} from './forum-item/posts/post-detail/post-detail.component';
-import {CommentBoxComponent} from './forum-item/posts/post-detail/comment-box/comment-box.component';
-
-import {CommentBoxListComponent} from './forum-list/post/comment-box-list.component';
 
 const routes: Routes = [
   {
@@ -23,10 +16,7 @@ const routes: Routes = [
   },
   {
     path: 'forum-item/:id',
-    component: WallPageComponent,
-    resolve: {
-      data: WallPageService
-    }
+    component: WallPageComponent
   }
 ];
 
@@ -41,11 +31,7 @@ const routes: Routes = [
   ],
   declarations: [
     ForumListComponent,
-    WallPageComponent,
-    PostDetailComponent,
-    CommentBoxComponent,
-    PostsComponent,
-    CommentBoxListComponent
+    WallPageComponent
   ]
 })
 export class ForumModule {

@@ -79,8 +79,6 @@ export class AppComponent {
       apiKey: 'AIzaSyA_dc3Eztlksb2pyYYVKKXjl-RuM6zrsos',
       authDomain: 'drift-angular.firebaseapp.com'
     });
-
-    this.appService.getUserData();
   }
 
 }

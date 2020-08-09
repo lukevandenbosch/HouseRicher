@@ -1,4 +1,4 @@
-import {Component, HostBinding, OnDestroy, OnInit} from '@angular/core';
+import {Component, HostBinding, OnInit} from '@angular/core';
 import {Subscription} from 'rxjs/Subscription';
 import {LangChangeEvent, TranslateService} from '@ngx-translate/core';
 import {SettingsService} from '@app/settings/settings.service';
@@ -9,7 +9,7 @@ import {AuthenticationService} from '../../../../_services/authentication.servic
   templateUrl: './header-top.component.html',
   styleUrls: ['./header-top.component.scss']
 })
-export class HeaderTopComponent implements OnInit, OnDestroy {
+export class HeaderTopComponent implements OnInit {
   @HostBinding('class') classNames = 'dt-header__top';
   settings: any;
   languages = [
@@ -70,10 +70,4 @@ export class HeaderTopComponent implements OnInit, OnDestroy {
   logout() {
     this.authService.logout();
   }
-
-  ngOnDestroy() {
-    this.onSettingChanged.unsubscribe();
-    this.onLanguageChanged.unsubscribe();
-  }
-
 }

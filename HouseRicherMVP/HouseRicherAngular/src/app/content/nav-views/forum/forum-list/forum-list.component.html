@@ -10,22 +10,65 @@
     <!-- /grid item -->
   <!-- Grid Item -->
   <div class="col-xl-12">
-  <comment-box-list></comment-box-list>
+    <card-body style="width: 100%;" class="card">
+      <form [formGroup]="postForm" (ngSubmit)="onSubmit()">
+          <!-- Media -->
+          <div class="media">
+              <avatar img_class="dt-avatar size-60 mr-6 mb-6 mb-sm-0" src="{{currentUser === null ? '' : currentUser.profilePicture}}" firstName="{{currentUser == null ? 'Anonymous' : currentUser.firstName}}"></avatar>
+  
+              <!-- Media Body -->
+              <div class="media-body">
+                  <input class="form-control border-0 shadow-none bg-focus" formControlName="subject" placeholder="Subject">
+                  <!-- Text Area -->
+                  <textarea class="form-control border-0 shadow-none bg-focus" formControlName="message" rows="3" placeholder="Ask a question!" ></textarea>
+                  <!-- /text area -->
+              </div>
+              <!-- /media body -->
+          </div>
+          <!-- /media -->
+  
+          <!-- Separator -->
+          <hr>
+          <!-- /separator -->
+  
+          <div class="d-flex align-items-center">
+              <div class="dt-attachment-btn border-0 d-inline-flex align-items-center overflow-hidden">
+                  <!-- Form Group -->
+                  <div *ngIf="currentUser === null" class="dt-checkbox d-block mb-6">
+                      <input type="checkbox" formControlName="termsAndConditions" [ngClass]="{ 'is-invalid': submitted && f.termsAndConditions.errors }">
+                      <label class="dt-checkbox-content">
+                          I accept the <a href="javascript:void(0)">Terms &amp; Conditions</a>
+                      </label>
+                      <div *ngIf="submitted && f.termsAndConditions.errors" style="color: red;">
+                          <div class="form-error" *ngIf="f.termsAndConditions.errors.annonymousValidation">* The terms of service must be accepted</div>
+                      </div>
+                  </div>
+                  <!-- /form group -->
+              </div>
+  
+              <button type="submit" [disabled]="loading" class="btn btn-primary btn text-uppercase ml-auto">Post</button>
+          </div>
+      </form>
+  </card-body>
+  <!-- /media body -->
+  
   </div>
-  <div class="col-xl-12" *ngFor="let post of posts; index as i; first as isFirst">
+  <div class="col-xl-12" *ngFor="let post of (posts == null ? [] : posts.feed)">
     <gx-card>
       <!-- List -->
       <div class="d-sm-flex flex-sm-row">
 
-        <avatar img_class="dt-avatar size-60 mr-6 mb-6 mb-sm-0" src="{{post.profilePicture}}" firstName="{{post.firstName}}"></avatar>
+        <a *ngIf="post.firstName !== 'Anonymous'" href="portal/user/profile/{{post.personId}}"><avatar img_class="dt-avatar size-60 mr-6 mb-6 mb-sm-0" src="{{post.profilePicture}}" firstName="{{post.firstName}}"></avatar></a>
+        <avatar *ngIf="post.firstName === 'Anonymous'" img_class="dt-avatar size-60 mr-6 mb-6 mb-sm-0" src="{{post.profilePicture}}" firstName="{{post.firstName}}"></avatar>
         <!-- Content -->
         <div class="flex-1 overflow-hidden mb-6 mb-sm-0 pr-sm-3">
           <div class="user-detail">
-            <span class="user-name">{{post.firstName + ' ' + post.lastName}}</span>
+            <a *ngIf="post.firstName !== 'Anonymous'" href="portal/user/profile/{{post.personId}}"><span class="user-name">{{post.firstName + ' ' + post.lastName}}</span></a>
+            <span *ngIf="post.firstName === 'Anonymous'" class="user-name">{{post.firstName + ' ' + post.lastName}}</span>
             <span class="dt-separator-v">&nbsp;</span>
             <span class="designation">{{post.subject}}</span>
           </div>
-          <span class="date-fmt">{{post.datePosted}}</span>
+          <span class="date-fmt">{{post.datePosted | dateAgo}}</span>
           <p class="text-truncate" style="margin-top: 10px;">{{post.message}}</p>
           <div class="d-flex flex-sm-row flex-column">
             <div class="mb-4 mb-sm-0">
@@ -55,7 +98,12 @@
 
     </gx-card>
   </div>
-  <!-- /Grid Item -->
-
+  <div class="col-xl-12">
+    <ul *ngIf="posts" class="pagination">
+      <li *ngFor="let number of pageList" class="page-item ng-star-inserted">
+        <a (click)="changePage(number)" class="page-link ng-star-inserted" style="cursor: pointer;" [style]="pageNumber === number ? 'color: white; background-color: #512da8;' : ''">{{number}}</a>
+      </li>
+    </ul>
+  </div>
 </div>
 <!-- /Grid -->

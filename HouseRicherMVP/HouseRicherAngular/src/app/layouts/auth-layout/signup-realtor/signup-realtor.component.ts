@@ -56,7 +56,7 @@ export class SignupRealtorComponent implements OnInit {
         about: ['', Validators.required],
         profilePic: ['', pngjpgValidation]
       }, {
-        validator: sizeValidation('profilePic', 'profilePic', 100, 1000000)
+        validator: sizeValidation('profilePic', 'profilePic', 100, 2000000)
       });
 
       this.contactForm = this.formBuilder.group({

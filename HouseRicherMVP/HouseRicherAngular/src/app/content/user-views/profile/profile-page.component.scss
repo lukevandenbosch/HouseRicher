@@ -1,0 +1,36 @@
+.date-designation {
+    display: inline;
+}
+
+.review-designation {
+    display: inline;
+}
+
+.side-bar-following {
+    display: inline;
+}
+
+@media only screen and (max-width: 575px) {
+    .side-bar-following {
+        margin: auto;
+        width: 50%;
+        background-color: red;
+    }
+}
+
+.btn-hover:hover {
+    cursor: pointer;
+}
+
+.form-spacing {
+    margin: 10px 0px;
+}
+
+.toggled_btn_follow {
+    background-color: #FF4081;
+    color: white;
+}
+
+.greyscale-hover:hover {
+    filter: grayscale(100%);
+}

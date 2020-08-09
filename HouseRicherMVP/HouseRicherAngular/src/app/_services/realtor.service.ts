@@ -19,13 +19,24 @@ export class RealtorService {
     this.realtor = this.realtorSubject.asObservable();
   }
 
-  getRealtors(realtorNumber: number) {
-    const httpOptions = {
+  getRealtors(currentUser: any, realtorNumberMin: number, realtorNumberMax: number) {
+    var httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        'Range': realtorNumber.toString()
+        'RangeMin': realtorNumberMin.toString(),
+        'RangeMax': realtorNumberMax.toString()
       })
     };
+    if (currentUser !== null) {
+      httpOptions = {
+        headers: new HttpHeaders({
+          'Content-Type': 'application/json',
+          'RangeMin': realtorNumberMin.toString(),
+          'RangeMax': realtorNumberMax.toString(),
+          'Authorization': 'Bearer ' + currentUser.token
+        })
+      };
+    }
 
     return this.http.get(`${this.url}/api/realtor/get`, httpOptions)
     .pipe(map(realtorValue => {

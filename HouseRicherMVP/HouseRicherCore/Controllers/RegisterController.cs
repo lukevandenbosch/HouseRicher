@@ -24,10 +24,10 @@ namespace HouseRicherCore.Controllers
         }
 
         [HttpPost]
-        public ActionResult Person([FromForm] PersonIncoming person)
+        public ActionResult Person([FromForm] IncomingProfile person)
         {
             try {
-                if (!Validation.ValidateUser(person)) {
+                if (!Validation.ValidatePerson(person)) {
                     Response.StatusCode = 400;
                     return Json(ResponseMessage.BadRequest);
                 }
@@ -85,7 +85,7 @@ namespace HouseRicherCore.Controllers
 
         [HttpPost]
         [Consumes("multipart/form-data")]
-        public async Task<IActionResult> Realtor([FromForm] RealtorIncoming realtor)
+        public async Task<IActionResult> Realtor([FromForm] IncomingProfile realtor)
         {
             try {
                 if (!Validation.ValidateRealtor(realtor)) {
@@ -132,6 +132,7 @@ namespace HouseRicherCore.Controllers
                             db.PersonalPerson.Add(personAdd);
                             db.SaveChanges();
                             db.PersonalRealtor.Add(new PersonalRealtor { 
+                                Brokerage = realtor.Brokerage != "" ? realtor.Brokerage : null,
                                 PhoneNumberOffice = realtor.PhoneNumberOffice != "" ? realtor.PhoneNumberOffice : null, 
                                 PhoneNumberCell = realtor.PhoneNumberCell != "" ? realtor.PhoneNumberCell : null,
                                 Website = realtor.Website != "" ? realtor.Website : null,

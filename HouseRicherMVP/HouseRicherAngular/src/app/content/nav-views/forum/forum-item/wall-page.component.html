@@ -1,10 +1,109 @@
 <!-- Page Header -->
-<app-page-header pageTitle="Post"></app-page-header>
+<app-page-header pageTitle="{{post.subject}}"></app-page-header>
 <!-- /page header -->
 
 <!-- Grid -->
 <div class="row">
     <!-- Grid Item -->
-        <posts></posts>
+        <div class="col-xl-12 col-md-12 col-sm-12">
+            <div class="row">
+                <!-- Grid Item -->
+                <div gxCard class="col-12">
+                    <card-body>
+                        <!-- Avatar Wrapper -->
+                        <div class="dt-avatar-wrapper mb-3">
+                            <a *ngIf="post.firstName !== 'Anonymous'" href="portal/user/profile/{{post.personId}}"><avatar img_class="dt-avatar size-60 mr-6 mb-6 mb-sm-0" src="{{post.profilePicture}}" firstName="{{post.firstName}}"></avatar></a>
+                            <avatar *ngIf="post.firstName === 'Anonymous'" img_class="dt-avatar size-60 mr-6 mb-6 mb-sm-0" src="{{post.profilePicture}}" firstName="{{post.firstName}}"></avatar>
+
+                            <!-- Info -->
+                            <div class="dt-avatar-info">
+                                <a *ngIf="post.firstName !== 'Anonymous'" href="portal/user/profile/{{post.personId}}"><span class="h5 dt-avatar-name mb-1">{{post.firstName + ' ' + post.lastName}}</span></a>
+                                <span *ngIf="post.firstName === 'Anonymous'" class="h5 dt-avatar-name mb-1">{{post.firstName + ' ' + post.lastName}}</span>
+                                <span class="meta-date">{{post.datePosted | dateAgo}}</span>
+                            </div>
+                            <!-- /info -->
+                        </div>
+                        <!-- /avatar wrapper -->
+                    
+                        <!-- Wall Post Content -->
+                        <div class="wall-post">
+                            <p class="text-dark" *ngIf="post.message">{{post.message}}</p>
+                        </div>
+                        <!-- /wall post content -->
+                    
+                        <!-- Wall Action Area -->
+                        <div class="d-flex flex-wrap mb-6">
+                            <a class="f-12 d-inline-block text-light-gray mr-3" *ngIf="currentUser !== null" (click)="toggleLike(post, false)">
+                                <gx-icon name="heart-o" size="sm" [fw]="true" [ngClass]="{'text-danger': post.isLiked}"></gx-icon>
+                                <span *ngIf="post.likes !== 0" class="d-inline-block">{{post.likes}} <span *ngIf="post.likes > 1">Likes</span><span *ngIf="post.likes === 1">Like</span></span>
+                            </a>
+                            <a *ngIf="post.commentCount !== 0" class="f-12 d-inline-block text-light-gray">
+                                <gx-icon name="message" size="sm" [fw]="true"></gx-icon>
+                                <span class="d-inline-block">{{post.commentCount}} <span *ngIf="post.commentCount > 1">Comments</span><span *ngIf="post.commentCount === 1">Comment</span></span>
+                            </a>
+                        </div>
+                        <!-- /wall action area -->
+        
+                        <!-- Media -->
+                        <div class="media px-5 mb-3" *ngFor="let comment of comments">
+                            <!-- Avatar -->
+                            <a *ngIf="comment.firstName !== 'Anonymous'" href="portal/user/profile/{{comment.personId}}"><avatar img_class="dt-avatar size-50 mr-6 mb-6 mb-sm-0" src="{{comment.profilePicture}}" firstName="{{comment.firstName}}"></avatar></a>
+                            <avatar *ngIf="comment.firstName === 'Anonymous'" img_class="dt-avatar size-50 mr-6 mb-6 mb-sm-0" src="{{comment.profilePicture}}" firstName="{{comment.firstName}}"></avatar>
+                            <!-- /avatar -->
+                    
+                            <!-- Media Body -->
+                            <div class="media-body">
+                                <a *ngIf="comment.firstName !== 'Anonymous'" href="portal/user/profile/{{comment.personId}}"><span class="h5 dt-avatar-name mb-1">{{comment.firstName + ' ' + comment.lastName}}</span></a>
+                                <span *ngIf="comment.firstName === 'Anonymous'" class="h5 dt-avatar-name mb-1">{{comment.firstName + ' ' + comment.lastName}}</span>
+                                <span class="meta-date mb-2">{{comment.datePosted | dateAgo}}</span>
+                                <p>
+                                    {{comment.message}}
+                                </p>
+                    
+                                <p>
+                                    <a class="f-12 d-inline-block text-light-gray mr-3" *ngIf="currentUser !== null" (click)="toggleLike(comment, true)">
+                                        <gx-icon name="heart-o" size="sm" [fw]="true" [ngClass]="{'text-danger': comment.isLiked}"></gx-icon>
+                                        <span *ngIf="comment.likes !== 0" class="d-inline-block">{{comment.likes}} <span *ngIf="comment.likes > 1">Likes</span><span *ngIf="comment.likes === 1">Like</span></span>
+                                    </a>
+                                </p>
+                            </div>
+                            <!-- /media body -->
+                        </div>
+                        <!-- /media -->
+                    
+                        <div class="px-5 media">
+                            <avatar img_class="dt-avatar size-50 mr-6 mb-6 mb-sm-0" src="{{currentUser === null ? '' : currentUser.profilePicture}}" firstName="{{currentUser === null ? 'Anonymous' : currentUser.firstName}}"></avatar>
+                            
+                            <div class="media-body">
+                                <form [formGroup]="commentForm" (ngSubmit)="onSubmit()">
+                                    <!-- Input Area -->
+                                    <input type="text" class="form-control border-0 shadow-none bg-focus" style="margin-bottom:10px;" formControlName="message" placeholder="Post your answer">
+                                    <!-- /input area -->
+
+                                    <div class="d-flex align-items-center">
+                                        <div class="dt-attachment-btn border-0 d-inline-flex align-items-center overflow-hidden">
+                                            <!-- Form Group -->
+                                            <div *ngIf="currentUser === null" class="dt-checkbox d-block mb-6">
+                                                <input type="checkbox" formControlName="termsAndConditions" [ngClass]="{ 'is-invalid': submitted && f.termsAndConditions.errors }">
+                                                <label class="dt-checkbox-content">
+                                                    I accept the <a href="javascript:void(0)">Terms &amp; Conditions</a>
+                                                </label>
+                                                <div *ngIf="submitted && f.termsAndConditions.errors" style="color: red;">
+                                                    <div class="form-error" *ngIf="f.termsAndConditions.errors.annonymousValidation">* The terms of service must be accepted</div>
+                                                </div>
+                                            </div>
+                                            <!-- /form group -->
+                                        </div>
+
+                                        <button type="submit" [disabled]="loading" class="btn btn-primary btn text-uppercase ml-auto">Post</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </card-body>
+                </div>
+                <!-- /grid item -->
+            </div>
+        </div>
     <!-- /grid item -->
 </div>

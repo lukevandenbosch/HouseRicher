@@ -50,3 +50,23 @@ export function passwordConfirmValidation(controlName: string, matchingControlNa
         }
     }
 }
+
+export function annonymousValidation(controlName: string, token: string) {
+    return (formGroup: FormGroup) => {
+        const control = formGroup.controls[controlName];
+
+        if (control.errors) {
+            return;
+        }
+        
+        if (token === null) {
+            if (!control.value) {
+                control.setErrors({ 'annonymousValidation': true });
+            } else {
+                control.setErrors(null);
+            }
+        } else {
+            control.setErrors(null);
+        }
+    }
+}

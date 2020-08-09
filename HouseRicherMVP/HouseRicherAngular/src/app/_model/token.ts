@@ -1,4 +1,5 @@
 export class Token {
+    id: number;
     firstName: string;
     lastName: string;
     description: string;

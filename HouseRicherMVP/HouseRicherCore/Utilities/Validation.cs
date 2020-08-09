@@ -5,7 +5,24 @@ using HouseRicherCore.ModelAPI;
 namespace HouseRicherCore.Utilties
 {
     public class Validation {
-        public static bool ValidateUser(PersonIncoming body) {
+        public static bool ValidateContactUs(IncomingContactUs contactUs) {
+            try {
+                Regex emailRegex = new Regex(@"^.*@.*\..*$");
+                if (contactUs.Email == null || contactUs.Email == "" || !emailRegex.Match(contactUs.Email).Success) {
+                    return false;
+                }
+                else if (contactUs.Message == null) {
+                    return false;
+                }
+                else {
+                    return true;
+                }
+            }
+            catch {
+                return false;
+            }
+        }
+        public static bool ValidatePerson(IncomingProfile body) {
             try {
                 Regex emailRegex = new Regex(@"^.*@.*\..*$");
                 if (body.FirstName == null || body.FirstName == "") {
@@ -38,7 +55,7 @@ namespace HouseRicherCore.Utilties
             }
         }
 
-        public static bool ValidateRealtor(RealtorIncoming body) {
+        public static bool ValidateRealtor(IncomingProfile body) {
             try {
                 Regex emailRegex = new Regex(@"^.*@.*\..*$");
                 if (body.FirstName == null || body.FirstName == "") {
@@ -68,7 +85,7 @@ namespace HouseRicherCore.Utilties
                 else if (body.Address == null || body.Address == "") {
                     return false;
                 }
-                else if (body.FileType == null || !(body.FileType == "png" || body.FileType == "jpg")) {
+                else if (body.FileType == null || !(body.FileType.ToLower() == "png" || body.FileType.ToLower() == "jpg")) {
                     return false;
                 }
                 else if (body.ProfilePicture == null) {

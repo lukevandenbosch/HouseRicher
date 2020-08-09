@@ -6,15 +6,11 @@ import {CarouselModule} from 'ngx-owl-carousel-o';
 import {UtiltiesModule} from '../../utitlies/utilties.module';
 
 import {RealtorListComponent} from './realtor-list/realtor-list.component';
-import {RealtorService} from './realtor.service';
 
 const routes: Routes = [
   {
     path: 'realtor-list',
-    component: RealtorListComponent,
-    resolve: {
-      usersList: RealtorService
-    }
+    component: RealtorListComponent
   }
 ];
 

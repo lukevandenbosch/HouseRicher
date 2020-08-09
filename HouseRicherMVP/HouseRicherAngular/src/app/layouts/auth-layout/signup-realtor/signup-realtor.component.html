@@ -59,10 +59,10 @@
             <label>Proile Picture</label>
             <div class="custom-file">
                 <input type="file" id="profilePic" (change)="changedFile($event)" formControlName="profilePic" class="custom-file-input"  [ngClass]="{ 'is-invalid': submittedAbout && fa.profilePic.errors }">
-                <label class="custom-file-label" for="file-field">Upload Picture Less than 1 MB</label>
+                <label class="custom-file-label" for="file-field">Upload Picture Less than 2 MB</label>
                 <div *ngIf="submittedAbout && fa.profilePic.errors" class="invalid-feedback">
                   <div class="form-error" *ngIf="fa.profilePic.errors.pngjpgValidation">* File must be png or jpg</div>
-                  <div class="form-error" *ngIf="fa.profilePic.errors.sizeValidation">* File must be between 100KB and 1MB</div>
+                  <div class="form-error" *ngIf="fa.profilePic.errors.sizeValidation">* File must be between 100KB and 2MB</div>
                 </div>
             </div>
           </div>
