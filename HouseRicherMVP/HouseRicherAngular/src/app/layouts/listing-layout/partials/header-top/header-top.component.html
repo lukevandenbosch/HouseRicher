@@ -69,7 +69,7 @@
 
       <!-- Header Menu -->
       <ul class="dt-nav">
-        <li class="dt-nav__item dt-notification" ngbDropdown [placement]="['bottom-right', 'bottom']">
+        <li class="dt-nav__item dt-notification" *ngIf="currentUser !== null" ngbDropdown [placement]="['bottom-right', 'bottom']">
 
           <!-- Dropdown Link -->
           <a href="javascript:void(0)" class="dt-nav__link no-arrow" ngbDropdownToggle>

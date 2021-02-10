@@ -57,7 +57,7 @@ export class SigninComponent {
         },
         error => {
           this.loading = false;
-          this.alertService.error(error);
+          this.alertService.error(error.error.Error);
         });
   }
 }

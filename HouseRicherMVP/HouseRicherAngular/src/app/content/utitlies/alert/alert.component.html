@@ -2,7 +2,7 @@
       title="Error"
       html=""
       type="error"
-      timer="3000"
+      timer="15000"
       (open)="openAutoClose($event)"
       (close)="closeAutoClose($event)">
 </swal>
@@ -10,7 +10,15 @@
       title="Information"
       html=""
       type="info"
-      timer="3000"
+      timer="15000"
+      (open)="openAutoClose($event)"
+      (close)="closeAutoClose($event)">
+</swal>
+<swal #toastTypeSuccess
+      title="Success!"
+      html=""
+      type="success"
+      timer="15000"
       (open)="openAutoClose($event)"
       (close)="closeAutoClose($event)">
 </swal>

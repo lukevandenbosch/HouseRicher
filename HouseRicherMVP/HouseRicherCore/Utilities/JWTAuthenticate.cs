@@ -11,6 +11,7 @@ namespace HouseRicherCore.Utilties {
     public class JWTAuthenticate {
         private String secretKey;
         public JWTAuthenticate() {
+            //TODO Move to DB
             this.secretKey = "CWER24jk$@dINFS9252jcdnaskSSF01))@$";
         }
         public JWTToken ValidateJwtToken(String token) {
@@ -46,7 +47,7 @@ namespace HouseRicherCore.Utilties {
                 return null;
             }
         }
-        public string GenerateJwtToken(JWTToken tokenUser)
+        public string GenerateJwtToken(JWTToken tokenUser, int minutes)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes(this.secretKey);
@@ -60,7 +61,7 @@ namespace HouseRicherCore.Utilties {
                     new Claim(ClaimTypes.Surname, tokenUser.LastName),
                     new Claim(ClaimTypes.NameIdentifier, tokenUser.ProfilePicture)
                 }),
-                Expires = DateTime.UtcNow.AddHours(1),
+                Expires = DateTime.UtcNow.AddMinutes(minutes),
                 Issuer = "HouseRicher",
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
             };

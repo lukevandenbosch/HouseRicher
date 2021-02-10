@@ -8,8 +8,10 @@ import {RouterModule} from '@angular/router';
 
 import {PagesRoutingModule} from './pages-routing.module';
 import {SignupComponent} from './signup/signup.component';
+import {ForgotPasswordComponent} from './forgot-password/forgot-password.component';
 import {SignupRealtorComponent} from './signup-realtor/signup-realtor.component';
 import {HeaderComponent} from './header/header.component';
+import { PasswordResetComponent } from './password-reset/password-reset.component';
 
 @NgModule({
   imports: [
@@ -22,6 +24,8 @@ import {HeaderComponent} from './header/header.component';
   declarations: [
     SigninComponent,
     AuthComponent,
+    ForgotPasswordComponent,
+    PasswordResetComponent,
     SignupComponent,
     SignupRealtorComponent,
     HeaderComponent

@@ -45,7 +45,7 @@ export class AuthenticationService {
             }));
     }
 
-    refreshToken(token) {
+    refreshToken(token: string, saveToken: boolean) {
         const httpOptions = {
             headers: new HttpHeaders({
               'Content-Type':  'application/json',
@@ -55,11 +55,32 @@ export class AuthenticationService {
 
         return this.http.post<any>(`${this.url}/api/authentication/refresh`, null, httpOptions)
             .pipe(map(user => {
-                localStorage.setItem('currentUser', JSON.stringify(user));
-                this.currentUserSubject.next(user);
-                this.cookieService.set('token', user.token);
+                if (saveToken) {
+                    localStorage.setItem('currentUser', JSON.stringify(user));
+                    this.currentUserSubject.next(user);
+                    this.cookieService.set('token', user.token);
+                    return user;
+                }
+            }));
+    }
+
+    forgotPassword(email: string) {
+        const formData = new FormData();
+        formData.append('Email', email);
+
+        return this.http.post<any>(`${this.url}/api/Email/PasswordReset`, formData)
+            .pipe(map(user => {
                 return user;
             }));
+    }
+
+    passwordReset(password: string, token: string) {
+        const formData = new FormData();
+        formData.append('PasswordValue', password);
+
+        return this.http.post(`${this.url}/api/Authentication/PasswordReset`, formData, {
+            headers: { 'Authorization': ('Bearer ' + token) }
+          });
     }
 
     logout() {

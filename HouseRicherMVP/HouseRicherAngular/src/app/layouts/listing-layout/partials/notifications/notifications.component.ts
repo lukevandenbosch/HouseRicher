@@ -15,14 +15,16 @@ export class NotificationsComponent implements OnInit {
   onNotificationsChanged: Subscription;
   onSettingChanged: Subscription;
 
-  constructor(private appService: AppService, private settingService: SettingsService) {
+  constructor(private appService: AppService,
+              private settingService: SettingsService) {
   }
 
   ngOnInit() {
-
     this.onSettingChanged = this.settingService.onSettingChanged.subscribe((settings) => {
       this.settings = settings;
     });
+
+
   }
 
 }

@@ -51,13 +51,53 @@ namespace HouseRicherCore.Controllers
 
                     if (user == null || !BCrypt.Net.BCrypt.Verify(body["password"], user.Password)) {
                         Response.StatusCode = 401;
-                        return Json(ResponseMessage.UnauthorizedRequest);
+                        return Json(ResponseMessage.LoginFailedRequest);
                     }
                     user.Password = null;
 
                     JWTAuthenticate authenticate = new JWTAuthenticate();
-                    user.Token = authenticate.GenerateJwtToken(user);
+                    user.Token = authenticate.GenerateJwtToken(user, 60);
                     
+                    Response.StatusCode = 200;
+                    return Json(user);
+                }
+            }
+            catch {
+                Response.StatusCode = 500;
+                return Json(ResponseMessage.InternalError);
+            }
+        }
+
+        [HttpPost]
+        public ActionResult PasswordReset([FromForm] IncomingPassword password)
+        {
+            try {
+                if (password.PasswordValue == null || password.PasswordValue == "" || !Request.Headers.ContainsKey("Authorization")) {
+                    Response.StatusCode = 400;
+                    return Json(ResponseMessage.BadRequest);
+                }
+                string tokenHeader = Request.Headers["Authorization"];
+                if (!tokenHeader.Contains("Bearer ")) {
+                    Response.StatusCode = 400;
+                    return Json(ResponseMessage.BadRequest);
+                }
+                string token = tokenHeader.Split("Bearer ")[1];
+
+                JWTAuthenticate authenticate = new JWTAuthenticate();
+                JWTToken user = authenticate.ValidateJwtToken(token);
+
+                if (user == null) {
+                    Response.StatusCode = 401;
+                    return Json(ResponseMessage.UserLoggedOutRequest);
+                }
+                using (HouseRicherContext db = new HouseRicherContext()) {
+                    PersonalLogin loginValue = (from login in db.PersonalLogin
+                                                where login.Username == user.Email.ToLower() && login.IsActive == 1 
+                                                select login).FirstOrDefault();
+                    String passwordEncrypted = BCrypt.Net.BCrypt.HashPassword(password.PasswordValue, BCrypt.Net.BCrypt.GenerateSalt());
+                    loginValue.Password = passwordEncrypted;
+                    db.SaveChanges();
+                            
                     Response.StatusCode = 200;
                     return Json(user);
                 }
@@ -84,9 +124,9 @@ namespace HouseRicherCore.Controllers
 
                 if (user == null) {
                     Response.StatusCode = 401;
-                    return Json(ResponseMessage.UnauthorizedRequest);
+                    return Json(ResponseMessage.UserLoggedOutRequest);
                 }
-                user.Token = authenticate.GenerateJwtToken(user);
+                user.Token = authenticate.GenerateJwtToken(user, 60);
 
                 Response.StatusCode = 200;
                 return Json(user);

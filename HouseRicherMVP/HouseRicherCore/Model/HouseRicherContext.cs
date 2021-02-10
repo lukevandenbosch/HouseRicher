@@ -15,13 +15,14 @@ namespace HouseRicherCore.Model
         {
         }
 
+        public virtual DbSet<ConfigurationConfiguration> ConfigurationConfiguration { get; set; }
         public virtual DbSet<EmailConfiguration> EmailConfiguration { get; set; }
         public virtual DbSet<EmailEmail> EmailEmail { get; set; }
         public virtual DbSet<EmailMessages> EmailMessages { get; set; }
         public virtual DbSet<EmailNotification> EmailNotification { get; set; }
         public virtual DbSet<FeedComment> FeedComment { get; set; }
         public virtual DbSet<FeedCommentLikes> FeedCommentLikes { get; set; }
-        public virtual DbSet<FeedNotifications> FeedNotifications { get; set; }
+        public virtual DbSet<FeedNotification> FeedNotification { get; set; }
         public virtual DbSet<FeedPost> FeedPost { get; set; }
         public virtual DbSet<FeedPostLikes> FeedPostLikes { get; set; }
         public virtual DbSet<LegalAcceptedTerms> LegalAcceptedTerms { get; set; }
@@ -37,6 +38,9 @@ namespace HouseRicherCore.Model
         public virtual DbSet<PersonalProfilePicture> PersonalProfilePicture { get; set; }
         public virtual DbSet<PersonalRealtor> PersonalRealtor { get; set; }
         public virtual DbSet<PersonalReviews> PersonalReviews { get; set; }
+        public virtual DbSet<SiteAssets> SiteAssets { get; set; }
+        public virtual DbSet<SiteConfiguration> SiteConfiguration { get; set; }
+        public virtual DbSet<SitePage> SitePage { get; set; }
         public virtual DbSet<SiteVisitsPersonal> SiteVisitsPersonal { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -44,12 +48,33 @@ namespace HouseRicherCore.Model
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseMySQL("server=housericher.cphwljnrxhx4.us-east-2.rds.amazonaws.com;port=3306;user=HomeTownValue;password=CX83257ZYtML9KK4;database=HouseRicher");
+                optionsBuilder.UseMySQL("TODO: Add ConnectionString");
             }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<ConfigurationConfiguration>(entity =>
+            {
+                entity.ToTable("Configuration_Configuration");
+
+                entity.HasIndex(e => e.Id)
+                    .HasName("ID")
+                    .IsUnique();
+
+                entity.Property(e => e.Id)
+                    .HasColumnName("ID")
+                    .HasColumnType("bigint(20) unsigned");
+
+                entity.Property(e => e.ConfigurationName)
+                    .IsRequired()
+                    .HasColumnName("Configuration_Name");
+
+                entity.Property(e => e.ConfigurationValue)
+                    .IsRequired()
+                    .HasColumnName("Configuration_Value");
+            });
+
             modelBuilder.Entity<EmailConfiguration>(entity =>
             {
                 entity.ToTable("Email_Configuration");
@@ -194,9 +219,9 @@ namespace HouseRicherCore.Model
                     .HasColumnType("bigint(20)");
             });
 
-            modelBuilder.Entity<FeedNotifications>(entity =>
+            modelBuilder.Entity<FeedNotification>(entity =>
             {
-                entity.ToTable("Feed_Notifications");
+                entity.ToTable("Feed_Notification");
 
                 entity.HasIndex(e => e.Id)
                     .HasName("ID")
@@ -206,41 +231,29 @@ namespace HouseRicherCore.Model
                     .HasColumnName("ID")
                     .HasColumnType("bigint(20) unsigned");
 
-                entity.Property(e => e.CommentId)
-                    .HasColumnName("Comment_ID")
-                    .HasColumnType("bigint(20)");
-
-                entity.Property(e => e.CommentLikesId)
-                    .HasColumnName("Comment_Likes_ID")
-                    .HasColumnType("bigint(20)");
-
                 entity.Property(e => e.DatePosted)
                     .HasColumnName("Date_Posted")
                     .HasDefaultValueSql("CURRENT_TIMESTAMP");
+
+                entity.Property(e => e.FromPersonId)
+                    .HasColumnName("From_Person_ID")
+                    .HasColumnType("bigint(20)");
 
                 entity.Property(e => e.IsRead)
                     .HasColumnName("Is_Read")
                     .HasColumnType("tinyint(1)")
                     .HasDefaultValueSql("'0'");
 
-                entity.Property(e => e.PersonId)
-                    .HasColumnName("Person_ID")
+                entity.Property(e => e.NotificationType)
+                    .IsRequired()
+                    .HasColumnName("Notification_Type");
+
+                entity.Property(e => e.SiteId)
+                    .HasColumnName("Site_ID")
                     .HasColumnType("bigint(20)");
 
-                entity.Property(e => e.PostId)
-                    .HasColumnName("Post_ID")
-                    .HasColumnType("bigint(20)");
-
-                entity.Property(e => e.PostLikesId)
-                    .HasColumnName("Post_Likes_ID")
-                    .HasColumnType("bigint(20)");
-
-                entity.Property(e => e.ReviewId)
-                    .HasColumnName("Review_ID")
-                    .HasColumnType("bigint(20)");
-
-                entity.Property(e => e.VisitsPersonalId)
-                    .HasColumnName("Visits_Personal_ID")
+                entity.Property(e => e.ToPersonId)
+                    .HasColumnName("To_Person_ID")
                     .HasColumnType("bigint(20)");
             });
 
@@ -605,6 +618,67 @@ namespace HouseRicherCore.Model
                     .HasColumnType("bigint(20)");
 
                 entity.Property(e => e.ReviewMessage).HasColumnName("Review_Message");
+            });
+
+            modelBuilder.Entity<SiteAssets>(entity =>
+            {
+                entity.ToTable("Site_Assets");
+
+                entity.HasIndex(e => e.Id)
+                    .HasName("ID")
+                    .IsUnique();
+
+                entity.Property(e => e.Id)
+                    .HasColumnName("ID")
+                    .HasColumnType("bigint(20) unsigned");
+
+                entity.Property(e => e.AssetName)
+                    .IsRequired()
+                    .HasColumnName("Asset_Name");
+
+                entity.Property(e => e.AssetUrl)
+                    .IsRequired()
+                    .HasColumnName("Asset_URL");
+            });
+
+            modelBuilder.Entity<SiteConfiguration>(entity =>
+            {
+                entity.ToTable("Site_Configuration");
+
+                entity.HasIndex(e => e.Id)
+                    .HasName("ID")
+                    .IsUnique();
+
+                entity.Property(e => e.Id)
+                    .HasColumnName("ID")
+                    .HasColumnType("bigint(20) unsigned");
+
+                entity.Property(e => e.BaseUrl)
+                    .IsRequired()
+                    .HasColumnName("Base_URL");
+
+                entity.Property(e => e.Environment).IsRequired();
+            });
+
+            modelBuilder.Entity<SitePage>(entity =>
+            {
+                entity.ToTable("Site_Page");
+
+                entity.HasIndex(e => e.Id)
+                    .HasName("ID")
+                    .IsUnique();
+
+                entity.Property(e => e.Id)
+                    .HasColumnName("ID")
+                    .HasColumnType("bigint(20) unsigned");
+
+                entity.Property(e => e.PageName)
+                    .IsRequired()
+                    .HasColumnName("Page_Name");
+
+                entity.Property(e => e.PageUrl)
+                    .IsRequired()
+                    .HasColumnName("Page_URL");
             });
 
             modelBuilder.Entity<SiteVisitsPersonal>(entity =>

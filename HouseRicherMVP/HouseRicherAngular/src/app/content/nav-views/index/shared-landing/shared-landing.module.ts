@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { ReactiveFormsModule } from '@angular/forms';
 import { FeaturesComponent } from './features/features.component';
 import { PricingComponent } from './pricing/pricing.component';
 import { BlogComponent } from './blog/blog.component';
@@ -25,6 +26,7 @@ const icons = {
   declarations: [FeaturesComponent, PricingComponent, BlogComponent, ContactComponent, ServicesComponent, FooterComponent, ScrollspyDirective],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     FeatherModule.pick(icons)
   ],
   // tslint:disable-next-line: max-line-length

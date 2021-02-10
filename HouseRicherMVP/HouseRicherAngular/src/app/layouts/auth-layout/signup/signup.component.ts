@@ -77,13 +77,12 @@ export class SignupComponent implements OnInit {
         .pipe(first())
         .subscribe(
             data => {
-                this.alertService.success('Registration successful', true);
                 this.router.navigate(["auth/signin"]);
-                this.alertService.information("Registered Successfully");
+                this.alertService.success("Registered Successfully");
             },
             error => {
                 this.loading = false;
-                this.alertService.error(error);
+                this.alertService.error(error.error.Error);
             });
   }
 }

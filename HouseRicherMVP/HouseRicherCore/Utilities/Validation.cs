@@ -5,7 +5,7 @@ using HouseRicherCore.ModelAPI;
 namespace HouseRicherCore.Utilties
 {
     public class Validation {
-        public static bool ValidateContactUs(IncomingContactUs contactUs) {
+        public static bool ValidateContactUs(IncomingEmail contactUs) {
             try {
                 Regex emailRegex = new Regex(@"^.*@.*\..*$");
                 if (contactUs.Email == null || contactUs.Email == "" || !emailRegex.Match(contactUs.Email).Success) {
